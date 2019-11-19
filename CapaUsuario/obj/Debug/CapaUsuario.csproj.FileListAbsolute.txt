@@ -1,0 +1,2 @@
+c:\users\tig6\documents\visual studio 2015\Projects\CapaUsuario\CapaUsuario\bin\Debug\CapaUsuario.exe.config
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\bin\Debug\CapaUsuario.exe.config

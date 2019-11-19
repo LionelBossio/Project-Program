@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TallerReparacion" Class="DCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SQLSERVER\SQLSERVER;Initial Catalog=TallerReparacion;User ID=BDJorge" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="TallerReparacionConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Articulo" Member="eArticulos">
+    <Type Name="eArticulo">
+      <Column Name="idart" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="[desc]" Member="desc" Type="System.String" DbType="VarChar(800) NOT NULL" CanBeNull="false" />
+      <Column Name="cant" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Articulo_Reparacion" Member="eReparacions" ThisKey="idart" OtherKey="articulo" Type="eReparacion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="eUsuarios">
+    <Type Name="eUsuario">
+      <Column Name="idusu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="dni" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecnac" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="tipousu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="repde" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="numtel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nomusu" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="contraseña" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Reparacion_Usuario" Member="eReparacion" ThisKey="repde" OtherKey="idr" Type="eReparacion" IsForeignKey="true" />
+      <Association Name="Tipousu_Usuario" Member="eTipousu" ThisKey="tipousu" OtherKey="idtiu" Type="eTipousu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cliente" Member="eClientes">
+    <Type Name="eCliente">
+      <Column Name="idcli" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigocli" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="equiporep" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Cliente_Cliente" Member="eCliente1" ThisKey="idcli" OtherKey="idcli" Type="eCliente" Cardinality="One" />
+      <Association Name="Cliente_Reparacion" Member="eReparacions" ThisKey="idcli" OtherKey="cliente" Type="eReparacion" />
+      <Association Name="Cliente_Cliente" Member="Cliente1" ThisKey="idcli" OtherKey="idcli" Type="eCliente" IsForeignKey="true" />
+      <Association Name="Equiporep_Cliente" Member="Equiporep1" ThisKey="equiporep" OtherKey="ideq" Type="eEquiporep" IsForeignKey="true" />
+      <Association Name="Equiporep_Cliente1" Member="eEquiporep" ThisKey="equiporep" OtherKey="ideq" Type="eEquiporep" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Entrega" Member="eEntregas">
+    <Type Name="eEntrega">
+      <Column Name="ident" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hecho" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[desc]" Member="desc" Type="System.String" DbType="VarChar(800) NOT NULL" CanBeNull="false" />
+      <Column Name="fecent" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Entrega_Reparacion" Member="eReparacions" ThisKey="ident" OtherKey="entrega" Type="eReparacion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Equiporep" Member="eEquiporeps">
+    <Type Name="eEquiporep">
+      <Column Name="ideq" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[desc]" Member="desc" Type="System.String" DbType="VarChar(800) NOT NULL" CanBeNull="false" />
+      <Column Name="problema" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="Equiporep_Cliente" Member="Clientes" ThisKey="ideq" OtherKey="equiporep" Type="eCliente" />
+      <Association Name="Equiporep_Cliente1" Member="eClientes" ThisKey="ideq" OtherKey="equiporep" Type="eCliente" />
+      <Association Name="Equiporep_Reparacion" Member="eReparacions" ThisKey="ideq" OtherKey="equiporep" Type="eReparacion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reparacion" Member="eReparacions">
+    <Type Name="eReparacion">
+      <Column Name="idr" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecini" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="entrega" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="equiporep" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="reparador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Reparacion_Usuario" Member="eUsuarios" ThisKey="idr" OtherKey="repde" Type="eUsuario" />
+      <Association Name="Articulo_Reparacion" Member="eArticulo" ThisKey="articulo" OtherKey="idart" Type="eArticulo" IsForeignKey="true" />
+      <Association Name="Cliente_Reparacion" Member="eCliente" ThisKey="cliente" OtherKey="idcli" Type="eCliente" IsForeignKey="true" />
+      <Association Name="Entrega_Reparacion" Member="eEntrega" ThisKey="entrega" OtherKey="ident" Type="eEntrega" IsForeignKey="true" />
+      <Association Name="Equiporep_Reparacion" Member="eEquiporep" ThisKey="equiporep" OtherKey="ideq" Type="eEquiporep" IsForeignKey="true" />
+      <Association Name="Reparador_Reparacion" Member="eReparador" ThisKey="reparador" OtherKey="idrep" Type="eReparador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reparador" Member="eReparadors">
+    <Type Name="eReparador">
+      <Column Name="idrep" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cantrep" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cantcliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Reparador_Reparacion" Member="eReparacions" ThisKey="idrep" OtherKey="reparador" Type="eReparacion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tipousu" Member="eTipousus">
+    <Type Name="eTipousu">
+      <Column Name="idtiu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipodeusu" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="[desc]" Member="desc" Type="System.String" DbType="VarChar(800) NOT NULL" CanBeNull="false" />
+      <Association Name="Tipousu_Usuario" Member="eUsuarios" ThisKey="idtiu" OtherKey="tipousu" Type="eUsuario" />
+    </Type>
+  </Table>
+</Database>
