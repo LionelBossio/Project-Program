@@ -79,5 +79,63 @@ namespace CapaNegocio
             }
             return null;
         }
+        public void Guardar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            eEquiporep fila = new eEquiporep();
+
+            if (this.ideq != 0)
+            {
+                var res = from x in dc.eEquiporeps where x.ideq == this.ideq select x;
+                if (res.Count() > 0)
+                {
+                    fila = res.First();
+                }
+                else
+                    throw new Exception("Id no encontrado en Articulo");
+            }
+
+
+            fila.desc = desc;
+            fila.problema = problema;
+
+            if (this.ideq == 0)
+                dc.eEquiporeps.InsertOnSubmit(fila);
+
+            dc.SubmitChanges();
+            this.ideq = fila.ideq;
+        }
+
+        public void Eliminar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eEquiporeps where x.ideq == this.ideq select x;
+            if (res.Count() > 0)
+            {
+                dc.eEquiporeps.DeleteOnSubmit(res.First());
+                dc.SubmitChanges();
+            }
+            else
+                throw new Exception("Articulo no encontrado");
+
+        }
+
+        public static List<Equiporep> Buscar(string buscado = "")
+        {
+            List<Equiporep> Equiposrep= new List<Equiporep>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eEquiporeps
+                      where buscado == ""
+                      || x.desc.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.problema.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      select x;
+
+            foreach (eEquiporep em in res)
+            {
+                Equiposrep.Add(new Equiporep(em.ideq, em.desc, em.problema));
+            }
+
+            return Equiposrep;
+        }
     }
 }

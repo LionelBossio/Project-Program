@@ -95,5 +95,66 @@ namespace CapaNegocio
             }
             return null;
         }
+
+        public void Guardar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            eArticulo fila = new eArticulo();
+
+            if (this.idart != 0)
+            {
+                var res = from x in dc.eArticulos where x.idart == this.idart select x;
+                if (res.Count() > 0)
+                {
+                    fila = res.First();
+                }
+                else
+                    throw new Exception("Id no encontrado en Articulo");
+            }
+
+
+            fila.nombre = nombre;
+            fila.desc = desc;
+            fila.cant = cant;
+
+            if (this.idart == 0)
+                dc.eArticulos.InsertOnSubmit(fila);
+
+            dc.SubmitChanges();
+            this.idart = fila.idart;
+        }
+
+        public void Eliminar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eArticulos where x.idart == this.idart select x;
+            if (res.Count() > 0)
+            {
+                dc.eArticulos.DeleteOnSubmit(res.First());
+                dc.SubmitChanges();
+            }
+            else
+                throw new Exception("Articulo no encontrado");
+
+        }
+
+        public static List<Articulo> Buscar(string buscado = "")
+        {
+            List<Articulo> Articulos = new List<Articulo>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eArticulos
+                      where buscado == ""
+                      || x.nombre.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.desc.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.cant.ToString() == buscado.Trim()
+                      select x;
+
+            foreach (eArticulo em in res)
+            {
+                Articulos.Add(new Articulo(em.idart, em.nombre, em.desc, em.cant));
+            }
+
+            return Articulos;
+        }
     }
 }

@@ -1,0 +1,5 @@
+C:\Users\tig6\Desktop\CapaUsuario\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\tig6\Desktop\CapaUsuario\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\tig6\Desktop\CapaUsuario\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\tig6\Desktop\CapaUsuario\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\tig6\Desktop\CapaUsuario\CapaDatos\obj\Debug\CapaDatos.pdb

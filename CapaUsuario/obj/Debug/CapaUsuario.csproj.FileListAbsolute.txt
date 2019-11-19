@@ -1,2 +1,23 @@
 c:\users\tig6\documents\visual studio 2015\Projects\CapaUsuario\CapaUsuario\bin\Debug\CapaUsuario.exe.config
 C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\bin\Debug\CapaUsuario.exe.config
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\bin\Debug\CapaUsuario.exe
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\bin\Debug\CapaUsuario.pdb
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\bin\Debug\CapaDatos.dll
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\bin\Debug\CapaNegocio.dll
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\bin\Debug\CapaDatos.pdb
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\bin\Debug\CapaNegocio.pdb
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.csprojResolveAssemblyReference.cache
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormArticulo.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormCliente.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormEntrega.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormEquipoRep.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormInicio.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormReparacion.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormReparador.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormReportes.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormTipoUsuario.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormUsuario.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.Properties.Resources.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.csproj.GenerateResource.Cache
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.exe
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.pdb
