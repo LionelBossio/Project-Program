@@ -131,5 +131,68 @@ namespace CapaNegocio
             }
             return null;
         }
+
+        public void Guardar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            eCliente fila = new eCliente();
+
+            if (this.idcli != 0)
+            {
+                var res = from x in dc.eClientes where x.idcli == this.idcli select x;
+                if (res.Count() > 0)
+                {
+                    fila = res.First();
+                }
+                else
+                    throw new Exception("Id no encontrado en clientes");
+            }
+
+
+            fila.codigocli = codigocli;
+            fila.nombre = nombre;
+            fila.telefono = telefono;
+            fila.equiporep = fkequiporep;
+
+            if (this.idcli == 0)
+                dc.eClientes.InsertOnSubmit(fila);
+
+            dc.SubmitChanges();
+            this.idcli = fila.idcli;
+        }
+
+        public void Eliminar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eClientes where x.idcli == this.idcli select x;
+            if (res.Count() > 0)
+            {
+                dc.eClientes.DeleteOnSubmit(res.First());
+                dc.SubmitChanges();
+            }
+            else
+                throw new Exception("Cliente no encontrado");
+
+        }
+
+        public static List<Cliente> Buscar(string buscado = "")
+        {
+            List<Cliente> Clientes = new List<Cliente>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eClientes
+                      where buscado == ""
+                      || x.codigocli.ToString() == buscado.Trim()
+                      || x.nombre.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.telefono.ToString() == buscado.Trim()
+                      || x.equiporep.ToString() == buscado.Trim()
+                      select x;
+
+            foreach (eCliente em in res)
+            {
+                Clientes.Add(new Cliente(em.idcli, em.codigocli, em.nombre, em.telefono, em.equiporep));
+            }
+
+            return Clientes;
+        }
     }
 }

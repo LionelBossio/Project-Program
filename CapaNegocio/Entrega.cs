@@ -95,5 +95,66 @@ namespace CapaNegocio
             }
             return null;
         }
+
+        public void Guardar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            eEntrega fila = new eEntrega();
+
+            if (this.ident != 0)
+            {
+                var res = from x in dc.eEntregas where x.ident == this.ident select x;
+                if (res.Count() > 0)
+                {
+                    fila = res.First();
+                }
+                else
+                    throw new Exception("Id no encontrado en entrega");
+            }
+
+
+            fila.hecho = hecho;
+            fila.desc = desc;
+            fila.fecent = fecent;
+
+            if (this.ident == 0)
+                dc.eEntregas.InsertOnSubmit(fila);
+
+            dc.SubmitChanges();
+            this.ident = fila.ident;
+        }
+
+        public void Eliminar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eEntregas where x.ident == this.ident select x;
+            if (res.Count() > 0)
+            {
+                dc.eEntregas.DeleteOnSubmit(res.First());
+                dc.SubmitChanges();
+            }
+            else
+                throw new Exception("Entrega no encontrada");
+
+        }
+
+        public static List<Entrega> Buscar(string buscado = "")
+        {
+            List<Entrega> Entregas = new List<Entrega>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eEntregas
+                      where buscado == ""
+                      || x.hecho.ToString() == buscado.Trim()
+                      || x.desc.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.fecent.ToString() == buscado.Trim()
+                      select x;
+
+            foreach (eEntrega em in res)
+            {
+                Entregas.Add(new Entrega(em.ident, em.hecho, em.desc, em.fecent));
+            }
+
+            return Entregas;
+        }
     }
 }

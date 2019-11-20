@@ -79,5 +79,64 @@ namespace CapaNegocio
             }
             return null;
         }
+
+        public void Guardar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            eReparador fila = new eReparador();
+
+            if (this.idrep != 0)
+            {
+                var res = from x in dc.eReparadors where x.idrep == this.idrep select x;
+                if (res.Count() > 0)
+                {
+                    fila = res.First();
+                }
+                else
+                    throw new Exception("Id no encontrado en reparador");
+            }
+
+
+            fila.cantrep = cantrep;
+            fila.cantcliente = cantcliente;
+
+            if (this.idrep == 0)
+                dc.eReparadors.InsertOnSubmit(fila);
+
+            dc.SubmitChanges();
+            this.idrep = fila.idrep;
+        }
+
+        public void Eliminar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eReparadors where x.idrep == this.idrep select x;
+            if (res.Count() > 0)
+            {
+                dc.eReparadors.DeleteOnSubmit(res.First());
+                dc.SubmitChanges();
+            }
+            else
+                throw new Exception("Reparador no encontrado");
+
+        }
+
+        public static List<Reparador> Buscar(string buscado = "")
+        {
+            List<Reparador> Reparadores = new List<Reparador>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eReparadors
+                      where buscado == ""
+                      || x.cantrep.ToString() == buscado.Trim()
+                      || x.cantcliente.ToString() == buscado.Trim()
+                      select x;
+
+            foreach (eReparador em in res)
+            {
+                Reparadores.Add(new Reparador(em.idrep, em.cantrep, em.cantcliente));
+            }
+
+            return Reparadores;
+        }
     }
 }

@@ -79,5 +79,64 @@ namespace CapaNegocio
             }
             return null;
         }
+
+        public void Guardar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            eTipousu fila = new eTipousu();
+
+            if (this.idtiu!= 0)
+            {
+                var res = from x in dc.eTipousus where x.idtiu == this.idtiu select x;
+                if (res.Count() > 0)
+                {
+                    fila = res.First();
+                }
+                else
+                    throw new Exception("Id no encontrado en tipo de usuario");
+            }
+
+
+            fila.tipodeusu = tipodeusu;
+            fila.desc = desc;
+
+            if (this.idtiu == 0)
+                dc.eTipousus.InsertOnSubmit(fila);
+
+            dc.SubmitChanges();
+            this.idtiu = fila.idtiu;
+        }
+
+        public void Eliminar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eTipousus where x.idtiu == this.idtiu select x;
+            if (res.Count() > 0)
+            {
+                dc.eTipousus.DeleteOnSubmit(res.First());
+                dc.SubmitChanges();
+            }
+            else
+                throw new Exception("Tipo de usuario no encontrado");
+
+        }
+
+        public static List<Tipousu> Buscar(string buscado = "")
+        {
+            List<Tipousu> Tipodeusus = new List<Tipousu>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eTipousus
+                      where buscado == ""
+                      || x.tipodeusu.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.desc.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      select x;
+
+            foreach (eTipousu em in res)
+            {
+                Tipodeusus.Add(new Tipousu(em.idtiu, em.tipodeusu, em.desc));
+            }
+
+            return Tipodeusus;
+        }
     }
 }

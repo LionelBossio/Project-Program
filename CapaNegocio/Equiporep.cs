@@ -92,7 +92,7 @@ namespace CapaNegocio
                     fila = res.First();
                 }
                 else
-                    throw new Exception("Id no encontrado en Articulo");
+                    throw new Exception("Id no encontrado en equipo a reparar");
             }
 
 
@@ -116,7 +116,7 @@ namespace CapaNegocio
                 dc.SubmitChanges();
             }
             else
-                throw new Exception("Articulo no encontrado");
+                throw new Exception("Equipo a reparar no encontrado");
 
         }
 

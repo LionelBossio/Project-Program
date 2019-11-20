@@ -74,7 +74,7 @@ namespace CapaNegocio
             desc = "";
             cant = 0;
         }
-        public Articulo(int idart,string nombre, string desc, int cant)
+        public Articulo(int idart, string nombre, string desc, int cant)
         {
             this.idart = idart;
             this.nombre = nombre;
@@ -91,7 +91,7 @@ namespace CapaNegocio
             if (res.Count() > 0)
             {
                 var x = res.First();
-                return new Articulo(x.idart, x.nombre, x.desc,x.cant);
+                return new Articulo(x.idart, x.nombre, x.desc, x.cant);
             }
             return null;
         }
@@ -109,7 +109,7 @@ namespace CapaNegocio
                     fila = res.First();
                 }
                 else
-                    throw new Exception("Id no encontrado en Articulo");
+                    throw new Exception("Id no encontrado en articulo");
             }
 
 

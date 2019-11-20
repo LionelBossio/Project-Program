@@ -229,5 +229,72 @@ namespace CapaNegocio
             }
             return null;
         }
+
+        public void Guardar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            eReparacion fila = new eReparacion();
+
+            if (this.idr != 0)
+            {
+                var res = from x in dc.eReparacions where x.idr == this.idr select x;
+                if (res.Count() > 0)
+                {
+                    fila = res.First();
+                }
+                else
+                    throw new Exception("Id no encontrado en reparacion");
+            }
+
+
+            fila.fecini = fecini;
+            fila.entrega = fkentrega;
+            fila.cliente = fkcliente;
+            fila.equiporep = fkequiporep;
+            fila.reparador = fkreparador;
+            fila.articulo = fkarticulo;
+
+            if (this.idr == 0)
+                dc.eReparacions.InsertOnSubmit(fila);
+
+            dc.SubmitChanges();
+            this.idr = fila.idr;
+        }
+
+        public void Eliminar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eReparacions where x.idr == this.idr select x;
+            if (res.Count() > 0)
+            {
+                dc.eReparacions.DeleteOnSubmit(res.First());
+                dc.SubmitChanges();
+            }
+            else
+                throw new Exception("Reparacion no encontrada");
+
+        }
+
+        public static List<Reparacion> Buscar(string buscado = "")
+        {
+            List<Reparacion> Reparaciones = new List<Reparacion>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eReparacions
+                      where buscado == ""
+                      || x.fecini.ToString() == buscado.Trim()
+                      || x.entrega.ToString() == buscado.Trim()
+                      || x.cliente.ToString() == buscado.Trim()
+                      || x.equiporep.ToString() == buscado.Trim()
+                      || x.reparador.ToString() == buscado.Trim()
+                      || x.articulo.ToString() == buscado.Trim()
+                      select x;
+
+            foreach (eReparacion em in res)
+            {
+                Reparaciones.Add(new Reparacion(em.idr, em.fecini, em.entrega, em.cliente, em.equiporep, em.reparador, em.articulo));
+            }
+
+            return Reparaciones;
+        }
     }
 }

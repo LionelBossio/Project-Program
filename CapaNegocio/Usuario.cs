@@ -229,6 +229,93 @@ namespace CapaNegocio
             this.contraseña = contraseña;
         }
         #endregion
+        public static Usuario BuscarPorId(int id)
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eUsuarios
+                      where x.idusu == id
+                      select x;
+            if (res.Count() > 0)
+            {
+                var x = res.First();
+                return new Usuario(x.idusu, x.nombre, x.apellido, x.dni,x.fecnac,x.email,x.tipousu, x.repde,x.numtel,x.nomusu,x.contraseña);
+            }
+            return null;
+        }
 
+        public void Guardar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            eUsuario fila = new eUsuario();
+
+            if (this.idusu != 0)
+            {
+                var res = from x in dc.eUsuarios where x.idusu == this.idusu select x;
+                if (res.Count() > 0)
+                {
+                    fila = res.First();
+                }
+                else
+                    throw new Exception("Id no encontrado en usuario");
+            }
+
+
+            fila.nombre = nombre;
+            fila.apellido = apellido;
+            fila.dni = dni;
+            fila.fecnac = fecnac;
+            fila.email = email;
+            fila.tipousu = fktipousu;
+            fila.repde = fkrepde;
+            fila.numtel = numtel;
+            fila.nomusu = nomusu;
+            fila.contraseña = contraseña;
+
+            if (this.idusu == 0)
+                dc.eUsuarios.InsertOnSubmit(fila);
+
+            dc.SubmitChanges();
+            this.idusu = fila.idusu;
+        }
+
+        public void Eliminar()
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eUsuarios where x.idusu == this.idusu select x;
+            if (res.Count() > 0)
+            {
+                dc.eUsuarios.DeleteOnSubmit(res.First());
+                dc.SubmitChanges();
+            }
+            else
+                throw new Exception("Usuario no encontrado");
+
+        }
+
+        public static List<Usuario> Buscar(string buscado = "")
+        {
+            List<Usuario> Usuarios = new List<Usuario>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eUsuarios
+                      where buscado == ""
+                      || x.nombre.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.apellido.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.dni.ToString() == buscado.Trim()
+                      || x.fecnac.ToString() == buscado.Trim()
+                      || x.email.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.tipousu.ToString() == buscado.Trim()
+                      || x.repde.ToString() == buscado.Trim()
+                      || x.numtel.ToString() == buscado.Trim()
+                      || x.nomusu.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.contraseña.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      select x;
+
+            foreach (eUsuario em in res)
+            {
+                Usuarios.Add(new Usuario(em.idusu, em.nombre, em.apellido, em.dni, em.fecnac, em.email, em.tipousu, em.repde, em.numtel, em.nomusu, em.contraseña));
+            }
+
+            return Usuarios;
+        }
     }
 }
