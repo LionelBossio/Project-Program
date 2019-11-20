@@ -91,7 +91,7 @@ namespace CapaNegocio
             }
         }
 
-        internal Cliente Cliente
+        public Cliente Cliente
         {
             get
             {

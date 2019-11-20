@@ -53,14 +53,17 @@
             this.txtContra = new System.Windows.Forms.TextBox();
             this.lblNomusu = new System.Windows.Forms.Label();
             this.txtNomusu = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupNumtel)).BeginInit();
+            this.pnlUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(413, 404);
+            this.btnGuardar.Location = new System.Drawing.Point(376, 471);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 0;
@@ -69,7 +72,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(413, 50);
+            this.btnNuevo.Location = new System.Drawing.Point(416, 277);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 1;
@@ -78,7 +81,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(413, 79);
+            this.btnModificar.Location = new System.Drawing.Point(416, 306);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 2;
@@ -87,7 +90,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(413, 108);
+            this.btnEliminar.Location = new System.Drawing.Point(416, 335);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 3;
@@ -99,13 +102,13 @@
             this.dgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuario.Location = new System.Drawing.Point(13, 13);
             this.dgvUsuario.Name = "dgvUsuario";
-            this.dgvUsuario.Size = new System.Drawing.Size(379, 172);
+            this.dgvUsuario.Size = new System.Drawing.Size(524, 172);
             this.dgvUsuario.TabIndex = 4;
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(10, 204);
+            this.lblNombre.Location = new System.Drawing.Point(66, 19);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 5;
@@ -114,7 +117,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(12, 228);
+            this.lblApellido.Location = new System.Drawing.Point(66, 45);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 6;
@@ -123,7 +126,7 @@
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(14, 299);
+            this.lblDni.Location = new System.Drawing.Point(84, 124);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(26, 13);
             this.lblDni.TabIndex = 7;
@@ -132,7 +135,7 @@
             // lblFecnac
             // 
             this.lblFecnac.AutoSize = true;
-            this.lblFecnac.Location = new System.Drawing.Point(14, 324);
+            this.lblFecnac.Location = new System.Drawing.Point(4, 151);
             this.lblFecnac.Name = "lblFecnac";
             this.lblFecnac.Size = new System.Drawing.Size(106, 13);
             this.lblFecnac.TabIndex = 8;
@@ -141,7 +144,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(14, 346);
+            this.lblEmail.Location = new System.Drawing.Point(78, 173);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 9;
@@ -150,7 +153,7 @@
             // lblNumtel
             // 
             this.lblNumtel.AutoSize = true;
-            this.lblNumtel.Location = new System.Drawing.Point(14, 374);
+            this.lblNumtel.Location = new System.Drawing.Point(61, 202);
             this.lblNumtel.Name = "lblNumtel";
             this.lblNumtel.Size = new System.Drawing.Size(49, 13);
             this.lblNumtel.TabIndex = 10;
@@ -159,7 +162,7 @@
             // lblTipousu
             // 
             this.lblTipousu.AutoSize = true;
-            this.lblTipousu.Location = new System.Drawing.Point(19, 400);
+            this.lblTipousu.Location = new System.Drawing.Point(30, 229);
             this.lblTipousu.Name = "lblTipousu";
             this.lblTipousu.Size = new System.Drawing.Size(80, 13);
             this.lblTipousu.TabIndex = 11;
@@ -168,7 +171,7 @@
             // lblRepde
             // 
             this.lblRepde.AutoSize = true;
-            this.lblRepde.Location = new System.Drawing.Point(19, 429);
+            this.lblRepde.Location = new System.Drawing.Point(33, 259);
             this.lblRepde.Name = "lblRepde";
             this.lblRepde.Size = new System.Drawing.Size(77, 13);
             this.lblRepde.TabIndex = 12;
@@ -176,66 +179,66 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(60, 197);
+            this.txtNombre.Location = new System.Drawing.Point(116, 12);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.Size = new System.Drawing.Size(200, 20);
             this.txtNombre.TabIndex = 13;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(60, 223);
+            this.txtApellido.Location = new System.Drawing.Point(116, 38);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.Size = new System.Drawing.Size(200, 20);
             this.txtApellido.TabIndex = 14;
             // 
             // nupDni
             // 
-            this.nupDni.Location = new System.Drawing.Point(69, 297);
+            this.nupDni.Location = new System.Drawing.Point(116, 117);
             this.nupDni.Name = "nupDni";
-            this.nupDni.Size = new System.Drawing.Size(120, 20);
+            this.nupDni.Size = new System.Drawing.Size(200, 20);
             this.nupDni.TabIndex = 15;
             // 
             // dtpFecnac
             // 
-            this.dtpFecnac.Location = new System.Drawing.Point(126, 324);
+            this.dtpFecnac.Location = new System.Drawing.Point(116, 144);
             this.dtpFecnac.Name = "dtpFecnac";
             this.dtpFecnac.Size = new System.Drawing.Size(200, 20);
             this.dtpFecnac.TabIndex = 16;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(52, 346);
+            this.txtEmail.Location = new System.Drawing.Point(116, 166);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.Size = new System.Drawing.Size(200, 20);
             this.txtEmail.TabIndex = 17;
             // 
             // nupNumtel
             // 
-            this.nupNumtel.Location = new System.Drawing.Point(69, 374);
+            this.nupNumtel.Location = new System.Drawing.Point(117, 194);
             this.nupNumtel.Name = "nupNumtel";
-            this.nupNumtel.Size = new System.Drawing.Size(120, 20);
+            this.nupNumtel.Size = new System.Drawing.Size(199, 20);
             this.nupNumtel.TabIndex = 18;
             // 
             // cmbTipousu
             // 
             this.cmbTipousu.FormattingEnabled = true;
-            this.cmbTipousu.Location = new System.Drawing.Point(106, 401);
+            this.cmbTipousu.Location = new System.Drawing.Point(116, 221);
             this.cmbTipousu.Name = "cmbTipousu";
-            this.cmbTipousu.Size = new System.Drawing.Size(121, 21);
+            this.cmbTipousu.Size = new System.Drawing.Size(200, 21);
             this.cmbTipousu.TabIndex = 19;
             // 
             // cmbRepde
             // 
             this.cmbRepde.FormattingEnabled = true;
-            this.cmbRepde.Location = new System.Drawing.Point(106, 428);
+            this.cmbRepde.Location = new System.Drawing.Point(116, 251);
             this.cmbRepde.Name = "cmbRepde";
-            this.cmbRepde.Size = new System.Drawing.Size(121, 21);
+            this.cmbRepde.Size = new System.Drawing.Size(200, 21);
             this.cmbRepde.TabIndex = 20;
             // 
             // lblContra
             // 
             this.lblContra.AutoSize = true;
-            this.lblContra.Location = new System.Drawing.Point(11, 253);
+            this.lblContra.Location = new System.Drawing.Point(49, 72);
             this.lblContra.Name = "lblContra";
             this.lblContra.Size = new System.Drawing.Size(61, 13);
             this.lblContra.TabIndex = 21;
@@ -243,15 +246,15 @@
             // 
             // txtContra
             // 
-            this.txtContra.Location = new System.Drawing.Point(78, 250);
+            this.txtContra.Location = new System.Drawing.Point(116, 65);
             this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(100, 20);
+            this.txtContra.Size = new System.Drawing.Size(200, 20);
             this.txtContra.TabIndex = 22;
             // 
             // lblNomusu
             // 
             this.lblNomusu.AutoSize = true;
-            this.lblNomusu.Location = new System.Drawing.Point(14, 278);
+            this.lblNomusu.Location = new System.Drawing.Point(14, 98);
             this.lblNomusu.Name = "lblNomusu";
             this.lblNomusu.Size = new System.Drawing.Size(96, 13);
             this.lblNomusu.TabIndex = 23;
@@ -259,36 +262,54 @@
             // 
             // txtNomusu
             // 
-            this.txtNomusu.Location = new System.Drawing.Point(116, 276);
+            this.txtNomusu.Location = new System.Drawing.Point(116, 91);
             this.txtNomusu.Name = "txtNomusu";
-            this.txtNomusu.Size = new System.Drawing.Size(100, 20);
+            this.txtNomusu.Size = new System.Drawing.Size(200, 20);
             this.txtNomusu.TabIndex = 24;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(462, 471);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 25;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // pnlUsuario
+            // 
+            this.pnlUsuario.Controls.Add(this.txtNomusu);
+            this.pnlUsuario.Controls.Add(this.lblNomusu);
+            this.pnlUsuario.Controls.Add(this.cmbRepde);
+            this.pnlUsuario.Controls.Add(this.txtContra);
+            this.pnlUsuario.Controls.Add(this.lblContra);
+            this.pnlUsuario.Controls.Add(this.cmbTipousu);
+            this.pnlUsuario.Controls.Add(this.nupNumtel);
+            this.pnlUsuario.Controls.Add(this.txtEmail);
+            this.pnlUsuario.Controls.Add(this.dtpFecnac);
+            this.pnlUsuario.Controls.Add(this.nupDni);
+            this.pnlUsuario.Controls.Add(this.txtApellido);
+            this.pnlUsuario.Controls.Add(this.txtNombre);
+            this.pnlUsuario.Controls.Add(this.lblRepde);
+            this.pnlUsuario.Controls.Add(this.lblTipousu);
+            this.pnlUsuario.Controls.Add(this.lblNumtel);
+            this.pnlUsuario.Controls.Add(this.lblEmail);
+            this.pnlUsuario.Controls.Add(this.lblFecnac);
+            this.pnlUsuario.Controls.Add(this.lblDni);
+            this.pnlUsuario.Controls.Add(this.lblApellido);
+            this.pnlUsuario.Controls.Add(this.lblNombre);
+            this.pnlUsuario.Location = new System.Drawing.Point(23, 205);
+            this.pnlUsuario.Name = "pnlUsuario";
+            this.pnlUsuario.Size = new System.Drawing.Size(324, 289);
+            this.pnlUsuario.TabIndex = 26;
             // 
             // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 453);
-            this.Controls.Add(this.txtNomusu);
-            this.Controls.Add(this.lblNomusu);
-            this.Controls.Add(this.txtContra);
-            this.Controls.Add(this.lblContra);
-            this.Controls.Add(this.cmbRepde);
-            this.Controls.Add(this.cmbTipousu);
-            this.Controls.Add(this.nupNumtel);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.dtpFecnac);
-            this.Controls.Add(this.nupDni);
-            this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblRepde);
-            this.Controls.Add(this.lblTipousu);
-            this.Controls.Add(this.lblNumtel);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblFecnac);
-            this.Controls.Add(this.lblDni);
-            this.Controls.Add(this.lblApellido);
-            this.Controls.Add(this.lblNombre);
+            this.ClientSize = new System.Drawing.Size(549, 505);
+            this.Controls.Add(this.pnlUsuario);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dgvUsuario);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -299,8 +320,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupNumtel)).EndInit();
+            this.pnlUsuario.ResumeLayout(false);
+            this.pnlUsuario.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -331,6 +353,8 @@
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Label lblNomusu;
         private System.Windows.Forms.TextBox txtNomusu;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Panel pnlUsuario;
     }
 }
 
