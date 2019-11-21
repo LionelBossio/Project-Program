@@ -139,5 +139,10 @@ namespace CapaNegocio
 
             return Equiposrep;
         }
+
+        public override string ToString()
+        {
+            return string.Concat(ideq);
+        }
     }
 }

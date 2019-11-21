@@ -156,5 +156,9 @@ namespace CapaNegocio
 
             return Articulos;
         }
+        public override string ToString()
+        {
+            return nombre;
+        }
     }
 }

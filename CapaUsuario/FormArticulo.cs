@@ -17,6 +17,7 @@ namespace CapaUsuario
         public FormArticulo()
         {
             InitializeComponent();
+            ZonadeDatos(false);
         }
         private void ZonadeDatos(bool mostrar)
         {
@@ -70,9 +71,10 @@ namespace CapaUsuario
             if (dgvArticulo.CurrentRow != null)
             {
                 art = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
-                if (MessageBox.Show("¿Quiere eliminar" + art.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Quiere eliminar" + " " + art.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     art.Eliminar();
+                    Buscar(txtBuscar.Text);
                 }
             }
             else

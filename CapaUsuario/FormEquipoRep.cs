@@ -17,11 +17,12 @@ namespace CapaUsuario
         public FormEquipoRep()
         {
             InitializeComponent();
+            pnlEquipoRep.Enabled = false;
+            Buscar(txtBuscar.Text);
         }
 
         private void FormEquipoRep_Load(object sender, EventArgs e)
         {
-            cmbCliente.DataSource = Cliente.Buscar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -43,7 +44,6 @@ namespace CapaUsuario
 
                 txtProblem.Text = eqrep.Problema;
                 txtDesc.Text = eqrep.Desc;
-                cmbCliente.Text = eqrep.Cliente.ToString();
             }
             else
                 MessageBox.Show("Seleccione un Equipo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -53,7 +53,7 @@ namespace CapaUsuario
         {
             txtProblem.Text = "";
             txtDesc.Text = "";
-            cmbCliente.Text = "";
+            pnlEquipoRep.Enabled=mostrar;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -70,6 +70,7 @@ namespace CapaUsuario
                 if (MessageBox.Show("¿Quiere eliminar" + eqrep.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     eqrep.Eliminar();
+                    Buscar(txtBuscar.Text);
                 }
             }
             else
@@ -82,7 +83,6 @@ namespace CapaUsuario
             {
                 eqrep.Problema = txtProblem.Text;
                 eqrep.Desc = txtDesc.Text;
-                eqrep.Cliente = cmbCliente.SelectedItem as Cliente;
                 eqrep.Guardar();
                 ZonaDatos(false);
                 Buscar(txtBuscar.Text);

@@ -35,6 +35,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pnlReparador = new System.Windows.Forms.Panel();
+            this.cmbUsuario = new System.Windows.Forms.ComboBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -50,7 +52,7 @@
             // lblCantrep
             // 
             this.lblCantrep.AutoSize = true;
-            this.lblCantrep.Location = new System.Drawing.Point(16, 16);
+            this.lblCantrep.Location = new System.Drawing.Point(14, 20);
             this.lblCantrep.Name = "lblCantrep";
             this.lblCantrep.Size = new System.Drawing.Size(94, 13);
             this.lblCantrep.TabIndex = 0;
@@ -59,7 +61,7 @@
             // lblCantcliante
             // 
             this.lblCantcliante.AutoSize = true;
-            this.lblCantcliante.Location = new System.Drawing.Point(16, 44);
+            this.lblCantcliante.Location = new System.Drawing.Point(14, 48);
             this.lblCantcliante.Name = "lblCantcliante";
             this.lblCantcliante.Size = new System.Drawing.Size(139, 13);
             this.lblCantcliante.TabIndex = 1;
@@ -67,14 +69,14 @@
             // 
             // nupCantrep
             // 
-            this.nupCantrep.Location = new System.Drawing.Point(161, 16);
+            this.nupCantrep.Location = new System.Drawing.Point(156, 19);
             this.nupCantrep.Name = "nupCantrep";
             this.nupCantrep.Size = new System.Drawing.Size(120, 20);
             this.nupCantrep.TabIndex = 2;
             // 
             // nupCantcliente
             // 
-            this.nupCantcliente.Location = new System.Drawing.Point(161, 44);
+            this.nupCantcliente.Location = new System.Drawing.Point(156, 47);
             this.nupCantcliente.Name = "nupCantcliente";
             this.nupCantcliente.Size = new System.Drawing.Size(120, 20);
             this.nupCantcliente.TabIndex = 3;
@@ -101,15 +103,33 @@
             // 
             // pnlReparador
             // 
+            this.pnlReparador.Controls.Add(this.cmbUsuario);
+            this.pnlReparador.Controls.Add(this.lblUsuario);
             this.pnlReparador.Controls.Add(this.nupCantcliente);
             this.pnlReparador.Controls.Add(this.nupCantrep);
             this.pnlReparador.Controls.Add(this.lblCantcliante);
             this.pnlReparador.Controls.Add(this.lblCantrep);
             this.pnlReparador.Location = new System.Drawing.Point(12, 240);
             this.pnlReparador.Name = "pnlReparador";
-            this.pnlReparador.Size = new System.Drawing.Size(302, 85);
+            this.pnlReparador.Size = new System.Drawing.Size(288, 105);
             this.pnlReparador.TabIndex = 6;
-            this.pnlReparador.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // cmbUsuario
+            // 
+            this.cmbUsuario.FormattingEnabled = true;
+            this.cmbUsuario.Location = new System.Drawing.Point(156, 73);
+            this.cmbUsuario.Name = "cmbUsuario";
+            this.cmbUsuario.Size = new System.Drawing.Size(120, 21);
+            this.cmbUsuario.TabIndex = 5;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(14, 78);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.TabIndex = 4;
+            this.lblUsuario.Text = "Usuario";
             // 
             // btnEliminar
             // 
@@ -182,6 +202,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Name = "FormReparador";
             this.Text = "FormReparador";
+            this.Load += new System.EventHandler(this.FormReparador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nupCantrep)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupCantcliente)).EndInit();
             this.pnlReparador.ResumeLayout(false);
@@ -207,5 +228,7 @@
         private System.Windows.Forms.DataGridView dgvReparador;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.ComboBox cmbUsuario;
+        private System.Windows.Forms.Label lblUsuario;
     }
 }

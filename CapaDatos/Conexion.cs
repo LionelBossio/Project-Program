@@ -8,7 +8,7 @@ namespace CapaDatos
 {
     public static class Conexion
     {
-        private static string server = @"SQLSERVER\SQLSERVE";
+        private static string server = @"SQLSERVER\SQLSERVER";
         private static string db = @"TallerdeReparacion";
         private static string usuario = @"BDJorge";
         private static string clave = @"123";

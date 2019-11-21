@@ -23,3 +23,5 @@ C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.exe
 C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.pdb
 C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\RdlCompile.cache
 C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\RdlCompile.compiled
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.FormMenuAdmin.resources
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\bin\Debug\Microsoft.ReportViewer.WinForms.dll

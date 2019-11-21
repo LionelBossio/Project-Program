@@ -19,8 +19,9 @@ namespace CapaUsuario
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void FormReparador_Load(object sender, EventArgs e)
         {
+            cmbUsuario.DataSource = Usuario.Buscar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -41,6 +42,7 @@ namespace CapaUsuario
                 rep = dgvReparador.CurrentRow.DataBoundItem as Reparador;
                 nupCantcliente.Value = rep.Cantcliente;
                 nupCantrep.Value = rep.Cantrep;
+                cmbUsuario.Text = rep.Usuario.Nombre;
             }
             else
                 MessageBox.Show("Seleccione un Reparador", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -50,6 +52,7 @@ namespace CapaUsuario
         {
             nupCantrep.Value = 0;
             nupCantcliente.Value = 0;
+            cmbUsuario.Text = "";
             pnlReparador.Enabled = mostrar;
         }
 
@@ -64,13 +67,14 @@ namespace CapaUsuario
             if(dgvReparador.CurrentRow!=null)
             {
                 rep = dgvReparador.CurrentRow.DataBoundItem as Reparador;
-                if (MessageBox.Show("¿Quiere eliminar" + rep.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Quiere eliminar el Reparador " + rep.ToString() + "? Si lo elimina, su usuario tambien se eliminara", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
+                    rep.Usuario.Eliminar();
                     rep.Eliminar();
                 }
             }
             else
-                MessageBox.Show("Seleccione un artículo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Seleccione un reparador", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -79,6 +83,11 @@ namespace CapaUsuario
             {
                 rep.Cantcliente = Convert.ToInt32(nupCantcliente.Value);
                 rep.Cantrep = Convert.ToInt32(nupCantrep.Value);
+               // ------------------------------ Crear una variable temporal para modificar tipo de usuario y agregar un cmb con tipo de usuario -----------------
+
+                rep.Usuario = cmbUsuario.SelectedItem as Usuario;
+
+                //------------------------------------------------------------------------------------------------------------------------------------------------
                 rep.Guardar();
                 ZonaDatos(false);
                 Buscar(txtBuscar.Text);

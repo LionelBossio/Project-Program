@@ -17,6 +17,8 @@ namespace CapaUsuario
         public FormEntrega()
         {
             InitializeComponent();
+            pnlEntrega.Enabled = false;
+            Buscar(txtBuscar.Text);
         }
 
         private void FormEntrega_Load(object sender, EventArgs e)
@@ -67,9 +69,10 @@ namespace CapaUsuario
             if (dgvEntrega.CurrentRow!=null)
             {
                 entr = dgvEntrega.CurrentRow.DataBoundItem as Entrega;
-                if(MessageBox.Show("¿Quiere eliminar" + entr.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if(MessageBox.Show("¿Quiere eliminar la entrega Nro " + entr.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     entr.Eliminar();
+                    Buscar(txtBuscar.Text);
                 }
             }
             else

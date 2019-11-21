@@ -37,13 +37,11 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlEquipoRep = new System.Windows.Forms.Panel();
             this.dgvEquipoRep = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.lblCliente = new System.Windows.Forms.Label();
-            this.cmbCliente = new System.Windows.Forms.ComboBox();
-            this.panel1.SuspendLayout();
+            this.pnlEquipoRep.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipoRep)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +80,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(280, 293);
+            this.btnGuardar.Location = new System.Drawing.Point(280, 274);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 6;
@@ -92,7 +90,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(361, 293);
+            this.btnCancelar.Location = new System.Drawing.Point(361, 274);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -102,7 +100,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(316, 257);
+            this.btnEliminar.Location = new System.Drawing.Point(316, 238);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 19;
@@ -112,7 +110,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(316, 222);
+            this.btnNuevo.Location = new System.Drawing.Point(316, 203);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 18;
@@ -122,7 +120,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(316, 188);
+            this.btnModificar.Location = new System.Drawing.Point(316, 169);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 17;
@@ -130,18 +128,16 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // panel1
+            // pnlEquipoRep
             // 
-            this.panel1.Controls.Add(this.cmbCliente);
-            this.panel1.Controls.Add(this.lblCliente);
-            this.panel1.Controls.Add(this.txtDesc);
-            this.panel1.Controls.Add(this.txtProblem);
-            this.panel1.Controls.Add(this.lblProblem);
-            this.panel1.Controls.Add(this.lblDesc);
-            this.panel1.Location = new System.Drawing.Point(12, 180);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 140);
-            this.panel1.TabIndex = 20;
+            this.pnlEquipoRep.Controls.Add(this.txtDesc);
+            this.pnlEquipoRep.Controls.Add(this.txtProblem);
+            this.pnlEquipoRep.Controls.Add(this.lblProblem);
+            this.pnlEquipoRep.Controls.Add(this.lblDesc);
+            this.pnlEquipoRep.Location = new System.Drawing.Point(12, 180);
+            this.pnlEquipoRep.Name = "pnlEquipoRep";
+            this.pnlEquipoRep.Size = new System.Drawing.Size(237, 117);
+            this.pnlEquipoRep.TabIndex = 20;
             // 
             // dgvEquipoRep
             // 
@@ -168,32 +164,15 @@
             this.txtBuscar.Size = new System.Drawing.Size(343, 20);
             this.txtBuscar.TabIndex = 22;
             // 
-            // lblCliente
-            // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(16, 113);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(39, 13);
-            this.lblCliente.TabIndex = 5;
-            this.lblCliente.Text = "Cliente";
-            // 
-            // cmbCliente
-            // 
-            this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(85, 110);
-            this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(134, 21);
-            this.cmbCliente.TabIndex = 24;
-            // 
             // FormEquipoRep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 340);
+            this.ClientSize = new System.Drawing.Size(454, 315);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvEquipoRep);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlEquipoRep);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnModificar);
@@ -202,8 +181,8 @@
             this.Name = "FormEquipoRep";
             this.Text = "FormEquipoRep";
             this.Load += new System.EventHandler(this.FormEquipoRep_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlEquipoRep.ResumeLayout(false);
+            this.pnlEquipoRep.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipoRep)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -220,11 +199,9 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlEquipoRep;
         private System.Windows.Forms.DataGridView dgvEquipoRep;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.ComboBox cmbCliente;
-        private System.Windows.Forms.Label lblCliente;
     }
 }

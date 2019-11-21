@@ -156,5 +156,10 @@ namespace CapaNegocio
 
             return Entregas;
         }
+
+        public override string ToString()
+        {
+            return Convert.ToString(ident);
+        }
     }
 }

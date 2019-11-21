@@ -17,6 +17,8 @@ namespace CapaUsuario
         public FormReparacion()
         {
             InitializeComponent();
+            pnlReparacion.Enabled = false;
+            Buscar(txtBuscar.Text);
         }
 
         private void FormReparacion_Load(object sender, EventArgs e)
@@ -46,7 +48,6 @@ namespace CapaUsuario
                 rep = dgvReparacion.CurrentRow.DataBoundItem as Reparacion;
 
                 cmbArticulo.Text = rep.Articulo.ToString();
-                cmbCliente.Text = rep.Equiporep.Cliente.ToString();
                 cmbEntrega.Text = rep.Entrega.ToString();
                 cmbEquiprep.Text = rep.Equiporep.ToString();
                 cmbRep.Text = rep.Reparador.ToString();
@@ -81,6 +82,7 @@ namespace CapaUsuario
                 if (MessageBox.Show("¿Quiere eliminar" + rep.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     rep.Eliminar();
+                    Buscar(txtBuscar.Text);
                 }
             }
             else

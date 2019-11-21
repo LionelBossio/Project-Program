@@ -172,7 +172,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReporteArituculo.rdlc" />
     <EmbeddedResource Include="ReporteReparador.rdlc" />
     <None Include="DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>

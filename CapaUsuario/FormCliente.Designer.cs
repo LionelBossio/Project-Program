@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCodigo = new System.Windows.Forms.Label();
             this.btnNombre = new System.Windows.Forms.Label();
-            this.lblEquipRep = new System.Windows.Forms.Label();
             this.btnTel = new System.Windows.Forms.Label();
-            this.nupCod = new System.Windows.Forms.NumericUpDown();
             this.nupTel = new System.Windows.Forms.NumericUpDown();
-            this.cmbEquipRep = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pnlCliente = new System.Windows.Forms.Panel();
@@ -45,80 +41,46 @@
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.nupCod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTel)).BeginInit();
             this.pnlCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(17, 14);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
-            this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Codigo";
-            // 
             // btnNombre
             // 
             this.btnNombre.AutoSize = true;
-            this.btnNombre.Location = new System.Drawing.Point(16, 44);
+            this.btnNombre.Location = new System.Drawing.Point(20, 21);
             this.btnNombre.Name = "btnNombre";
             this.btnNombre.Size = new System.Drawing.Size(44, 13);
             this.btnNombre.TabIndex = 1;
             this.btnNombre.Text = "Nombre";
             // 
-            // lblEquipRep
-            // 
-            this.lblEquipRep.AutoSize = true;
-            this.lblEquipRep.Location = new System.Drawing.Point(16, 67);
-            this.lblEquipRep.Name = "lblEquipRep";
-            this.lblEquipRep.Size = new System.Drawing.Size(85, 13);
-            this.lblEquipRep.TabIndex = 2;
-            this.lblEquipRep.Text = "Equipo a reparar";
-            // 
             // btnTel
             // 
             this.btnTel.AutoSize = true;
-            this.btnTel.Location = new System.Drawing.Point(17, 96);
+            this.btnTel.Location = new System.Drawing.Point(21, 54);
             this.btnTel.Name = "btnTel";
             this.btnTel.Size = new System.Drawing.Size(49, 13);
             this.btnTel.TabIndex = 3;
             this.btnTel.Text = "Telefóno";
             // 
-            // nupCod
-            // 
-            this.nupCod.Location = new System.Drawing.Point(115, 12);
-            this.nupCod.Name = "nupCod";
-            this.nupCod.Size = new System.Drawing.Size(120, 20);
-            this.nupCod.TabIndex = 4;
-            // 
             // nupTel
             // 
-            this.nupTel.Location = new System.Drawing.Point(115, 92);
+            this.nupTel.Location = new System.Drawing.Point(119, 50);
             this.nupTel.Name = "nupTel";
             this.nupTel.Size = new System.Drawing.Size(120, 20);
             this.nupTel.TabIndex = 5;
             // 
-            // cmbEquipRep
-            // 
-            this.cmbEquipRep.FormattingEnabled = true;
-            this.cmbEquipRep.Location = new System.Drawing.Point(115, 65);
-            this.cmbEquipRep.Name = "cmbEquipRep";
-            this.cmbEquipRep.Size = new System.Drawing.Size(120, 21);
-            this.cmbEquipRep.TabIndex = 6;
-            // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(115, 39);
+            this.txtNombre.Location = new System.Drawing.Point(119, 16);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(120, 20);
             this.txtNombre.TabIndex = 7;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(300, 300);
+            this.btnGuardar.Location = new System.Drawing.Point(300, 266);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 8;
@@ -129,21 +91,17 @@
             // pnlCliente
             // 
             this.pnlCliente.Controls.Add(this.txtNombre);
-            this.pnlCliente.Controls.Add(this.cmbEquipRep);
             this.pnlCliente.Controls.Add(this.nupTel);
-            this.pnlCliente.Controls.Add(this.nupCod);
             this.pnlCliente.Controls.Add(this.btnTel);
-            this.pnlCliente.Controls.Add(this.lblEquipRep);
             this.pnlCliente.Controls.Add(this.btnNombre);
-            this.pnlCliente.Controls.Add(this.lblCodigo);
             this.pnlCliente.Location = new System.Drawing.Point(12, 197);
             this.pnlCliente.Name = "pnlCliente";
-            this.pnlCliente.Size = new System.Drawing.Size(265, 126);
+            this.pnlCliente.Size = new System.Drawing.Size(265, 92);
             this.pnlCliente.TabIndex = 9;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(392, 300);
+            this.btnCancelar.Location = new System.Drawing.Point(392, 266);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 10;
@@ -153,7 +111,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(352, 197);
+            this.btnModificar.Location = new System.Drawing.Point(299, 197);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 11;
@@ -163,7 +121,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(352, 231);
+            this.btnNuevo.Location = new System.Drawing.Point(380, 197);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 12;
@@ -173,7 +131,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(352, 266);
+            this.btnEliminar.Location = new System.Drawing.Point(341, 226);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 13;
@@ -210,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 339);
+            this.ClientSize = new System.Drawing.Size(482, 299);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvClientes);
@@ -223,7 +181,6 @@
             this.Name = "FormCliente";
             this.Text = "FormCliente";
             this.Load += new System.EventHandler(this.FormCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nupCod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTel)).EndInit();
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
@@ -234,14 +191,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label btnNombre;
-        private System.Windows.Forms.Label lblEquipRep;
         private System.Windows.Forms.Label btnTel;
-        private System.Windows.Forms.NumericUpDown nupCod;
         private System.Windows.Forms.NumericUpDown nupTel;
-        private System.Windows.Forms.ComboBox cmbEquipRep;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel pnlCliente;

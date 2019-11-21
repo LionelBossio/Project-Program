@@ -16,11 +16,12 @@ namespace CapaUsuario
         public FormCliente()
         {
             InitializeComponent();
+            pnlCliente.Enabled = false;
+            Buscar(txtBuscar.Text);
         }
 
         private void FormCliente_Load(object sender, EventArgs e)
         {
-            cmbEquipRep.DataSource = Equiporep.Buscar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -41,9 +42,7 @@ namespace CapaUsuario
 
         private void ZonaDatos(bool mostrar)
         {
-            nupCod.Value = 0;
             txtNombre.Text = "";
-            cmbEquipRep.Text = "";
             nupTel.Value = 0;
             pnlCliente.Enabled = mostrar;
         }
@@ -56,9 +55,7 @@ namespace CapaUsuario
                 cli = dgvClientes.CurrentRow.DataBoundItem as Cliente;
 
                 txtNombre.Text = cli.Nombre;
-                nupCod.Value = cli.Codigocli;
                 nupTel.Value = cli.Telefono;
-                cmbEquipRep.Text = cli.Equiporep.ToString(); 
             }
             else
                 MessageBox.Show("Seleccione un Cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,6 +69,7 @@ namespace CapaUsuario
                 if (MessageBox.Show("¿Quiere eliminar a " + cli.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cli.Eliminar();
+                    Buscar(txtBuscar.Text);
                 }
             }
             else
@@ -88,10 +86,8 @@ namespace CapaUsuario
         {
             try
             {
-                cli.Codigocli = Convert.ToInt32(nupCod.Value);
                 cli.Nombre = txtNombre.Text;
                 cli.Telefono = Convert.ToInt32(nupTel.Value);
-                cli.Equiporep = cmbEquipRep.SelectedItem as Equiporep;
                 cli.Guardar();
                 ZonaDatos(false);
                 Buscar(txtBuscar.Text);

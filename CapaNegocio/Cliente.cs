@@ -144,5 +144,10 @@ namespace CapaNegocio
 
             return Clientes;
         }
+
+        public override string ToString()
+        {
+            return nombre;
+        }
     }
 }
