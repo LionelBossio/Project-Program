@@ -46,7 +46,7 @@ namespace CapaUsuario
                 rep = dgvReparacion.CurrentRow.DataBoundItem as Reparacion;
 
                 cmbArticulo.Text = rep.Articulo.ToString();
-                cmbCliente.Text = rep.Cliente.ToString();
+                cmbCliente.Text = rep.Equiporep.Cliente.ToString();
                 cmbEntrega.Text = rep.Entrega.ToString();
                 cmbEquiprep.Text = rep.Equiporep.ToString();
                 cmbRep.Text = rep.Reparador.ToString();

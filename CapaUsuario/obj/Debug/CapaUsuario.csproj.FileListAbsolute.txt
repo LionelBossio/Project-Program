@@ -21,3 +21,5 @@ C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.Properties.R
 C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.csproj.GenerateResource.Cache
 C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.exe
 C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\CapaUsuario.pdb
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\RdlCompile.cache
+C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\obj\Debug\RdlCompile.compiled

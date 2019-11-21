@@ -13,11 +13,8 @@ namespace CapaNegocio
     public class Cliente
     {
         private int idcli;
-        private int codigocli;
         private string nombre;
         private int telefono;
-        private int fkequiporep;
-        private Equiporep equiporep;
         #region Properties
         public int Idcli
         {
@@ -32,18 +29,6 @@ namespace CapaNegocio
             }
         }
 
-        public int Codigocli
-        {
-            get
-            {
-                return codigocli;
-            }
-
-            set
-            {
-                codigocli = value;
-            }
-        }
 
         public string Nombre
         {
@@ -70,52 +55,20 @@ namespace CapaNegocio
                 telefono = value;
             }
         }
-
-        [Browsable(false)]
-        public int Fkequiporep
-        {
-            get
-            {
-                return fkequiporep;
-            }
-
-            set
-            {
-                fkequiporep = value;
-            }
-        }
-
-        public Equiporep Equiporep
-        {
-            get
-            {
-                return equiporep;
-            }
-
-            set
-            {
-                equiporep = value;
-                Fkequiporep = value.Ideq;
-            }
-        }
         #endregion
         #region Constructor
         public Cliente()
         {
             idcli = 0;
-            codigocli = 0;
             nombre = "";
             telefono = 0;
-            fkequiporep = 0;
+
         }
-        public Cliente(int idcli,int codigocli, string nombre, int telefono,int fkequiporep)
+        public Cliente(int idcli ,string nombre, int telefono)
         {
             this.idcli = idcli;
-            this.codigocli = codigocli;
             this.nombre = nombre;
             this.telefono = telefono;
-            this.fkequiporep = fkequiporep;
-            this.equiporep = Equiporep.BuscarPorId(fkequiporep);
         }
         #endregion
         public static Cliente BuscarPorId(int id)
@@ -127,7 +80,7 @@ namespace CapaNegocio
             if (res.Count() > 0)
             {
                 var x = res.First();
-                return new Cliente(x.idcli, x.codigocli, x.nombre, x.telefono,x.equiporep);
+                return new Cliente(x.idcli,x.nombre,x.telefono);
             }
             return null;
         }
@@ -149,11 +102,10 @@ namespace CapaNegocio
             }
 
 
-            fila.codigocli = codigocli;
+           
             fila.nombre = nombre;
             fila.telefono = telefono;
-            fila.equiporep = fkequiporep;
-
+          
             if (this.idcli == 0)
                 dc.eClientes.InsertOnSubmit(fila);
 
@@ -181,15 +133,13 @@ namespace CapaNegocio
             DCDataContext dc = new DCDataContext(Conexion.DarConexion());
             var res = from x in dc.eClientes
                       where buscado == ""
-                      || x.codigocli.ToString() == buscado.Trim()
                       || x.nombre.ToLower().Trim().Contains(buscado.ToLower().Trim())
                       || x.telefono.ToString() == buscado.Trim()
-                      || x.equiporep.ToString() == buscado.Trim()
                       select x;
 
             foreach (eCliente em in res)
             {
-                Clientes.Add(new Cliente(em.idcli, em.codigocli, em.nombre, em.telefono, em.equiporep));
+                Clientes.Add(new Cliente(em.idcli, em.nombre, em.telefono));
             }
 
             return Clientes;

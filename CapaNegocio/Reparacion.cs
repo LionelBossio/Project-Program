@@ -225,7 +225,7 @@ namespace CapaNegocio
             if (res.Count() > 0)
             {
                 var x = res.First();
-                return new Reparacion(x.idr, x.fecini, x.entrega, x.cliente, x.equiporep, x.reparador, x.articulo);
+                return new Reparacion(x.idr, x.fecini, x.entrega, x.fkcliente, x.equiporep, x.reparador, x.articulo);
             }
             return null;
         }
@@ -249,7 +249,7 @@ namespace CapaNegocio
 
             fila.fecini = fecini;
             fila.entrega = fkentrega;
-            fila.cliente = fkcliente;
+            fila.fkcliente = fkcliente;
             fila.equiporep = fkequiporep;
             fila.reparador = fkreparador;
             fila.articulo = fkarticulo;
@@ -283,7 +283,7 @@ namespace CapaNegocio
                       where buscado == ""
                       || x.fecini.ToString() == buscado.Trim()
                       || x.entrega.ToString() == buscado.Trim()
-                      || x.cliente.ToString() == buscado.Trim()
+                      || x.fkcliente.ToString() == buscado.Trim()
                       || x.equiporep.ToString() == buscado.Trim()
                       || x.reparador.ToString() == buscado.Trim()
                       || x.articulo.ToString() == buscado.Trim()
@@ -291,7 +291,7 @@ namespace CapaNegocio
 
             foreach (eReparacion em in res)
             {
-                Reparaciones.Add(new Reparacion(em.idr, em.fecini, em.entrega, em.cliente, em.equiporep, em.reparador, em.articulo));
+                Reparaciones.Add(new Reparacion(em.idr, em.fecini, em.entrega, em.fkcliente, em.equiporep, em.reparador, em.articulo));
             }
 
             return Reparaciones;

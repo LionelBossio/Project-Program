@@ -40,10 +40,13 @@ namespace CapaUsuario
             {
                 ZonaDatos(true);
                 eqrep = dgvEquipoRep.CurrentRow.DataBoundItem as Equiporep;
+
                 txtProblem.Text = eqrep.Problema;
                 txtDesc.Text = eqrep.Desc;
-              //  cmbCliente.Text=eqrep.--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                cmbCliente.Text = eqrep.Cliente.ToString();
             }
+            else
+                MessageBox.Show("Seleccione un Equipo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ZonaDatos(bool mostrar)
@@ -51,6 +54,49 @@ namespace CapaUsuario
             txtProblem.Text = "";
             txtDesc.Text = "";
             cmbCliente.Text = "";
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            ZonaDatos(true);
+            eqrep = new Equiporep();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvEquipoRep.CurrentRow != null)
+            {
+                eqrep = dgvEquipoRep.CurrentRow.DataBoundItem as Equiporep;
+                if (MessageBox.Show("¿Quiere eliminar" + eqrep.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    eqrep.Eliminar();
+                }
+            }
+            else
+                MessageBox.Show("Seleccione un Equipo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                eqrep.Problema = txtProblem.Text;
+                eqrep.Desc = txtDesc.Text;
+                eqrep.Cliente = cmbCliente.SelectedItem as Cliente;
+                eqrep.Guardar();
+                ZonaDatos(false);
+                Buscar(txtBuscar.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            ZonaDatos(false);
+            eqrep = null;
         }
     }
 }

@@ -18,8 +18,6 @@ namespace CapaNegocio
         private string email;
         private int fktipousu;
         private Tipousu tipousu;
-        private int fkrepde;
-        private Reparacion repde;
         private int numtel;
         private string nomusu;
         private string contraseña;
@@ -130,34 +128,6 @@ namespace CapaNegocio
             }
         }
 
-        [Browsable(false)]
-        public int Fkrepde
-        {
-            get
-            {
-                return fkrepde;
-            }
-
-            set
-            {
-                fkrepde = value;
-            }
-        }
-
-        public Reparacion Repde
-        {
-            get
-            {
-                return repde;
-            }
-
-            set
-            {
-                repde = value;
-                Fkrepde = value.Idr;
-            }
-        }
-
         public int Numtel
         {
             get
@@ -207,12 +177,11 @@ namespace CapaNegocio
             fecnac = new DateTime();
             email = "";
             fktipousu = 0;
-            fkrepde = 0;
             numtel = 0;
             nomusu = "";
             contraseña = "";
         }
-        public Usuario(int idusu, string nombre, string apellido,int dni,DateTime fecnac, string email, int fktipousu, int fkrepde,int numtel, string nomusu, string contraseña)
+        public Usuario(int idusu, string nombre, string apellido,int dni,DateTime fecnac, string email, int fktipousu,int numtel, string nomusu, string contraseña)
         {
             this.idusu = idusu;
             this.nombre = nombre;
@@ -222,8 +191,6 @@ namespace CapaNegocio
             this.email = email;
             this.fktipousu = fktipousu;
             this.tipousu = Tipousu.BuscarPorId(fktipousu);
-            this.fkrepde = fkrepde;
-            this.repde = Reparacion.BuscarPorId(fkrepde);
             this.numtel = numtel;
             this.nomusu = nomusu;
             this.contraseña = contraseña;
@@ -238,7 +205,7 @@ namespace CapaNegocio
             if (res.Count() > 0)
             {
                 var x = res.First();
-                return new Usuario(x.idusu, x.nombre, x.apellido, x.dni,x.fecnac,x.email,x.tipousu, x.repde,x.numtel,x.nomusu,x.contraseña);
+                return new Usuario(x.idusu, x.nombre, x.apellido, x.dni,x.fecnac,x.email,x.tipousu,x.numtel,x.nomusu,x.contraseña);
             }
             return null;
         }
@@ -266,7 +233,6 @@ namespace CapaNegocio
             fila.fecnac = fecnac;
             fila.email = email;
             fila.tipousu = fktipousu;
-            fila.repde = fkrepde;
             fila.numtel = numtel;
             fila.nomusu = nomusu;
             fila.contraseña = contraseña;
@@ -304,7 +270,6 @@ namespace CapaNegocio
                       || x.fecnac.ToString() == buscado.Trim()
                       || x.email.ToLower().Trim().Contains(buscado.ToLower().Trim())
                       || x.tipousu.ToString() == buscado.Trim()
-                      || x.repde.ToString() == buscado.Trim()
                       || x.numtel.ToString() == buscado.Trim()
                       || x.nomusu.ToLower().Trim().Contains(buscado.ToLower().Trim())
                       || x.contraseña.ToLower().Trim().Contains(buscado.ToLower().Trim())
@@ -312,7 +277,7 @@ namespace CapaNegocio
 
             foreach (eUsuario em in res)
             {
-                Usuarios.Add(new Usuario(em.idusu, em.nombre, em.apellido, em.dni, em.fecnac, em.email, em.tipousu, em.repde, em.numtel, em.nomusu, em.contraseña));
+                Usuarios.Add(new Usuario(em.idusu, em.nombre, em.apellido, em.dni, em.fecnac, em.email, em.tipousu, em.numtel, em.nomusu, em.contraseña));
             }
 
             return Usuarios;

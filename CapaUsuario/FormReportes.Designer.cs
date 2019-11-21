@@ -28,57 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGenRep = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.dgvReportes = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.rv = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.DataSet = new CapaUsuario.DataSet();
+            this.DTArticuloBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DTArticuloTableAdapter = new CapaUsuario.DataSetTableAdapters.DTArticuloTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTArticuloBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnGenRep
+            // rv
             // 
-            this.btnGenRep.Location = new System.Drawing.Point(12, 151);
-            this.btnGenRep.Name = "btnGenRep";
-            this.btnGenRep.Size = new System.Drawing.Size(105, 23);
-            this.btnGenRep.TabIndex = 0;
-            this.btnGenRep.Text = "Generar Reporte";
-            this.btnGenRep.UseVisualStyleBackColor = true;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.DTArticuloBindingSource;
+            this.rv.LocalReport.DataSources.Add(reportDataSource1);
+            this.rv.LocalReport.ReportEmbeddedResource = "CapaUsuario.ReporteArituculo.rdlc";
+            this.rv.Location = new System.Drawing.Point(9, 12);
+            this.rv.Name = "rv";
+            this.rv.Size = new System.Drawing.Size(367, 247);
+            this.rv.TabIndex = 0;
             // 
-            // btnGuardar
+            // DataSet
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(12, 227);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.DataSet.DataSetName = "DataSet";
+            this.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dgvReportes
+            // DTArticuloBindingSource
             // 
-            this.dgvReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReportes.Location = new System.Drawing.Point(12, 13);
-            this.dgvReportes.Name = "dgvReportes";
-            this.dgvReportes.Size = new System.Drawing.Size(257, 132);
-            this.dgvReportes.TabIndex = 8;
+            this.DTArticuloBindingSource.DataMember = "DTArticulo";
+            this.DTArticuloBindingSource.DataSource = this.DataSet;
+            // 
+            // DTArticuloTableAdapter
+            // 
+            this.DTArticuloTableAdapter.ClearBeforeFill = true;
             // 
             // FormReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 262);
-            this.Controls.Add(this.dgvReportes);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnGenRep);
+            this.Controls.Add(this.rv);
             this.Name = "FormReportes";
             this.Text = "FormReportes";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).EndInit();
+            this.Load += new System.EventHandler(this.FormReportes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTArticuloBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnGenRep;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.DataGridView dgvReportes;
+        private Microsoft.Reporting.WinForms.ReportViewer rv;
+        private System.Windows.Forms.BindingSource DTArticuloBindingSource;
+        private DataSet DataSet;
+        private DataSetTableAdapters.DTArticuloTableAdapter DTArticuloTableAdapter;
     }
 }

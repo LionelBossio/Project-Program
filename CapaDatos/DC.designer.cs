@@ -22,7 +22,7 @@ namespace CapaDatos
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TallerReparacion")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TallerdeReparacion")]
 	public partial class DCDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -57,7 +57,7 @@ namespace CapaDatos
     #endregion
 		
 		public DCDataContext() : 
-				base(global::CapaDatos.Properties.Settings.Default.TallerReparacionConnectionString, mappingSource)
+				base(global::CapaDatos.Properties.Settings.Default.TallerdeReparacionConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -207,7 +207,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(80) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(80)")]
 		public string nombre
 		{
 			get
@@ -227,7 +227,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[desc]", Storage="_desc", DbType="VarChar(800) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[desc]", Storage="_desc", DbType="VarChar(800)")]
 		public string desc
 		{
 			get
@@ -333,15 +333,15 @@ namespace CapaDatos
 		
 		private int _tipousu;
 		
-		private int _repde;
-		
 		private int _numtel;
 		
 		private string _nomusu;
 		
 		private string _contraseña;
 		
-		private EntityRef<eReparacion> _eReparacion;
+		private EntitySet<eReparador> _eReparadors;
+		
+		private EntityRef<eTipousu> _Tipousu1;
 		
 		private EntityRef<eTipousu> _eTipousu;
 		
@@ -363,8 +363,6 @@ namespace CapaDatos
     partial void OnemailChanged();
     partial void OntipousuChanging(int value);
     partial void OntipousuChanged();
-    partial void OnrepdeChanging(int value);
-    partial void OnrepdeChanged();
     partial void OnnumtelChanging(int value);
     partial void OnnumtelChanged();
     partial void OnnomusuChanging(string value);
@@ -375,7 +373,8 @@ namespace CapaDatos
 		
 		public eUsuario()
 		{
-			this._eReparacion = default(EntityRef<eReparacion>);
+			this._eReparadors = new EntitySet<eReparador>(new Action<eReparador>(this.attach_eReparadors), new Action<eReparador>(this.detach_eReparadors));
+			this._Tipousu1 = default(EntityRef<eTipousu>);
 			this._eTipousu = default(EntityRef<eTipousu>);
 			OnCreated();
 		}
@@ -400,7 +399,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(80) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(80)")]
 		public string nombre
 		{
 			get
@@ -420,7 +419,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(80) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(80)")]
 		public string apellido
 		{
 			get
@@ -480,7 +479,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(80) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(80)")]
 		public string email
 		{
 			get
@@ -511,7 +510,7 @@ namespace CapaDatos
 			{
 				if ((this._tipousu != value))
 				{
-					if (this._eTipousu.HasLoadedOrAssignedValue)
+					if ((this._Tipousu1.HasLoadedOrAssignedValue || this._eTipousu.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -520,30 +519,6 @@ namespace CapaDatos
 					this._tipousu = value;
 					this.SendPropertyChanged("tipousu");
 					this.OntipousuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_repde", DbType="Int NOT NULL")]
-		public int repde
-		{
-			get
-			{
-				return this._repde;
-			}
-			set
-			{
-				if ((this._repde != value))
-				{
-					if (this._eReparacion.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnrepdeChanging(value);
-					this.SendPropertyChanging();
-					this._repde = value;
-					this.SendPropertyChanged("repde");
-					this.OnrepdeChanged();
 				}
 			}
 		}
@@ -568,7 +543,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nomusu", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nomusu", DbType="VarChar(100)")]
 		public string nomusu
 		{
 			get
@@ -588,7 +563,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contraseña", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contraseña", DbType="VarChar(100)")]
 		public string contraseña
 		{
 			get
@@ -608,41 +583,54 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Reparacion_Usuario", Storage="_eReparacion", ThisKey="repde", OtherKey="idr", IsForeignKey=true)]
-		public eReparacion eReparacion
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Reparador", Storage="_eReparadors", ThisKey="idusu", OtherKey="fkusuario")]
+		public EntitySet<eReparador> eReparadors
 		{
 			get
 			{
-				return this._eReparacion.Entity;
+				return this._eReparadors;
 			}
 			set
 			{
-				eReparacion previousValue = this._eReparacion.Entity;
+				this._eReparadors.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipousu_Usuario", Storage="_Tipousu1", ThisKey="tipousu", OtherKey="idtiu", IsForeignKey=true)]
+		public eTipousu Tipousu1
+		{
+			get
+			{
+				return this._Tipousu1.Entity;
+			}
+			set
+			{
+				eTipousu previousValue = this._Tipousu1.Entity;
 				if (((previousValue != value) 
-							|| (this._eReparacion.HasLoadedOrAssignedValue == false)))
+							|| (this._Tipousu1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._eReparacion.Entity = null;
-						previousValue.eUsuarios.Remove(this);
+						this._Tipousu1.Entity = null;
+						previousValue.Usuarios.Remove(this);
 					}
-					this._eReparacion.Entity = value;
+					this._Tipousu1.Entity = value;
 					if ((value != null))
 					{
-						value.eUsuarios.Add(this);
-						this._repde = value.idr;
+						value.Usuarios.Add(this);
+						this._tipousu = value.idtiu;
 					}
 					else
 					{
-						this._repde = default(int);
+						this._tipousu = default(int);
 					}
-					this.SendPropertyChanged("eReparacion");
+					this.SendPropertyChanged("Tipousu1");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipousu_Usuario", Storage="_eTipousu", ThisKey="tipousu", OtherKey="idtiu", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipousu_Usuario1", Storage="_eTipousu", ThisKey="tipousu", OtherKey="idtiu", IsForeignKey=true)]
 		public eTipousu eTipousu
 		{
 			get
@@ -695,6 +683,18 @@ namespace CapaDatos
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_eReparadors(eReparador entity)
+		{
+			this.SendPropertyChanging();
+			entity.eUsuario = this;
+		}
+		
+		private void detach_eReparadors(eReparador entity)
+		{
+			this.SendPropertyChanging();
+			entity.eUsuario = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cliente")]
@@ -705,23 +705,11 @@ namespace CapaDatos
 		
 		private int _idcli;
 		
-		private int _codigocli;
-		
 		private string _nombre;
 		
 		private int _telefono;
 		
-		private int _equiporep;
-		
-		private EntityRef<eCliente> _eCliente1;
-		
 		private EntitySet<eReparacion> _eReparacions;
-		
-		private EntityRef<eCliente> _Cliente1;
-		
-		private EntityRef<eEquiporep> _Equiporep1;
-		
-		private EntityRef<eEquiporep> _eEquiporep;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -729,23 +717,15 @@ namespace CapaDatos
     partial void OnCreated();
     partial void OnidcliChanging(int value);
     partial void OnidcliChanged();
-    partial void OncodigocliChanging(int value);
-    partial void OncodigocliChanged();
     partial void OnnombreChanging(string value);
     partial void OnnombreChanged();
     partial void OntelefonoChanging(int value);
     partial void OntelefonoChanged();
-    partial void OnequiporepChanging(int value);
-    partial void OnequiporepChanged();
     #endregion
 		
 		public eCliente()
 		{
-			this._eCliente1 = default(EntityRef<eCliente>);
 			this._eReparacions = new EntitySet<eReparacion>(new Action<eReparacion>(this.attach_eReparacions), new Action<eReparacion>(this.detach_eReparacions));
-			this._Cliente1 = default(EntityRef<eCliente>);
-			this._Equiporep1 = default(EntityRef<eEquiporep>);
-			this._eEquiporep = default(EntityRef<eEquiporep>);
 			OnCreated();
 		}
 		
@@ -760,10 +740,6 @@ namespace CapaDatos
 			{
 				if ((this._idcli != value))
 				{
-					if (this._Cliente1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnidcliChanging(value);
 					this.SendPropertyChanging();
 					this._idcli = value;
@@ -773,27 +749,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigocli", DbType="Int NOT NULL")]
-		public int codigocli
-		{
-			get
-			{
-				return this._codigocli;
-			}
-			set
-			{
-				if ((this._codigocli != value))
-				{
-					this.OncodigocliChanging(value);
-					this.SendPropertyChanging();
-					this._codigocli = value;
-					this.SendPropertyChanged("codigocli");
-					this.OncodigocliChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(80) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(80)")]
 		public string nombre
 		{
 			get
@@ -833,60 +789,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_equiporep", DbType="Int NOT NULL")]
-		public int equiporep
-		{
-			get
-			{
-				return this._equiporep;
-			}
-			set
-			{
-				if ((this._equiporep != value))
-				{
-					if ((this._Equiporep1.HasLoadedOrAssignedValue || this._eEquiporep.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnequiporepChanging(value);
-					this.SendPropertyChanging();
-					this._equiporep = value;
-					this.SendPropertyChanged("equiporep");
-					this.OnequiporepChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Cliente", Storage="_eCliente1", ThisKey="idcli", OtherKey="idcli", IsUnique=true, IsForeignKey=false)]
-		public eCliente eCliente1
-		{
-			get
-			{
-				return this._eCliente1.Entity;
-			}
-			set
-			{
-				eCliente previousValue = this._eCliente1.Entity;
-				if (((previousValue != value) 
-							|| (this._eCliente1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._eCliente1.Entity = null;
-						previousValue.Cliente1 = null;
-					}
-					this._eCliente1.Entity = value;
-					if ((value != null))
-					{
-						value.Cliente1 = this;
-					}
-					this.SendPropertyChanged("eCliente1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Reparacion", Storage="_eReparacions", ThisKey="idcli", OtherKey="cliente")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Reparacion", Storage="_eReparacions", ThisKey="idcli", OtherKey="fkcliente")]
 		public EntitySet<eReparacion> eReparacions
 		{
 			get
@@ -896,108 +799,6 @@ namespace CapaDatos
 			set
 			{
 				this._eReparacions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Cliente", Storage="_Cliente1", ThisKey="idcli", OtherKey="idcli", IsForeignKey=true)]
-		public eCliente Cliente1
-		{
-			get
-			{
-				return this._Cliente1.Entity;
-			}
-			set
-			{
-				eCliente previousValue = this._Cliente1.Entity;
-				if (((previousValue != value) 
-							|| (this._Cliente1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Cliente1.Entity = null;
-						previousValue.eCliente1 = null;
-					}
-					this._Cliente1.Entity = value;
-					if ((value != null))
-					{
-						value.eCliente1 = this;
-						this._idcli = value.idcli;
-					}
-					else
-					{
-						this._idcli = default(int);
-					}
-					this.SendPropertyChanged("Cliente1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Equiporep_Cliente", Storage="_Equiporep1", ThisKey="equiporep", OtherKey="ideq", IsForeignKey=true)]
-		public eEquiporep Equiporep1
-		{
-			get
-			{
-				return this._Equiporep1.Entity;
-			}
-			set
-			{
-				eEquiporep previousValue = this._Equiporep1.Entity;
-				if (((previousValue != value) 
-							|| (this._Equiporep1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Equiporep1.Entity = null;
-						previousValue.Clientes.Remove(this);
-					}
-					this._Equiporep1.Entity = value;
-					if ((value != null))
-					{
-						value.Clientes.Add(this);
-						this._equiporep = value.ideq;
-					}
-					else
-					{
-						this._equiporep = default(int);
-					}
-					this.SendPropertyChanged("Equiporep1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Equiporep_Cliente1", Storage="_eEquiporep", ThisKey="equiporep", OtherKey="ideq", IsForeignKey=true)]
-		public eEquiporep eEquiporep
-		{
-			get
-			{
-				return this._eEquiporep.Entity;
-			}
-			set
-			{
-				eEquiporep previousValue = this._eEquiporep.Entity;
-				if (((previousValue != value) 
-							|| (this._eEquiporep.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._eEquiporep.Entity = null;
-						previousValue.eClientes.Remove(this);
-					}
-					this._eEquiporep.Entity = value;
-					if ((value != null))
-					{
-						value.eClientes.Add(this);
-						this._equiporep = value.ideq;
-					}
-					else
-					{
-						this._equiporep = default(int);
-					}
-					this.SendPropertyChanged("eEquiporep");
-				}
 			}
 		}
 		
@@ -1048,6 +849,8 @@ namespace CapaDatos
 		
 		private System.DateTime _fecent;
 		
+		private EntitySet<eReparacion> _Reparacions;
+		
 		private EntitySet<eReparacion> _eReparacions;
 		
     #region Extensibility Method Definitions
@@ -1066,6 +869,7 @@ namespace CapaDatos
 		
 		public eEntrega()
 		{
+			this._Reparacions = new EntitySet<eReparacion>(new Action<eReparacion>(this.attach_Reparacions), new Action<eReparacion>(this.detach_Reparacions));
 			this._eReparacions = new EntitySet<eReparacion>(new Action<eReparacion>(this.attach_eReparacions), new Action<eReparacion>(this.detach_eReparacions));
 			OnCreated();
 		}
@@ -1110,7 +914,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[desc]", Storage="_desc", DbType="VarChar(800) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[desc]", Storage="_desc", DbType="VarChar(800)")]
 		public string desc
 		{
 			get
@@ -1150,7 +954,20 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Entrega_Reparacion", Storage="_eReparacions", ThisKey="ident", OtherKey="entrega")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Entrega_Reparacion", Storage="_Reparacions", ThisKey="ident", OtherKey="entrega")]
+		public EntitySet<eReparacion> Reparacions
+		{
+			get
+			{
+				return this._Reparacions;
+			}
+			set
+			{
+				this._Reparacions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Entrega_Reparacion1", Storage="_eReparacions", ThisKey="ident", OtherKey="entrega")]
 		public EntitySet<eReparacion> eReparacions
 		{
 			get
@@ -1183,6 +1000,18 @@ namespace CapaDatos
 			}
 		}
 		
+		private void attach_Reparacions(eReparacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Entrega1 = this;
+		}
+		
+		private void detach_Reparacions(eReparacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Entrega1 = null;
+		}
+		
 		private void attach_eReparacions(eReparacion entity)
 		{
 			this.SendPropertyChanging();
@@ -1208,10 +1037,6 @@ namespace CapaDatos
 		
 		private string _problema;
 		
-		private EntitySet<eCliente> _Clientes;
-		
-		private EntitySet<eCliente> _eClientes;
-		
 		private EntitySet<eReparacion> _eReparacions;
 		
     #region Extensibility Method Definitions
@@ -1228,13 +1053,11 @@ namespace CapaDatos
 		
 		public eEquiporep()
 		{
-			this._Clientes = new EntitySet<eCliente>(new Action<eCliente>(this.attach_Clientes), new Action<eCliente>(this.detach_Clientes));
-			this._eClientes = new EntitySet<eCliente>(new Action<eCliente>(this.attach_eClientes), new Action<eCliente>(this.detach_eClientes));
 			this._eReparacions = new EntitySet<eReparacion>(new Action<eReparacion>(this.attach_eReparacions), new Action<eReparacion>(this.detach_eReparacions));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ideq", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ideq", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ideq
 		{
 			get
@@ -1254,7 +1077,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[desc]", Storage="_desc", DbType="VarChar(800) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[desc]", Storage="_desc", DbType="VarChar(800)")]
 		public string desc
 		{
 			get
@@ -1274,7 +1097,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_problema", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_problema", DbType="VarChar(500)")]
 		public string problema
 		{
 			get
@@ -1291,32 +1114,6 @@ namespace CapaDatos
 					this.SendPropertyChanged("problema");
 					this.OnproblemaChanged();
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Equiporep_Cliente", Storage="_Clientes", ThisKey="ideq", OtherKey="equiporep")]
-		public EntitySet<eCliente> Clientes
-		{
-			get
-			{
-				return this._Clientes;
-			}
-			set
-			{
-				this._Clientes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Equiporep_Cliente1", Storage="_eClientes", ThisKey="ideq", OtherKey="equiporep")]
-		public EntitySet<eCliente> eClientes
-		{
-			get
-			{
-				return this._eClientes;
-			}
-			set
-			{
-				this._eClientes.Assign(value);
 			}
 		}
 		
@@ -1353,30 +1150,6 @@ namespace CapaDatos
 			}
 		}
 		
-		private void attach_Clientes(eCliente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Equiporep1 = this;
-		}
-		
-		private void detach_Clientes(eCliente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Equiporep1 = null;
-		}
-		
-		private void attach_eClientes(eCliente entity)
-		{
-			this.SendPropertyChanging();
-			entity.eEquiporep = this;
-		}
-		
-		private void detach_eClientes(eCliente entity)
-		{
-			this.SendPropertyChanging();
-			entity.eEquiporep = null;
-		}
-		
 		private void attach_eReparacions(eReparacion entity)
 		{
 			this.SendPropertyChanging();
@@ -1402,7 +1175,7 @@ namespace CapaDatos
 		
 		private int _entrega;
 		
-		private int _cliente;
+		private int _fkcliente;
 		
 		private int _equiporep;
 		
@@ -1410,15 +1183,15 @@ namespace CapaDatos
 		
 		private int _articulo;
 		
-		private EntitySet<eUsuario> _eUsuarios;
-		
 		private EntityRef<eArticulo> _eArticulo;
 		
-		private EntityRef<eCliente> _eCliente;
+		private EntityRef<eEntrega> _Entrega1;
 		
 		private EntityRef<eEntrega> _eEntrega;
 		
 		private EntityRef<eEquiporep> _eEquiporep;
+		
+		private EntityRef<eCliente> _eCliente;
 		
 		private EntityRef<eReparador> _eReparador;
 		
@@ -1432,8 +1205,8 @@ namespace CapaDatos
     partial void OnfeciniChanged();
     partial void OnentregaChanging(int value);
     partial void OnentregaChanged();
-    partial void OnclienteChanging(int value);
-    partial void OnclienteChanged();
+    partial void OnfkclienteChanging(int value);
+    partial void OnfkclienteChanged();
     partial void OnequiporepChanging(int value);
     partial void OnequiporepChanged();
     partial void OnreparadorChanging(int value);
@@ -1444,11 +1217,11 @@ namespace CapaDatos
 		
 		public eReparacion()
 		{
-			this._eUsuarios = new EntitySet<eUsuario>(new Action<eUsuario>(this.attach_eUsuarios), new Action<eUsuario>(this.detach_eUsuarios));
 			this._eArticulo = default(EntityRef<eArticulo>);
-			this._eCliente = default(EntityRef<eCliente>);
+			this._Entrega1 = default(EntityRef<eEntrega>);
 			this._eEntrega = default(EntityRef<eEntrega>);
 			this._eEquiporep = default(EntityRef<eEquiporep>);
+			this._eCliente = default(EntityRef<eCliente>);
 			this._eReparador = default(EntityRef<eReparador>);
 			OnCreated();
 		}
@@ -1504,7 +1277,7 @@ namespace CapaDatos
 			{
 				if ((this._entrega != value))
 				{
-					if (this._eEntrega.HasLoadedOrAssignedValue)
+					if ((this._Entrega1.HasLoadedOrAssignedValue || this._eEntrega.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1517,26 +1290,26 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cliente", DbType="Int NOT NULL")]
-		public int cliente
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkcliente", DbType="Int NOT NULL")]
+		public int fkcliente
 		{
 			get
 			{
-				return this._cliente;
+				return this._fkcliente;
 			}
 			set
 			{
-				if ((this._cliente != value))
+				if ((this._fkcliente != value))
 				{
 					if (this._eCliente.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnclienteChanging(value);
+					this.OnfkclienteChanging(value);
 					this.SendPropertyChanging();
-					this._cliente = value;
-					this.SendPropertyChanged("cliente");
-					this.OnclienteChanged();
+					this._fkcliente = value;
+					this.SendPropertyChanged("fkcliente");
+					this.OnfkclienteChanged();
 				}
 			}
 		}
@@ -1613,19 +1386,6 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Reparacion_Usuario", Storage="_eUsuarios", ThisKey="idr", OtherKey="repde")]
-		public EntitySet<eUsuario> eUsuarios
-		{
-			get
-			{
-				return this._eUsuarios;
-			}
-			set
-			{
-				this._eUsuarios.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Articulo_Reparacion", Storage="_eArticulo", ThisKey="articulo", OtherKey="idart", IsForeignKey=true)]
 		public eArticulo eArticulo
 		{
@@ -1660,41 +1420,41 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Reparacion", Storage="_eCliente", ThisKey="cliente", OtherKey="idcli", IsForeignKey=true)]
-		public eCliente eCliente
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Entrega_Reparacion", Storage="_Entrega1", ThisKey="entrega", OtherKey="ident", IsForeignKey=true)]
+		public eEntrega Entrega1
 		{
 			get
 			{
-				return this._eCliente.Entity;
+				return this._Entrega1.Entity;
 			}
 			set
 			{
-				eCliente previousValue = this._eCliente.Entity;
+				eEntrega previousValue = this._Entrega1.Entity;
 				if (((previousValue != value) 
-							|| (this._eCliente.HasLoadedOrAssignedValue == false)))
+							|| (this._Entrega1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._eCliente.Entity = null;
-						previousValue.eReparacions.Remove(this);
+						this._Entrega1.Entity = null;
+						previousValue.Reparacions.Remove(this);
 					}
-					this._eCliente.Entity = value;
+					this._Entrega1.Entity = value;
 					if ((value != null))
 					{
-						value.eReparacions.Add(this);
-						this._cliente = value.idcli;
+						value.Reparacions.Add(this);
+						this._entrega = value.ident;
 					}
 					else
 					{
-						this._cliente = default(int);
+						this._entrega = default(int);
 					}
-					this.SendPropertyChanged("eCliente");
+					this.SendPropertyChanged("Entrega1");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Entrega_Reparacion", Storage="_eEntrega", ThisKey="entrega", OtherKey="ident", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Entrega_Reparacion1", Storage="_eEntrega", ThisKey="entrega", OtherKey="ident", IsForeignKey=true)]
 		public eEntrega eEntrega
 		{
 			get
@@ -1762,6 +1522,40 @@ namespace CapaDatos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Reparacion", Storage="_eCliente", ThisKey="fkcliente", OtherKey="idcli", IsForeignKey=true)]
+		public eCliente eCliente
+		{
+			get
+			{
+				return this._eCliente.Entity;
+			}
+			set
+			{
+				eCliente previousValue = this._eCliente.Entity;
+				if (((previousValue != value) 
+							|| (this._eCliente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eCliente.Entity = null;
+						previousValue.eReparacions.Remove(this);
+					}
+					this._eCliente.Entity = value;
+					if ((value != null))
+					{
+						value.eReparacions.Add(this);
+						this._fkcliente = value.idcli;
+					}
+					else
+					{
+						this._fkcliente = default(int);
+					}
+					this.SendPropertyChanged("eCliente");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Reparador_Reparacion", Storage="_eReparador", ThisKey="reparador", OtherKey="idrep", IsForeignKey=true)]
 		public eReparador eReparador
 		{
@@ -1815,18 +1609,6 @@ namespace CapaDatos
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
-		private void attach_eUsuarios(eUsuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.eReparacion = this;
-		}
-		
-		private void detach_eUsuarios(eUsuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.eReparacion = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Reparador")]
@@ -1841,7 +1623,11 @@ namespace CapaDatos
 		
 		private int _cantcliente;
 		
+		private int _fkusuario;
+		
 		private EntitySet<eReparacion> _eReparacions;
+		
+		private EntityRef<eUsuario> _eUsuario;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1853,11 +1639,14 @@ namespace CapaDatos
     partial void OncantrepChanged();
     partial void OncantclienteChanging(int value);
     partial void OncantclienteChanged();
+    partial void OnfkusuarioChanging(int value);
+    partial void OnfkusuarioChanged();
     #endregion
 		
 		public eReparador()
 		{
 			this._eReparacions = new EntitySet<eReparacion>(new Action<eReparacion>(this.attach_eReparacions), new Action<eReparacion>(this.detach_eReparacions));
+			this._eUsuario = default(EntityRef<eUsuario>);
 			OnCreated();
 		}
 		
@@ -1921,6 +1710,30 @@ namespace CapaDatos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkusuario", DbType="Int NOT NULL")]
+		public int fkusuario
+		{
+			get
+			{
+				return this._fkusuario;
+			}
+			set
+			{
+				if ((this._fkusuario != value))
+				{
+					if (this._eUsuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnfkusuarioChanging(value);
+					this.SendPropertyChanging();
+					this._fkusuario = value;
+					this.SendPropertyChanged("fkusuario");
+					this.OnfkusuarioChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Reparador_Reparacion", Storage="_eReparacions", ThisKey="idrep", OtherKey="reparador")]
 		public EntitySet<eReparacion> eReparacions
 		{
@@ -1931,6 +1744,40 @@ namespace CapaDatos
 			set
 			{
 				this._eReparacions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Reparador", Storage="_eUsuario", ThisKey="fkusuario", OtherKey="idusu", IsForeignKey=true)]
+		public eUsuario eUsuario
+		{
+			get
+			{
+				return this._eUsuario.Entity;
+			}
+			set
+			{
+				eUsuario previousValue = this._eUsuario.Entity;
+				if (((previousValue != value) 
+							|| (this._eUsuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eUsuario.Entity = null;
+						previousValue.eReparadors.Remove(this);
+					}
+					this._eUsuario.Entity = value;
+					if ((value != null))
+					{
+						value.eReparadors.Add(this);
+						this._fkusuario = value.idusu;
+					}
+					else
+					{
+						this._fkusuario = default(int);
+					}
+					this.SendPropertyChanged("eUsuario");
+				}
 			}
 		}
 		
@@ -1979,6 +1826,8 @@ namespace CapaDatos
 		
 		private string _desc;
 		
+		private EntitySet<eUsuario> _Usuarios;
+		
 		private EntitySet<eUsuario> _eUsuarios;
 		
     #region Extensibility Method Definitions
@@ -1995,6 +1844,7 @@ namespace CapaDatos
 		
 		public eTipousu()
 		{
+			this._Usuarios = new EntitySet<eUsuario>(new Action<eUsuario>(this.attach_Usuarios), new Action<eUsuario>(this.detach_Usuarios));
 			this._eUsuarios = new EntitySet<eUsuario>(new Action<eUsuario>(this.attach_eUsuarios), new Action<eUsuario>(this.detach_eUsuarios));
 			OnCreated();
 		}
@@ -2019,7 +1869,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipodeusu", DbType="VarChar(80) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipodeusu", DbType="VarChar(50)")]
 		public string tipodeusu
 		{
 			get
@@ -2039,7 +1889,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[desc]", Storage="_desc", DbType="VarChar(800) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[desc]", Storage="_desc", DbType="VarChar(800)")]
 		public string desc
 		{
 			get
@@ -2059,7 +1909,20 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipousu_Usuario", Storage="_eUsuarios", ThisKey="idtiu", OtherKey="tipousu")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipousu_Usuario", Storage="_Usuarios", ThisKey="idtiu", OtherKey="tipousu")]
+		public EntitySet<eUsuario> Usuarios
+		{
+			get
+			{
+				return this._Usuarios;
+			}
+			set
+			{
+				this._Usuarios.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipousu_Usuario1", Storage="_eUsuarios", ThisKey="idtiu", OtherKey="tipousu")]
 		public EntitySet<eUsuario> eUsuarios
 		{
 			get
@@ -2090,6 +1953,18 @@ namespace CapaDatos
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Usuarios(eUsuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tipousu1 = this;
+		}
+		
+		private void detach_Usuarios(eUsuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tipousu1 = null;
 		}
 		
 		private void attach_eUsuarios(eUsuario entity)

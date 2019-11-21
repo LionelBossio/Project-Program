@@ -32,5 +32,37 @@ namespace CapaDatos.Properties {
                 return ((string)(this["TallerReparacionConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sqlserver\\sqlserver;Initial Catalog=TallerReparacion;User ID=BDJorge")]
+        public string TallerReparacionConnectionString1 {
+            get {
+                return ((string)(this["TallerReparacionConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sqlserver\\sqlserver;Initial Catalog=TallerdeReparaciones;User ID=BDJo" +
+            "rge")]
+        public string TallerdeReparacionesConnectionString {
+            get {
+                return ((string)(this["TallerdeReparacionesConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sqlserver\\sqlserver;Initial Catalog=TallerdeReparacion;User ID=BDJorg" +
+            "e")]
+        public string TallerdeReparacionConnectionString {
+            get {
+                return ((string)(this["TallerdeReparacionConnectionString"]));
+            }
+        }
     }
 }

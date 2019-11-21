@@ -76,6 +76,7 @@
             this.btnIniciar.TabIndex = 6;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // btnRegis
             // 
@@ -99,6 +100,7 @@
             this.Controls.Add(this.lblUsuario);
             this.Name = "FormInicio";
             this.Text = "FormInicio";
+            this.Load += new System.EventHandler(this.FormInicio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

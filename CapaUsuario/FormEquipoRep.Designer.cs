@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCliente = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblProblem = new System.Windows.Forms.Label();
             this.txtProblem = new System.Windows.Forms.TextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
-            this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -43,23 +41,16 @@
             this.dgvEquipoRep = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipoRep)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblCliente
-            // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(16, 99);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(39, 13);
-            this.lblCliente.TabIndex = 0;
-            this.lblCliente.Text = "Cliente";
-            // 
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(16, 42);
+            this.lblDesc.Location = new System.Drawing.Point(16, 46);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(63, 13);
             this.lblDesc.TabIndex = 1;
@@ -83,19 +74,11 @@
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(85, 42);
+            this.txtDesc.Location = new System.Drawing.Point(85, 48);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(134, 52);
             this.txtDesc.TabIndex = 4;
-            // 
-            // cmbCliente
-            // 
-            this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(85, 99);
-            this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(134, 21);
-            this.cmbCliente.TabIndex = 5;
             // 
             // btnGuardar
             // 
@@ -105,6 +88,7 @@
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -114,6 +98,7 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEliminar
             // 
@@ -123,6 +108,7 @@
             this.btnEliminar.TabIndex = 19;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnNuevo
             // 
@@ -132,6 +118,7 @@
             this.btnNuevo.TabIndex = 18;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
@@ -146,11 +133,11 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.cmbCliente);
+            this.panel1.Controls.Add(this.lblCliente);
             this.panel1.Controls.Add(this.txtDesc);
             this.panel1.Controls.Add(this.txtProblem);
             this.panel1.Controls.Add(this.lblProblem);
             this.panel1.Controls.Add(this.lblDesc);
-            this.panel1.Controls.Add(this.lblCliente);
             this.panel1.Location = new System.Drawing.Point(12, 180);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 140);
@@ -181,6 +168,23 @@
             this.txtBuscar.Size = new System.Drawing.Size(343, 20);
             this.txtBuscar.TabIndex = 22;
             // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(16, 113);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(39, 13);
+            this.lblCliente.TabIndex = 5;
+            this.lblCliente.Text = "Cliente";
+            // 
+            // cmbCliente
+            // 
+            this.cmbCliente.FormattingEnabled = true;
+            this.cmbCliente.Location = new System.Drawing.Point(85, 110);
+            this.cmbCliente.Name = "cmbCliente";
+            this.cmbCliente.Size = new System.Drawing.Size(134, 21);
+            this.cmbCliente.TabIndex = 24;
+            // 
             // FormEquipoRep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,13 +211,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.Label lblProblem;
         private System.Windows.Forms.TextBox txtProblem;
         private System.Windows.Forms.TextBox txtDesc;
-        private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEliminar;
@@ -223,5 +224,7 @@
         private System.Windows.Forms.DataGridView dgvEquipoRep;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.ComboBox cmbCliente;
+        private System.Windows.Forms.Label lblCliente;
     }
 }

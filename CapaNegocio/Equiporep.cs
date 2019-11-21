@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -128,6 +129,7 @@ namespace CapaNegocio
                       where buscado == ""
                       || x.desc.ToLower().Trim().Contains(buscado.ToLower().Trim())
                       || x.problema.ToLower().Trim().Contains(buscado.ToLower().Trim())
+
                       select x;
 
             foreach (eEquiporep em in res)

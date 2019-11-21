@@ -40,7 +40,6 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNumtel = new System.Windows.Forms.Label();
             this.lblTipousu = new System.Windows.Forms.Label();
-            this.lblRepde = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.nupDni = new System.Windows.Forms.NumericUpDown();
@@ -48,7 +47,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.nupNumtel = new System.Windows.Forms.NumericUpDown();
             this.cmbTipousu = new System.Windows.Forms.ComboBox();
-            this.cmbRepde = new System.Windows.Forms.ComboBox();
             this.lblContra = new System.Windows.Forms.Label();
             this.txtContra = new System.Windows.Forms.TextBox();
             this.lblNomusu = new System.Windows.Forms.Label();
@@ -65,12 +63,13 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(376, 503);
+            this.btnGuardar.Location = new System.Drawing.Point(376, 472);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnNuevo
             // 
@@ -80,6 +79,7 @@
             this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
@@ -89,6 +89,7 @@
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -98,6 +99,7 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // dgvUsuario
             // 
@@ -170,15 +172,6 @@
             this.lblTipousu.TabIndex = 11;
             this.lblTipousu.Text = "Tipo de usuario";
             // 
-            // lblRepde
-            // 
-            this.lblRepde.AutoSize = true;
-            this.lblRepde.Location = new System.Drawing.Point(33, 259);
-            this.lblRepde.Name = "lblRepde";
-            this.lblRepde.Size = new System.Drawing.Size(77, 13);
-            this.lblRepde.TabIndex = 12;
-            this.lblRepde.Text = "Reparación de";
-            // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(116, 12);
@@ -229,14 +222,6 @@
             this.cmbTipousu.Size = new System.Drawing.Size(200, 21);
             this.cmbTipousu.TabIndex = 19;
             // 
-            // cmbRepde
-            // 
-            this.cmbRepde.FormattingEnabled = true;
-            this.cmbRepde.Location = new System.Drawing.Point(116, 251);
-            this.cmbRepde.Name = "cmbRepde";
-            this.cmbRepde.Size = new System.Drawing.Size(200, 21);
-            this.cmbRepde.TabIndex = 20;
-            // 
             // lblContra
             // 
             this.lblContra.AutoSize = true;
@@ -271,18 +256,18 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(462, 503);
+            this.btnCancelar.Location = new System.Drawing.Point(462, 472);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // pnlUsuario
             // 
             this.pnlUsuario.Controls.Add(this.txtNomusu);
             this.pnlUsuario.Controls.Add(this.lblNomusu);
-            this.pnlUsuario.Controls.Add(this.cmbRepde);
             this.pnlUsuario.Controls.Add(this.txtContra);
             this.pnlUsuario.Controls.Add(this.lblContra);
             this.pnlUsuario.Controls.Add(this.cmbTipousu);
@@ -292,7 +277,6 @@
             this.pnlUsuario.Controls.Add(this.nupDni);
             this.pnlUsuario.Controls.Add(this.txtApellido);
             this.pnlUsuario.Controls.Add(this.txtNombre);
-            this.pnlUsuario.Controls.Add(this.lblRepde);
             this.pnlUsuario.Controls.Add(this.lblTipousu);
             this.pnlUsuario.Controls.Add(this.lblNumtel);
             this.pnlUsuario.Controls.Add(this.lblEmail);
@@ -302,7 +286,7 @@
             this.pnlUsuario.Controls.Add(this.lblNombre);
             this.pnlUsuario.Location = new System.Drawing.Point(23, 237);
             this.pnlUsuario.Name = "pnlUsuario";
-            this.pnlUsuario.Size = new System.Drawing.Size(324, 289);
+            this.pnlUsuario.Size = new System.Drawing.Size(324, 258);
             this.pnlUsuario.TabIndex = 26;
             // 
             // btnBuscar
@@ -326,7 +310,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 534);
+            this.ClientSize = new System.Drawing.Size(549, 512);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.pnlUsuario);
@@ -338,6 +322,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Name = "FormUsuario";
             this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.FormUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupNumtel)).EndInit();
@@ -362,7 +347,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblNumtel;
         private System.Windows.Forms.Label lblTipousu;
-        private System.Windows.Forms.Label lblRepde;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.NumericUpDown nupDni;
@@ -370,7 +354,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.NumericUpDown nupNumtel;
         private System.Windows.Forms.ComboBox cmbTipousu;
-        private System.Windows.Forms.ComboBox cmbRepde;
         private System.Windows.Forms.Label lblContra;
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Label lblNomusu;

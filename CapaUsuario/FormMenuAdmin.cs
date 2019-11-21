@@ -7,26 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaNegocio;
 
 namespace CapaUsuario
 {
-    public partial class FormInicio : Form
+    public partial class FormMenuAdmin : Form
     {
-        private Usuario user;
-        public FormInicio()
+        public FormMenuAdmin()
         {
             InitializeComponent();
-        }
-
-        private void FormInicio_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnIniciar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

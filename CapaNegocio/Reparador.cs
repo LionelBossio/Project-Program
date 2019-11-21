@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
@@ -12,6 +13,8 @@ namespace CapaNegocio
         private int idrep;
         private int cantrep;
         private int cantcliente;
+        private int fkusuario;
+        private Usuario usuario;
         #region Properties
         public int Idrep
         {
@@ -51,6 +54,34 @@ namespace CapaNegocio
                 cantcliente = value;
             }
         }
+
+        [Browsable(false)]
+        public int Fkusuario
+        {
+            get
+            {
+                return fkusuario;
+            }
+
+            set
+            {
+                fkusuario = value;
+            }
+        }
+
+        public Usuario Usuario
+        {
+            get
+            {
+                return usuario;
+            }
+
+            set
+            {
+                usuario = value;
+                Fkusuario = value.Idusu;
+            }
+        }
         #endregion
         #region Contructor
         public Reparador()
@@ -58,12 +89,14 @@ namespace CapaNegocio
             idrep = 0;
             cantrep = 0;
             cantcliente = 0;
+            fkusuario = 0;
         }
-        public Reparador(int idrep, int cantrep, int cantcliente)
+        public Reparador(int idrep, int cantrep, int cantcliente, int fkusuario)
         {
             this.idrep = idrep;
             this.cantrep = cantrep;
             this.cantcliente = cantcliente;
+            this.fkusuario = fkusuario;
         }
         #endregion
         public static Reparador BuscarPorId(int id)
@@ -75,7 +108,7 @@ namespace CapaNegocio
             if (res.Count() > 0)
             {
                 var x = res.First();
-                return new Reparador(x.idrep, x.cantrep, x.cantcliente);
+                return new Reparador(x.idrep, x.cantrep, x.cantcliente,x.fkusuario);
             }
             return null;
         }
@@ -99,6 +132,7 @@ namespace CapaNegocio
 
             fila.cantrep = cantrep;
             fila.cantcliente = cantcliente;
+            fila.fkusuario = fkusuario;
 
             if (this.idrep == 0)
                 dc.eReparadors.InsertOnSubmit(fila);
@@ -129,11 +163,12 @@ namespace CapaNegocio
                       where buscado == ""
                       || x.cantrep.ToString() == buscado.Trim()
                       || x.cantcliente.ToString() == buscado.Trim()
+                      || x.fkusuario.ToString() == buscado.Trim()
                       select x;
 
             foreach (eReparador em in res)
             {
-                Reparadores.Add(new Reparador(em.idrep, em.cantrep, em.cantcliente));
+                Reparadores.Add(new Reparador(em.idrep, em.cantrep, em.cantcliente,em.fkusuario));
             }
 
             return Reparadores;
