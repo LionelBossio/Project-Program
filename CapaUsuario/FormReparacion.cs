@@ -14,6 +14,8 @@ namespace CapaUsuario
     public partial class FormReparacion : Form
     {
         private Reparacion rep;
+        private string anterior;
+
         public FormReparacion()
         {
             InitializeComponent();
@@ -37,24 +39,38 @@ namespace CapaUsuario
 
         private void Buscar(string buscado)
         {
-            dgvReparacion.DataSource = Reparacion.Buscar();
+            try
+            { 
+                dgvReparacion.DataSource = Reparacion.Buscar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error de busqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvReparacion.CurrentRow!= null)
+            try
             {
-                ZonaDatos(true);
-                rep = dgvReparacion.CurrentRow.DataBoundItem as Reparacion;
+                if (dgvReparacion.CurrentRow != null)
+                {
+                    ZonaDatos(true);
+                    rep = dgvReparacion.CurrentRow.DataBoundItem as Reparacion;
 
-                cmbArticulo.Text = rep.Articulo.ToString();
-                cmbEntrega.Text = rep.Entrega.ToString();
-                cmbEquiprep.Text = rep.Equiporep.ToString();
-                cmbRep.Text = rep.Reparador.ToString();
-                dtpFecInicio.Value = rep.Fecini;
+                    cmbArticulo.Text = rep.Articulo.ToString();
+                    cmbEntrega.Text = rep.Entrega.ToString();
+                    cmbEquiprep.Text = rep.Equiporep.ToString();
+                    cmbRep.Text = rep.Reparador.ToString();
+                    dtpFecInicio.Value = rep.Fecini;
+                }
+                else
+                    MessageBox.Show("Seleccione una Reparacion", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione una Reparacion", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al extraer informacion para modificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         
         private void ZonaDatos(bool mostrar)
@@ -76,17 +92,24 @@ namespace CapaUsuario
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(dgvReparacion.CurrentRow!=null)
+            try
             {
-                rep = dgvReparacion.CurrentRow.DataBoundItem as Reparacion;
-                if (MessageBox.Show("¿Quiere eliminar" + rep.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvReparacion.CurrentRow != null)
                 {
-                    rep.Eliminar();
-                    Buscar(txtBuscar.Text);
+                    rep = dgvReparacion.CurrentRow.DataBoundItem as Reparacion;
+                    if (MessageBox.Show("¿Quiere eliminar" + rep.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        rep.Eliminar();
+                        Buscar(txtBuscar.Text);
+                    }
                 }
+                else
+                    MessageBox.Show("Seleccione un artículo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione un artículo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al tratar de eliminar la reparacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -113,6 +136,27 @@ namespace CapaUsuario
         {
             ZonaDatos(false);
             rep = null;
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            if (anterior == "r")
+            {
+                FormMenuRecepcion f = new FormMenuRecepcion();
+                f.Show();
+                this.Close();
+            }
+            if (anterior == "a")
+            {
+                FormMenuAdmin f = new FormMenuAdmin();
+                f.Show();
+                this.Close();
+            }
+        }
+
+        public void Anterior(string ant)
+        {
+            anterior = ant;
         }
     }
 }

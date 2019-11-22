@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CapaUsuario
 {
-    public partial class FormMenuAdmin : Form
+    public partial class FormMenuRecepcion : Form
     {
-        public FormMenuAdmin()
+        public FormMenuRecepcion()
         {
             InitializeComponent();
         }
@@ -27,21 +27,7 @@ namespace CapaUsuario
         private void btnArticulo_Click(object sender, EventArgs e)
         {
             FormArticulo f = new FormArticulo();
-            f.Anterior("a");
-            f.Show();
-            this.Hide();
-        }
-
-        private void btnUsuario_Click(object sender, EventArgs e)
-        {
-            FormUsuario f = new FormUsuario();
-            f.Show();
-            this.Hide();
-        }
-
-        private void btnTipoUsu_Click(object sender, EventArgs e)
-        {
-            FormTipoUsuario f = new FormTipoUsuario();
+            f.Anterior("r");
             f.Show();
             this.Hide();
         }
@@ -49,7 +35,7 @@ namespace CapaUsuario
         private void btnReparacion_Click(object sender, EventArgs e)
         {
             FormReparacion f = new FormReparacion();
-            f.Anterior("a");
+            f.Anterior("r");
             f.Show();
             this.Hide();
         }
@@ -57,7 +43,7 @@ namespace CapaUsuario
         private void btnEntrega_Click(object sender, EventArgs e)
         {
             FormEntrega f = new FormEntrega();
-            f.Anterior("a");
+            f.Anterior("r");
             f.Show();
             this.Hide();
         }
@@ -65,7 +51,7 @@ namespace CapaUsuario
         private void btnCliente_Click(object sender, EventArgs e)
         {
             FormCliente f = new FormCliente();
-            f.Anterior("a");
+            f.Anterior("r");
             f.Show();
             this.Hide();
         }
@@ -73,7 +59,7 @@ namespace CapaUsuario
         private void btnEquipoRep_Click(object sender, EventArgs e)
         {
             FormEquipoRep f = new FormEquipoRep();
-            f.Anterior("a");
+            f.Anterior("r");
             f.Show();
             this.Hide();
         }
@@ -81,7 +67,7 @@ namespace CapaUsuario
         private void btnReparador_Click(object sender, EventArgs e)
         {
             FormReparador f = new FormReparador();
-            f.Anterior("a");
+            f.Anterior("r");
             f.Show();
             this.Hide();
         }
@@ -89,7 +75,7 @@ namespace CapaUsuario
         private void btnReportes_Click(object sender, EventArgs e)
         {
             FormReportes f = new FormReportes();
-            f.Anterior("a");
+            f.Anterior("r");
             f.Show();
             this.Hide();
         }

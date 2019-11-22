@@ -41,11 +41,11 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.pnlEquipoRep = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvEquipoRep = new System.Windows.Forms.DataGridView();
             this.btnAtras = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlEquipoRep.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipoRep)).BeginInit();
@@ -173,6 +173,17 @@
             this.pnlEquipoRep.Size = new System.Drawing.Size(358, 374);
             this.pnlEquipoRep.TabIndex = 20;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(50)))));
+            this.label1.Location = new System.Drawing.Point(13, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 19);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Equipo a reparar";
+            // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
@@ -243,17 +254,7 @@
             this.btnAtras.TabIndex = 25;
             this.btnAtras.Text = "Atras";
             this.btnAtras.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(50)))));
-            this.label1.Location = new System.Drawing.Point(13, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 19);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Equipo a reparar";
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // label2
             // 
@@ -284,7 +285,6 @@
             this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormEquipoRep";
             this.Text = "Equipo a reparar";
-            this.Load += new System.EventHandler(this.FormEquipoRep_Load);
             this.pnlEquipoRep.ResumeLayout(false);
             this.pnlEquipoRep.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipoRep)).EndInit();

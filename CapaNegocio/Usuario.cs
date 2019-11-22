@@ -283,13 +283,14 @@ namespace CapaNegocio
             return Usuarios;
         }
 
-        public bool Verificar(string nomusu, int id)
+        public bool Verificar(string nomusu, int id, int dni)
         {
             List<Usuario> Usuarios = new List<Usuario>();
             DCDataContext dc = new DCDataContext(Conexion.DarConexion());
             var res = from x in dc.eUsuarios
                       where x.nomusu.ToLower().Trim().Contains(nomusu.ToLower().Trim())
-                      || x.idusu!=id
+                      && x.idusu!=id
+                      && x.dni!=dni
                       select x;
 
             if (res != null)
@@ -321,6 +322,12 @@ namespace CapaNegocio
             {
                 return null;
             }
+        }
+
+        public override string ToString()
+        {
+            //return string.Concat(ideq);
+            return nomusu;
         }
     }
 }

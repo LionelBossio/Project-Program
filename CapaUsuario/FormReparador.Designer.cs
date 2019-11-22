@@ -42,6 +42,7 @@
             this.dgvReparador = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nupCantrep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupCantcliente)).BeginInit();
             this.pnlReparador.SuspendLayout();
@@ -82,7 +83,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(384, 343);
+            this.btnCancelar.Location = new System.Drawing.Point(385, 289);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 4;
@@ -92,7 +93,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(303, 343);
+            this.btnGuardar.Location = new System.Drawing.Point(304, 289);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 5;
@@ -132,7 +133,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(343, 287);
+            this.btnEliminar.Location = new System.Drawing.Point(347, 260);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 23;
@@ -142,7 +143,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(343, 256);
+            this.btnModificar.Location = new System.Drawing.Point(347, 229);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 21;
@@ -175,11 +176,22 @@
             this.txtBuscar.Size = new System.Drawing.Size(366, 20);
             this.txtBuscar.TabIndex = 25;
             // 
+            // btnAtras
+            // 
+            this.btnAtras.Location = new System.Drawing.Point(306, 322);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(154, 45);
+            this.btnAtras.TabIndex = 27;
+            this.btnAtras.Text = "Atras";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // FormReparador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 379);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvReparador);
@@ -217,5 +229,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ComboBox cmbUsuario;
         private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

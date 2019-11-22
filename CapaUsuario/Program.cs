@@ -16,7 +16,7 @@ namespace CapaUsuario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormArticulo());
+            Application.Run(new FormInicio());
         }
     }
 }

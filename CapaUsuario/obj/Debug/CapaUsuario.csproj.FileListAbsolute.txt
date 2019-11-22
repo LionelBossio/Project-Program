@@ -104,3 +104,6 @@ C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\Capa
 C:\Users\Lionel\Desktop\Project-Program-master - copia\LionelBossio\Project-Program\CapaUsuario\bin\Debug\CapaUsuario.exe.config
 C:\Users\Lionel\Desktop\Project-Program-master - copia\LionelBossio\Project-Program\CapaUsuario\obj\Debug\CapaUsuario.exe
 C:\Users\Lionel\Desktop\Project-Program-master - copia\LionelBossio\Project-Program\CapaUsuario\obj\Debug\CapaUsuario.pdb
+C:\Users\quimey-pc\Source\Repos\LionelBossio\Project-Program\CapaUsuario\bin\Debug\CapaUsuario.exe.config
+C:\Users\quimey-pc\Source\Repos\LionelBossio\Project-Program\CapaUsuario\obj\Debug\CapaUsuario.exe
+C:\Users\quimey-pc\Source\Repos\LionelBossio\Project-Program\CapaUsuario\obj\Debug\CapaUsuario.pdb

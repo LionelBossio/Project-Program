@@ -142,7 +142,8 @@ namespace CapaNegocio
 
         public override string ToString()
         {
-            return string.Concat(ideq);
+            //return string.Concat(ideq);
+            return desc;
         }
     }
 }

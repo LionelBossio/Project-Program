@@ -14,16 +14,13 @@ namespace CapaUsuario
     public partial class FormEntrega : Form
     {
         private Entrega entr;
+        private string anterior;
+
         public FormEntrega()
         {
             InitializeComponent();
             pnlEntrega.Enabled = false;
             Buscar(txtBuscar.Text);
-        }
-
-        private void FormEntrega_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -33,12 +30,21 @@ namespace CapaUsuario
 
         private void Buscar(string buscado)
         {
-            dgvEntrega.DataSource = Entrega.Buscar(buscado);
+            try
+            {
+                dgvEntrega.DataSource = Entrega.Buscar(buscado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error de busqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(dgvEntrega.CurrentRow!=null)
+            try
+            {
+                if (dgvEntrega.CurrentRow!=null)
             {
                 ZonaDatos(true);
                 entr = dgvEntrega.CurrentRow.DataBoundItem as Entrega;
@@ -48,6 +54,11 @@ namespace CapaUsuario
             }
             else
                 MessageBox.Show("Seleccione una Entrega", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al extraer informacion para modificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ZonaDatos(bool mostrar)
@@ -66,17 +77,24 @@ namespace CapaUsuario
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvEntrega.CurrentRow!=null)
+            try
             {
-                entr = dgvEntrega.CurrentRow.DataBoundItem as Entrega;
-                if(MessageBox.Show("¿Quiere eliminar la entrega Nro " + entr.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvEntrega.CurrentRow != null)
                 {
-                    entr.Eliminar();
-                    Buscar(txtBuscar.Text);
+                    entr = dgvEntrega.CurrentRow.DataBoundItem as Entrega;
+                    if (MessageBox.Show("¿Quiere eliminar la entrega Nro " + entr.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        entr.Eliminar();
+                        Buscar(txtBuscar.Text);
+                    }
                 }
+                else
+                    MessageBox.Show("Seleccione una Entrega", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione una Entrega", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al tratar de eliminar la entrega", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -101,6 +119,27 @@ namespace CapaUsuario
         {
             ZonaDatos(false);
             entr = null;
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            if (anterior == "r")
+            {
+                FormMenuRecepcion f = new FormMenuRecepcion();
+                f.Show();
+                this.Close();
+            }
+            if (anterior == "a")
+            {
+                FormMenuAdmin f = new FormMenuAdmin();
+                f.Show();
+                this.Close();
+            }
+        }
+
+        public void Anterior(string ant)
+        {
+            anterior = ant;
         }
     }
 }

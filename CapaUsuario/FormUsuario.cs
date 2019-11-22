@@ -26,7 +26,6 @@ namespace CapaUsuario
 
         private void FormUsuario_Load(object sender, EventArgs e)
         {
-            //cmbRepde.DataSource = Reparador.Buscar();
             cmbTipousu.DataSource = Tipousu.Buscar();
         }
 
@@ -37,7 +36,14 @@ namespace CapaUsuario
 
         private void Buscar(string buscado)
         {
-            dgvUsuario.DataSource = Usuario.Buscar(buscado);
+            try
+            {
+                dgvUsuario.DataSource = Usuario.Buscar(buscado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error de busqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -63,40 +69,54 @@ namespace CapaUsuario
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvUsuario.CurrentRow != null)
+            try
             {
-                ZonaDatos(true);
-                user = dgvUsuario.CurrentRow.DataBoundItem as Usuario;
+                if (dgvUsuario.CurrentRow != null)
+                {
+                    ZonaDatos(true);
+                    user = dgvUsuario.CurrentRow.DataBoundItem as Usuario;
 
-                txtNombre.Text = user.Nombre;
-                txtApellido.Text = user.Apellido;
-                txtContra.Text = user.Contraseña;
-                txtNomusu.Text = user.Nomusu;
-                nupDni.Value = user.Dni;
-                dtpFecnac.Value = user.Fecnac;
-                txtEmail.Text = user.Email;
-                nupNumtel.Value = user.Numtel;
-                cmbTipousu.Text = user.Tipousu.ToString();
+                    txtNombre.Text = user.Nombre;
+                    txtApellido.Text = user.Apellido;
+                    txtContra.Text = user.Contraseña;
+                    txtNomusu.Text = user.Nomusu;
+                    nupDni.Value = user.Dni;
+                    dtpFecnac.Value = user.Fecnac;
+                    txtEmail.Text = user.Email;
+                    nupNumtel.Value = user.Numtel;
+                    cmbTipousu.Text = user.Tipousu.ToString();
 
-                original = user;
-                nuevo = false;
+                    original = user;
+                    nuevo = false;
+                }
+                else
+                    MessageBox.Show("Seleccione un Usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione un Usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al extraer informacion para modificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvUsuario.CurrentRow != null)
+            try
             {
-                user = dgvUsuario.CurrentRow.DataBoundItem as Usuario;
-                if (MessageBox.Show("¿Quiere eliminar" + user.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvUsuario.CurrentRow != null)
                 {
-                    user.Eliminar();
+                    user = dgvUsuario.CurrentRow.DataBoundItem as Usuario;
+                    if (MessageBox.Show("¿Quiere eliminar" + user.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        user.Eliminar();
+                    }
                 }
+                else
+                    MessageBox.Show("Seleccione un articulo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione un articulo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al tratar de eliminar usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -105,7 +125,7 @@ namespace CapaUsuario
             {
                 if (nuevo)
                 {
-                    if (user.Verificar(txtNomusu.Text,0))
+                    if (user.Verificar(txtNomusu.Text,0,Convert.ToInt32(nupDni.Value)))
                     {
                         GuardarUsu();
                         if (cmbTipousu.Text == "Reparador") //------------------- Si es reparador lo crea--------------------------------
@@ -119,11 +139,11 @@ namespace CapaUsuario
                         }
                     }
                     else
-                        MessageBox.Show("Ya existe alguien con ese nombre de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Ya existe alguien con ese nombre de usuario o dni", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
-                    if (user.Verificar(txtNomusu.Text, original.Idusu))
+                    if (user.Verificar(txtNomusu.Text, original.Idusu, Convert.ToInt32(nupDni.Value)))
                     {
                         if (original.Tipousu.Tipodeusu == cmbTipousu.Text)
                         {
@@ -149,6 +169,8 @@ namespace CapaUsuario
                             }
                         }
                     }
+                    else
+                        MessageBox.Show("Ya existe alguien con ese nombre de usuario o dni", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 ZonaDatos(false);
                 Buscar(txtBuscar.Text);
@@ -181,6 +203,13 @@ namespace CapaUsuario
             original = null;
             user = null;
             rep = null;
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            FormMenuAdmin f = new FormMenuAdmin();
+            f.Show();
+            this.Close();
         }
     }
 }

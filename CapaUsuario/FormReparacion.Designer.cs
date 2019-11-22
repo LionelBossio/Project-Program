@@ -49,6 +49,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparacion)).BeginInit();
             this.pnlReparacion.SuspendLayout();
             this.SuspendLayout();
@@ -149,7 +150,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(354, 372);
+            this.btnGuardar.Location = new System.Drawing.Point(354, 325);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 12;
@@ -193,7 +194,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(390, 336);
+            this.btnEliminar.Location = new System.Drawing.Point(390, 289);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 23;
@@ -203,7 +204,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(390, 301);
+            this.btnNuevo.Location = new System.Drawing.Point(390, 254);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 22;
@@ -213,7 +214,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(390, 267);
+            this.btnModificar.Location = new System.Drawing.Point(390, 220);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 21;
@@ -223,7 +224,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(435, 372);
+            this.btnCancelar.Location = new System.Drawing.Point(435, 325);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 20;
@@ -248,11 +249,22 @@
             this.txtBuscar.Size = new System.Drawing.Size(417, 20);
             this.txtBuscar.TabIndex = 24;
             // 
+            // btnAtras
+            // 
+            this.btnAtras.Location = new System.Drawing.Point(354, 362);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(156, 33);
+            this.btnAtras.TabIndex = 26;
+            this.btnAtras.Text = "Atras";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // FormReparacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 405);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnEliminar);
@@ -296,5 +308,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

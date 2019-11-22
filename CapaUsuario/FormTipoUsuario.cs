@@ -28,20 +28,34 @@ namespace CapaUsuario
 
         private void Buscar(string buscado)
         {
-            dgvTipoUsu.DataSource = Tipousu.Buscar(buscado);
+            try
+            {
+                dgvTipoUsu.DataSource = Tipousu.Buscar(buscado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error de busqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvTipoUsu.CurrentRow!= null)
+            try
             {
-                ZonaDatos(true);
-                tip = dgvTipoUsu.CurrentRow.DataBoundItem as Tipousu;
-                txtDesc.Text = tip.Desc;
-                txtTipousu.Text = tip.Tipodeusu;
+                if (dgvTipoUsu.CurrentRow != null)
+                {
+                    ZonaDatos(true);
+                    tip = dgvTipoUsu.CurrentRow.DataBoundItem as Tipousu;
+                    txtDesc.Text = tip.Desc;
+                    txtTipousu.Text = tip.Tipodeusu;
+                }
+                else
+                    MessageBox.Show("Seleccione un Tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione un Tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al extraer informacion para modificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ZonaDatos(bool mostrar)
@@ -59,17 +73,24 @@ namespace CapaUsuario
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(dgvTipoUsu.CurrentRow!=null)
+            try
             {
-                tip = dgvTipoUsu.CurrentRow.DataBoundItem as Tipousu;
-                if (MessageBox.Show("¿Quiere eliminar" + tip.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvTipoUsu.CurrentRow != null)
                 {
-                    tip.Eliminar();
-                    Buscar(txtBuscar.Text);
+                    tip = dgvTipoUsu.CurrentRow.DataBoundItem as Tipousu;
+                    if (MessageBox.Show("¿Quiere eliminar" + tip.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        tip.Eliminar();
+                        Buscar(txtBuscar.Text);
+                    }
                 }
+                else
+                    MessageBox.Show("Seleccione un Tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione un Tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al tratar de eliminar el tipo de usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -92,6 +113,13 @@ namespace CapaUsuario
         {
             ZonaDatos(false);
             tip = null;
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            FormMenuAdmin f = new FormMenuAdmin();
+            f.Show();
+            this.Close();
         }
     }
 }

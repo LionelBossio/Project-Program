@@ -14,6 +14,8 @@ namespace CapaUsuario
     public partial class FormArticulo : Form
     {
         private Articulo art;
+        private string anterior;
+
         public FormArticulo()
         {
             InitializeComponent();
@@ -63,34 +65,55 @@ namespace CapaUsuario
 
         private void Buscar(string buscado)
         {
-            dgvArticulo.DataSource = Articulo.Buscar(buscado);
+            try
+            {
+                dgvArticulo.DataSource = Articulo.Buscar(buscado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error de busqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvArticulo.CurrentRow != null)
+            try
             {
-                art = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
-                if (MessageBox.Show("¿Quiere eliminar" + " " + art.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvArticulo.CurrentRow != null)
                 {
-                    art.Eliminar();
-                    Buscar(txtBuscar.Text);
+                    art = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
+                    if (MessageBox.Show("¿Quiere eliminar" + " " + art.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        art.Eliminar();
+                        Buscar(txtBuscar.Text);
+                    }
                 }
+                else
+                    MessageBox.Show("Seleccione un articulo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione un articulo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al tratar de eliminar el articulo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(dgvArticulo.CurrentRow != null)
+            try
             {
-                ZonadeDatos(true);
-                art = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
-                CargarSeleccionado();
+                if (dgvArticulo.CurrentRow != null)
+                {
+                    ZonadeDatos(true);
+                    art = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
+                    CargarSeleccionado();
+                }
+                else
+                    MessageBox.Show("Seleccione un artículo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione un artículo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al extraer informacion para modificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -98,14 +121,25 @@ namespace CapaUsuario
             Buscar(txtBuscar.Text);
         }
 
-        private void FormArticulo_Load(object sender, EventArgs e)
+        private void btnAtras_Click(object sender, EventArgs e)
         {
-
+            if (anterior == "r")
+            {
+                FormMenuRecepcion f = new FormMenuRecepcion();
+                f.Show();
+                this.Close();
+            }
+            if (anterior == "a")
+            {
+                FormMenuAdmin f = new FormMenuAdmin();
+                f.Show();
+                this.Close();
+            }
         }
 
-        private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void Anterior(string ant)
         {
-
+            anterior = ant;
         }
     }
 }

@@ -285,6 +285,7 @@
             this.btnAtras.TabIndex = 21;
             this.btnAtras.Text = "Atras";
             this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // lblLE
             // 
@@ -316,7 +317,6 @@
             this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormEntrega";
             this.Text = "Entrega";
-            this.Load += new System.EventHandler(this.FormEntrega_Load);
             this.pnlEntrega.ResumeLayout(false);
             this.pnlEntrega.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntrega)).EndInit();

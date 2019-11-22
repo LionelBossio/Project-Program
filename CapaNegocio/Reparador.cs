@@ -187,5 +187,11 @@ namespace CapaNegocio
             }
             return null;
         }
+
+        public override string ToString()
+        {
+            //return string.Concat(ideq);
+            return usuario.Nombre;
+        }
     }
 }

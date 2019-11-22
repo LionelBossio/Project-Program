@@ -41,6 +41,7 @@
             this.dgvTipoUsu = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnAtras = new System.Windows.Forms.Button();
             this.pnlTipoUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipoUsu)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +81,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(283, 307);
+            this.btnGuardar.Location = new System.Drawing.Point(294, 270);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 4;
@@ -90,7 +91,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(364, 307);
+            this.btnCancelar.Location = new System.Drawing.Point(375, 270);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -100,7 +101,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(326, 276);
+            this.btnEliminar.Location = new System.Drawing.Point(334, 216);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 23;
@@ -110,7 +111,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(326, 241);
+            this.btnNuevo.Location = new System.Drawing.Point(375, 187);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 22;
@@ -120,7 +121,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(326, 207);
+            this.btnModificar.Location = new System.Drawing.Point(294, 187);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 21;
@@ -164,11 +165,22 @@
             this.txtBuscar.Size = new System.Drawing.Size(346, 20);
             this.txtBuscar.TabIndex = 26;
             // 
+            // btnAtras
+            // 
+            this.btnAtras.Location = new System.Drawing.Point(294, 297);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(156, 34);
+            this.btnAtras.TabIndex = 28;
+            this.btnAtras.Text = "Atras";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // FormTipoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 343);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvTipoUsu);
@@ -203,5 +215,6 @@
         private System.Windows.Forms.DataGridView dgvTipoUsu;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

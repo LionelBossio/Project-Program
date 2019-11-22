@@ -14,15 +14,13 @@ namespace CapaUsuario
     public partial class FormEquipoRep : Form
     {
         private Equiporep eqrep;
+        private string anterior;
+
         public FormEquipoRep()
         {
             InitializeComponent();
             pnlEquipoRep.Enabled = false;
             Buscar(txtBuscar.Text);
-        }
-
-        private void FormEquipoRep_Load(object sender, EventArgs e)
-        {
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -32,12 +30,21 @@ namespace CapaUsuario
 
         private void Buscar(string buscado)
         {
-            dgvEquipoRep.DataSource = Equiporep.Buscar(buscado);
+            try
+            {
+                dgvEquipoRep.DataSource = Equiporep.Buscar(buscado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error de busqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvEquipoRep.CurrentRow!= null)
+            try
+            {
+                if (dgvEquipoRep.CurrentRow!= null)
             {
                 ZonaDatos(true);
                 eqrep = dgvEquipoRep.CurrentRow.DataBoundItem as Equiporep;
@@ -47,6 +54,11 @@ namespace CapaUsuario
             }
             else
                 MessageBox.Show("Seleccione un Equipo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al extraer informacion para modificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ZonaDatos(bool mostrar)
@@ -64,7 +76,9 @@ namespace CapaUsuario
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvEquipoRep.CurrentRow != null)
+            try
+            {
+                if (dgvEquipoRep.CurrentRow != null)
             {
                 eqrep = dgvEquipoRep.CurrentRow.DataBoundItem as Equiporep;
                 if (MessageBox.Show("¿Quiere eliminar" + eqrep.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -75,6 +89,11 @@ namespace CapaUsuario
             }
             else
                 MessageBox.Show("Seleccione un Equipo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al tratar de eliminar el equipo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -97,6 +116,27 @@ namespace CapaUsuario
         {
             ZonaDatos(false);
             eqrep = null;
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            if (anterior == "r")
+            {
+                FormMenuRecepcion f = new FormMenuRecepcion();
+                f.Show();
+                this.Close();
+            }
+            if (anterior == "a")
+            {
+                FormMenuAdmin f = new FormMenuAdmin();
+                f.Show();
+                this.Close();
+            }
+        }
+
+        public void Anterior(string ant)
+        {
+            anterior = ant;
         }
     }
 }

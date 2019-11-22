@@ -296,5 +296,10 @@ namespace CapaNegocio
 
             return Reparaciones;
         }
+
+        public override string ToString()
+        {
+            return string.Concat(idr);
+        }
     }
 }

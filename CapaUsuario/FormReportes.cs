@@ -14,6 +14,7 @@ namespace CapaUsuario
 {
     public partial class FormReportes : Form
     {
+        private string anterior;
         public FormReportes()
         {
             InitializeComponent();
@@ -21,7 +22,15 @@ namespace CapaUsuario
 
         private void FormReportes_Load(object sender, EventArgs e)
         {
-            Mostrar();
+            try
+            {
+                Mostrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al bajar los reportes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Atras();
+            }
         }
         private void Mostrar()
         {
@@ -30,6 +39,32 @@ namespace CapaUsuario
             
             this.rv.RefreshReport();
 
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            Atras();
+        }
+
+        public void Anterior(string ant)
+        {
+            anterior = ant;
+        }
+   
+        public void Atras()
+        {
+            if (anterior == "r")
+            {
+                FormMenuRecepcion f = new FormMenuRecepcion();
+                f.Show();
+                this.Close();
+            }
+            if (anterior == "a")
+            {
+                FormMenuAdmin f = new FormMenuAdmin();
+                f.Show();
+                this.Close();
+            }
         }
     }
 }
