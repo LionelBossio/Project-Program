@@ -16,6 +16,7 @@ namespace CapaNegocio
         private string nombre;
         private int telefono;
         #region Properties
+        [DisplayName("ID")]
         public int Idcli
         {
             get
@@ -29,7 +30,7 @@ namespace CapaNegocio
             }
         }
 
-
+        [DisplayName("Nombre")]
         public string Nombre
         {
             get

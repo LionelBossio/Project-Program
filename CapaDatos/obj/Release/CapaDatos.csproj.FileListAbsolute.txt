@@ -1,0 +1,6 @@
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\bin\Release\CapaDatos.dll.config
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\bin\Release\CapaDatos.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\bin\Release\CapaDatos.pdb
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\obj\Release\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\obj\Release\CapaDatos.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\obj\Release\CapaDatos.pdb

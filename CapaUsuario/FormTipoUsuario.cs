@@ -44,10 +44,17 @@ namespace CapaUsuario
             {
                 if (dgvTipoUsu.CurrentRow != null)
                 {
-                    ZonaDatos(true);
-                    tip = dgvTipoUsu.CurrentRow.DataBoundItem as Tipousu;
-                    txtDesc.Text = tip.Desc;
-                    txtTipousu.Text = tip.Tipodeusu;
+                    if (dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Reparador" || dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Administrador" || dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Recepcionista")
+                    {
+                        MessageBox.Show("No puede modificar a los tipos de usuario por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        ZonaDatos(true);
+                        tip = dgvTipoUsu.CurrentRow.DataBoundItem as Tipousu;
+                        txtDesc.Text = tip.Desc;
+                        txtTipousu.Text = tip.Tipodeusu;
+                    }
                 }
                 else
                     MessageBox.Show("Seleccione un Tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -75,9 +82,13 @@ namespace CapaUsuario
         {
             try
             {
-                if (dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Reparador" || dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Administrador" || dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Recepcionista")
+                if (dgvTipoUsu.CurrentRow != null)
                 {
-                    if (dgvTipoUsu.CurrentRow != null)
+                    if (dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Reparador" || dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Administrador" || dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Recepcionista")
+                    {
+                        MessageBox.Show("No puede eliminar a los tipos de usuario por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
                     {
                         tip = dgvTipoUsu.CurrentRow.DataBoundItem as Tipousu;
                         if (MessageBox.Show("¿Quiere eliminar" + tip.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -86,10 +97,9 @@ namespace CapaUsuario
                             Buscar(txtBuscar.Text);
                         }
                     }
-                    else
-                        MessageBox.Show("Seleccione un Tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }else
-                    MessageBox.Show("No puede eliminar a los tipos de usuario por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    MessageBox.Show("Seleccione un Tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -101,11 +111,18 @@ namespace CapaUsuario
         {
             try
             {
-                tip.Desc = txtDesc.Text;
-                tip.Tipodeusu = txtTipousu.Text;
-                tip.Guardar();
-                ZonaDatos(false);
-                Buscar(txtBuscar.Text);
+                if (tip.Verificar(txtTipousu.Text))
+                {
+                    tip.Desc = txtDesc.Text;
+                    tip.Tipodeusu = txtTipousu.Text;
+                    tip.Guardar();
+                    ZonaDatos(false);
+                    Buscar(txtBuscar.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe este tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
@@ -121,9 +138,19 @@ namespace CapaUsuario
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void FormTipoUsuario_FormClosing(object sender, FormClosingEventArgs e)
+        {
             FormMenuAdmin f = new FormMenuAdmin();
             f.Show();
-            this.Close();
+        }
+
+        private void FormTipoUsuario_Load(object sender, EventArgs e)
+        {
+            Buscar(txtBuscar.Text);
+            ZonaDatos(false);
         }
     }
 }

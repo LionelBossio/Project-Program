@@ -31,22 +31,23 @@ namespace CapaUsuario
                     if (user.Tipousu.Tipodeusu.ToLower() == "administrador")
                     {
                         FormMenuAdmin f = new FormMenuAdmin();
-                        this.Hide();
                         f.Show();
+                        this.Hide();
                     }
                     else
                     {
                         if (user.Tipousu.Tipodeusu.ToLower() == "reparador")
                         {
                             FormEquipoRep f = new FormEquipoRep();
-                            this.Hide();
+                            f.Anterior("re");
                             f.Show();
+                            this.Hide();
                         }
                         else
                         {
                             FormMenuRecepcion f = new FormMenuRecepcion();
-                            this.Hide();
                             f.Show();
+                            this.Hide();
                         }
                     }
                 }
@@ -57,13 +58,14 @@ namespace CapaUsuario
             {
                 MessageBox.Show(ex.Message, "Error al iniciar sesion, vuelva a intentarlo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            user = null;
         }
 
         public Usuario VerificarUsuario()
         {
             Usuarios = Usuario.Buscar();
             var res = from x in Usuarios
-                      where x.Nombre == txtUsuario.Text
+                      where x.Nomusu == txtUsuario.Text
                       && x.Contraseña == txtContra.Text
                       select x;
 
@@ -76,6 +78,12 @@ namespace CapaUsuario
             {
                 return null;
             }
+        }
+
+        private void FormInicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.ExitThread();
+            Application.Exit();
         }
     }
 }

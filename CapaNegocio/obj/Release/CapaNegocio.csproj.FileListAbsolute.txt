@@ -1,0 +1,7 @@
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\bin\Release\CapaNegocio.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\bin\Release\CapaNegocio.pdb
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\bin\Release\CapaDatos.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\bin\Release\CapaDatos.pdb
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\obj\Release\CapaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\obj\Release\CapaNegocio.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\obj\Release\CapaNegocio.pdb

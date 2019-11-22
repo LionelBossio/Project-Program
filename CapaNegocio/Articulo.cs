@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 using CapaDatos;
 
 namespace CapaNegocio
@@ -14,6 +15,7 @@ namespace CapaNegocio
         private string desc;
         private int cant;
         #region Properties
+        [DisplayName("ID")]
         public int Idart
         {
             get
@@ -26,7 +28,7 @@ namespace CapaNegocio
                 idart = value;
             }
         }
-
+        [DisplayName("Nombre")]
         public string Nombre
         {
             get
@@ -39,7 +41,7 @@ namespace CapaNegocio
                 nombre = value;
             }
         }
-
+        [DisplayName("Descripcion")]
         public string Desc
         {
             get
@@ -52,7 +54,7 @@ namespace CapaNegocio
                 desc = value;
             }
         }
-
+        [DisplayName("Cantidad")]
         public int Cant
         {
             get

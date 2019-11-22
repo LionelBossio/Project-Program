@@ -23,6 +23,7 @@ namespace CapaNegocio
         private int fkarticulo;
         private Articulo articulo;
         #region Properties
+        [DisplayName("ID")]
         public int Idr
         {
             get
@@ -35,7 +36,7 @@ namespace CapaNegocio
                 idr = value;
             }
         }
-
+        [DisplayName("Fecha inicial")]
         public DateTime Fecini
         {
             get

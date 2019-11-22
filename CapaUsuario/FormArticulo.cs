@@ -123,23 +123,32 @@ namespace CapaUsuario
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            if (anterior == "r")
-            {
-                FormMenuRecepcion f = new FormMenuRecepcion();
-                f.Show();
-                this.Close();
-            }
-            if (anterior == "a")
-            {
-                FormMenuAdmin f = new FormMenuAdmin();
-                f.Show();
-                this.Close();
-            }
+            this.Close();
         }
 
         public void Anterior(string ant)
         {
             anterior = ant;
+        }
+
+        private void FormArticulo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (anterior == "r")
+            {
+                FormMenuRecepcion f = new FormMenuRecepcion();
+                f.Show();
+            }
+            if (anterior == "a")
+            {
+                FormMenuAdmin f = new FormMenuAdmin();
+                f.Show();
+            }
+        }
+
+        private void FormArticulo_Load(object sender, EventArgs e)
+        {
+            ZonadeDatos(false);
+            Buscar(txtBuscar.Text);
         }
     }
 }

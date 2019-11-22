@@ -6,21 +6,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.62249cm</Width>
+              <Width>1.16306cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.62249cm</Width>
+              <Width>4.11868cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.62249cm</Width>
+              <Width>8.33076cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.62249cm</Width>
+              <Width>2.61827cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.58677cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -31,7 +31,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Id</Value>
+                              <Value>ID</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -149,7 +149,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.75375cm</Height>
+              <Height>0.63469cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -164,7 +164,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>idart</rd:DefaultName>
@@ -193,7 +195,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>nombre</rd:DefaultName>
@@ -222,7 +226,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>desc</rd:DefaultName>
@@ -251,7 +257,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>cant</rd:DefaultName>
@@ -281,95 +289,103 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
-            <TablixMember>
-              <Group Name="Detalles" />
-              <TablixMembers>
-                <TablixMember />
-                <TablixMember />
-              </TablixMembers>
-            </TablixMember>
+            <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSetArticulo</DataSetName>
-        <Top>2.08703cm</Top>
-        <Height>1.35375cm</Height>
-        <Width>18.48996cm</Width>
+        <Top>0.36723cm</Top>
+        <Left>0.15668cm</Left>
+        <Height>1.22146cm</Height>
+        <Width>16.23077cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox25">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Lista de articulos</Value>
-                <Style>
-                  <FontSize>24pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox25</rd:DefaultName>
-        <Top>0.36724cm</Top>
-        <Left>6.16162cm</Left>
-        <Height>1.07625cm</Height>
-        <Width>6.56814cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox27">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Now()</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox27</rd:DefaultName>
-        <Top>1.21391cm</Top>
-        <Left>15.47495cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
-    <Height>1.52083in</Height>
+    <Height>0.74999in</Height>
     <Style />
   </Body>
-  <Width>7.27951in</Width>
+  <Width>6.45175in</Width>
   <Page>
-    <PageFooter>
+    <PageHeader>
       <Height>2.54cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox25">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Lista de articulos</Value>
+                  <Style>
+                    <FontFamily>Gabriola</FontFamily>
+                    <FontSize>24pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox25</rd:DefaultName>
+          <Top>0.42016cm</Top>
+          <Left>6.16162cm</Left>
+          <Height>1.44667cm</Height>
+          <Width>4.95418cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox27">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Now()</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox27</rd:DefaultName>
+          <Top>0.84349cm</Top>
+          <Left>13.88745cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1.64042cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -389,7 +405,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.84349cm</Top>
-          <Left>1.37266cm</Left>
+          <Left>0.28787cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>

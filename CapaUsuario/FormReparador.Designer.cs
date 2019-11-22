@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReparador));
             this.lblCantrep = new System.Windows.Forms.Label();
             this.lblCantcliante = new System.Windows.Forms.Label();
             this.nupCantrep = new System.Windows.Forms.NumericUpDown();
@@ -38,6 +39,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pnlReparador = new System.Windows.Forms.Panel();
+            this.lblrep = new System.Windows.Forms.Label();
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -46,8 +48,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnAtras = new System.Windows.Forms.Button();
             this.dgvReparador = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbllistrep = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nupCantrep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupCantcliente)).BeginInit();
             this.pnlReparador.SuspendLayout();
@@ -102,6 +103,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
             this.btnCancelar.FlatAppearance.BorderSize = 2;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -117,6 +119,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
             this.btnGuardar.FlatAppearance.BorderSize = 2;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -132,8 +135,10 @@
             // 
             // pnlReparador
             // 
+            this.pnlReparador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlReparador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
-            this.pnlReparador.Controls.Add(this.label1);
+            this.pnlReparador.Controls.Add(this.lblrep);
             this.pnlReparador.Controls.Add(this.cmbUsuario);
             this.pnlReparador.Controls.Add(this.lblUsuario);
             this.pnlReparador.Controls.Add(this.nupCantcliente);
@@ -146,6 +151,17 @@
             this.pnlReparador.Name = "pnlReparador";
             this.pnlReparador.Size = new System.Drawing.Size(471, 383);
             this.pnlReparador.TabIndex = 6;
+            // 
+            // lblrep
+            // 
+            this.lblrep.AutoSize = true;
+            this.lblrep.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(50)))));
+            this.lblrep.Location = new System.Drawing.Point(17, 14);
+            this.lblrep.Name = "lblrep";
+            this.lblrep.Size = new System.Drawing.Size(95, 23);
+            this.lblrep.TabIndex = 6;
+            this.lblrep.Text = "Reparador";
             // 
             // cmbUsuario
             // 
@@ -168,6 +184,7 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -183,6 +200,7 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -220,6 +238,7 @@
             // 
             // btnAtras
             // 
+            this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnAtras.FlatAppearance.BorderSize = 0;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -235,18 +254,21 @@
             // 
             // dgvReparador
             // 
+            this.dgvReparador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReparador.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.dgvReparador.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReparador.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvReparador.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReparador.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReparador.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvReparador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReparador.EnableHeadersVisualStyles = false;
             this.dgvReparador.GridColor = System.Drawing.Color.SteelBlue;
@@ -254,44 +276,33 @@
             this.dgvReparador.Name = "dgvReparador";
             this.dgvReparador.ReadOnly = true;
             this.dgvReparador.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReparador.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReparador.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReparador.RowHeadersVisible = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvReparador.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvReparador.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvReparador.Size = new System.Drawing.Size(521, 241);
             this.dgvReparador.TabIndex = 28;
             // 
-            // label1
+            // lbllistrep
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(50)))));
-            this.label1.Location = new System.Drawing.Point(17, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 23);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Reparador";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(50)))));
-            this.label2.Location = new System.Drawing.Point(12, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 23);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Lista de reparadore";
+            this.lbllistrep.AutoSize = true;
+            this.lbllistrep.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbllistrep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(50)))));
+            this.lbllistrep.Location = new System.Drawing.Point(12, 11);
+            this.lbllistrep.Name = "lbllistrep";
+            this.lbllistrep.Size = new System.Drawing.Size(177, 23);
+            this.lbllistrep.TabIndex = 7;
+            this.lbllistrep.Text = "Lista de reparadores";
             // 
             // FormReparador
             // 
@@ -299,7 +310,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.ClientSize = new System.Drawing.Size(1065, 376);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbllistrep);
             this.Controls.Add(this.dgvReparador);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnBuscar);
@@ -308,8 +319,12 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.pnlReparador);
             this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1081, 414);
             this.Name = "FormReparador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reparador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormReparador_FormClosing);
             this.Load += new System.EventHandler(this.FormReparador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nupCantrep)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupCantcliente)).EndInit();
@@ -338,7 +353,7 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.DataGridView dgvReparador;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblrep;
+        private System.Windows.Forms.Label lbllistrep;
     }
 }

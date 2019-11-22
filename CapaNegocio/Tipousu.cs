@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
+using System.ComponentModel;
 
 namespace CapaNegocio
 {
@@ -13,6 +14,7 @@ namespace CapaNegocio
         private string tipodeusu;
         private string desc;
         #region Properties
+        [DisplayName("ID")]
         public int Idtiu
         {
             get
@@ -25,7 +27,7 @@ namespace CapaNegocio
                 idtiu = value;
             }
         }
-
+        [DisplayName("Tipo de usuario")]
         public string Tipodeusu
         {
             get
@@ -38,7 +40,7 @@ namespace CapaNegocio
                 tipodeusu = value;
             }
         }
-
+        [DisplayName("Descripcion")]
         public string Desc
         {
             get
@@ -137,6 +139,27 @@ namespace CapaNegocio
             }
 
             return Tipodeusus;
+        }
+
+        public bool Verificar(string nom)
+        {
+            List<Tipousu> Tipousus = new List<Tipousu>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eTipousus
+                      where x.tipodeusu.ToLower().Trim().Contains(nom.ToLower().Trim())
+                      select x;
+
+            if (res != null)
+            {
+                bool verificado = false;
+                return verificado;
+            }
+            else
+            {
+                bool verificado = true;
+                return verificado;
+            }
+
         }
 
         public override string ToString()

@@ -14,6 +14,7 @@ namespace CapaNegocio
         private string desc;
         private string problema;
         #region Properties
+        [DisplayName("ID")]
         public int Ideq
         {
             get
@@ -26,7 +27,7 @@ namespace CapaNegocio
                 ideq = value;
             }
         }
-
+        [DisplayName("Descripcion")]
         public string Desc
         {
             get
@@ -39,7 +40,7 @@ namespace CapaNegocio
                 desc = value;
             }
         }
-
+        [DisplayName("Problema")]
         public string Problema
         {
             get

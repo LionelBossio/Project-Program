@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicio));
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblContra = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -37,6 +38,7 @@
             // 
             // lblUsuario
             // 
+            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
@@ -48,6 +50,7 @@
             // 
             // lblContra
             // 
+            this.lblContra.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblContra.AutoSize = true;
             this.lblContra.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContra.ForeColor = System.Drawing.Color.White;
@@ -59,20 +62,23 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(132, 16);
+            this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtUsuario.Location = new System.Drawing.Point(117, 16);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(116, 23);
+            this.txtUsuario.Size = new System.Drawing.Size(137, 23);
             this.txtUsuario.TabIndex = 1;
             // 
             // txtContra
             // 
-            this.txtContra.Location = new System.Drawing.Point(132, 58);
+            this.txtContra.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtContra.Location = new System.Drawing.Point(117, 58);
             this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(116, 23);
+            this.txtContra.Size = new System.Drawing.Size(135, 23);
             this.txtContra.TabIndex = 2;
             // 
             // btnIniciar
             // 
+            this.btnIniciar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnIniciar.FlatAppearance.BorderSize = 0;
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciar.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -97,8 +103,12 @@
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblUsuario);
             this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(282, 234);
             this.Name = "FormInicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de sesion";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormInicio_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

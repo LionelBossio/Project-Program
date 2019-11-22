@@ -28,7 +28,7 @@ namespace CapaUsuario
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error al bajar los reportes", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Atras();
+                this.Close();
             }
         }
         private void Mostrar(bool articulo)
@@ -55,7 +55,7 @@ namespace CapaUsuario
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            Atras();
+            this.Close();
         }
 
         public void Anterior(string ant)
@@ -63,22 +63,6 @@ namespace CapaUsuario
             anterior = ant;
         }
    
-        public void Atras()
-        {
-            if (anterior == "r")
-            {
-                FormMenuRecepcion f = new FormMenuRecepcion();
-                f.Show();
-                this.Close();
-            }
-            if (anterior == "a")
-            {
-                FormMenuAdmin f = new FormMenuAdmin();
-                f.Show();
-                this.Close();
-            }
-        }
-
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             if (cbxReportes.SelectedIndex == 0)
@@ -88,6 +72,20 @@ namespace CapaUsuario
             else
             {
                 Mostrar(false);
+            }
+        }
+
+        private void FormReportes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (anterior == "r")
+            {
+                FormMenuRecepcion f = new FormMenuRecepcion();
+                f.Show();
+            }
+            if (anterior == "a")
+            {
+                FormMenuAdmin f = new FormMenuAdmin();
+                f.Show();
             }
         }
     }

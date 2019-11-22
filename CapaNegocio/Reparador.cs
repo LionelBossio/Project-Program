@@ -16,6 +16,7 @@ namespace CapaNegocio
         private int fkusuario;
         private Usuario usuario;
         #region Properties
+        [DisplayName("ID")]
         public int Idrep
         {
             get
@@ -28,7 +29,7 @@ namespace CapaNegocio
                 idrep = value;
             }
         }
-
+        [DisplayName("Cantidad reparada")]
         public int Cantrep
         {
             get
@@ -41,7 +42,7 @@ namespace CapaNegocio
                 cantrep = value;
             }
         }
-
+        [DisplayName("Cantidad de clientes atendidos")]
         public int Cantcliente
         {
             get
@@ -178,8 +179,9 @@ namespace CapaNegocio
         {
             DCDataContext dc = new DCDataContext(Conexion.DarConexion());
             var res = from x in dc.eReparadors
-                      where x.idrep == id
+                      where x.fkusuario == id
                       select x;
+
             if (res.Count() > 0)
             {
                 var x = res.First();
@@ -190,8 +192,7 @@ namespace CapaNegocio
 
         public override string ToString()
         {
-            //return string.Concat(ideq);
-            return usuario.Nombre;
+            return string.Concat(idrep);
         }
     }
 }

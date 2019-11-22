@@ -26,6 +26,8 @@ namespace CapaUsuario
 
         private void FormUsuario_Load(object sender, EventArgs e)
         {
+            Buscar(txtBuscar.Text);
+            ZonaDatos(false);
             cmbTipousu.DataSource = Tipousu.Buscar();
         }
 
@@ -73,21 +75,28 @@ namespace CapaUsuario
             {
                 if (dgvUsuario.CurrentRow != null)
                 {
-                    ZonaDatos(true);
-                    user = dgvUsuario.CurrentRow.DataBoundItem as Usuario;
+                    if (dgvUsuario.CurrentRow.DataBoundItem.ToString() == "Admin")
+                    {
+                        MessageBox.Show("No puede modificar al administrador general", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        ZonaDatos(true);
+                        user = dgvUsuario.CurrentRow.DataBoundItem as Usuario;
 
-                    txtNombre.Text = user.Nombre;
-                    txtApellido.Text = user.Apellido;
-                    txtContra.Text = user.Contraseña;
-                    txtNomusu.Text = user.Nomusu;
-                    nupDni.Value = user.Dni;
-                    dtpFecnac.Value = user.Fecnac;
-                    txtEmail.Text = user.Email;
-                    nupNumtel.Value = user.Numtel;
-                    cmbTipousu.Text = user.Tipousu.ToString();
+                        txtNombre.Text = user.Nombre;
+                        txtApellido.Text = user.Apellido;
+                        txtContra.Text = user.Contraseña;
+                        txtNomusu.Text = user.Nomusu;
+                        nupDni.Value = user.Dni;
+                        dtpFecnac.Value = user.Fecnac;
+                        txtEmail.Text = user.Email;
+                        nupNumtel.Value = user.Numtel;
+                        cmbTipousu.Text = user.Tipousu.ToString();
 
-                    original = user;
-                    nuevo = false;
+                        original = user;
+                        nuevo = false;
+                    }
                 }
                 else
                     MessageBox.Show("Seleccione un Usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -102,16 +111,24 @@ namespace CapaUsuario
         {
             try
             {
-                if (dgvUsuario.CurrentRow != null)
+                if (dgvUsuario.CurrentRow.DataBoundItem.ToString() == "Admin")
                 {
-                    user = dgvUsuario.CurrentRow.DataBoundItem as Usuario;
-                    if (MessageBox.Show("¿Quiere eliminar" + user.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        user.Eliminar();
-                    }
+                    MessageBox.Show("No puede eliminar al administrador general", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show("Seleccione un articulo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                {
+                    if (dgvUsuario.CurrentRow != null)
+                    {
+                        user = dgvUsuario.CurrentRow.DataBoundItem as Usuario;
+                        if (MessageBox.Show("¿Quiere eliminar a " + user.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            user.Eliminar();
+                            Buscar(txtBuscar.Text);
+                        }
+                    }
+                    else
+                        MessageBox.Show("Seleccione un articulo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
@@ -125,17 +142,18 @@ namespace CapaUsuario
             {
                 if (nuevo)
                 {
-                    if (user.Verificar(txtNomusu.Text,0,Convert.ToInt32(nupDni.Value)))
+                    if (user.Verificar(txtNomusu.Text,Convert.ToInt32(nupDni.Value)))
                     {
                         GuardarUsu();
                         if (cmbTipousu.Text == "Reparador") //------------------- Si es reparador lo crea--------------------------------
                         {
-                            backup = backup.BuscarPorNomUsu(txtNomusu.Text);
+                            backup = user;
                             rep = new Reparador();
                             rep.Cantcliente = 0;
                             rep.Cantrep = 0;
                             rep.Fkusuario = backup.Idusu;
                             rep.Guardar();
+                            backup = null;
                         }
                     }
                     else
@@ -143,7 +161,7 @@ namespace CapaUsuario
                 }
                 else
                 {
-                    if (user.Verificar(txtNomusu.Text, original.Idusu, Convert.ToInt32(nupDni.Value)))
+                    if (user.VerificarMod(txtNomusu.Text, original.Idusu, Convert.ToInt32(nupDni.Value)))
                     {
                         if (original.Tipousu.Tipodeusu == cmbTipousu.Text)
                         {
@@ -153,13 +171,14 @@ namespace CapaUsuario
                         {
                             if (cmbTipousu.Text == "Reparador") //------------------- Si es reparador lo crea--------------------------------
                             {
-                                backup = backup.BuscarPorNomUsu(original.Nombre);
+                                backup = user;
                                 rep = new Reparador();
                                 rep.Cantcliente = 0;
                                 rep.Cantrep = 0;
                                 rep.Fkusuario = backup.Idusu;
                                 rep.Guardar();
                                 GuardarUsu();
+                                backup = null;
                             }
                             else                                //------------------- Si era reparador y ya no, lo elimina------------------
                             {
@@ -207,10 +226,13 @@ namespace CapaUsuario
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            FormMenuAdmin f = new FormMenuAdmin();
-            f.Show();
             this.Close();
         }
 
+        private void FormUsuario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormMenuAdmin f = new FormMenuAdmin();
+            f.Show();
+        }
     }
 }

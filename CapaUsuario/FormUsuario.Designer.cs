@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuario));
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -69,6 +70,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
             this.btnGuardar.FlatAppearance.BorderSize = 2;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -206,7 +208,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(199, 75);
+            this.txtNombre.Location = new System.Drawing.Point(200, 75);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(233, 23);
             this.txtNombre.TabIndex = 7;
@@ -220,7 +222,7 @@
             // 
             // nupDni
             // 
-            this.nupDni.Location = new System.Drawing.Point(199, 195);
+            this.nupDni.Location = new System.Drawing.Point(200, 195);
             this.nupDni.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -232,14 +234,14 @@
             // 
             // dtpFecnac
             // 
-            this.dtpFecnac.Location = new System.Drawing.Point(201, 224);
+            this.dtpFecnac.Location = new System.Drawing.Point(200, 224);
             this.dtpFecnac.Name = "dtpFecnac";
             this.dtpFecnac.Size = new System.Drawing.Size(233, 23);
             this.dtpFecnac.TabIndex = 12;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(201, 254);
+            this.txtEmail.Location = new System.Drawing.Point(200, 254);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(233, 23);
             this.txtEmail.TabIndex = 13;
@@ -302,6 +304,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
             this.btnCancelar.FlatAppearance.BorderSize = 2;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -359,7 +362,6 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -381,7 +383,7 @@
             // 
             // btnAtras
             // 
-            this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnAtras.FlatAppearance.BorderSize = 0;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -462,8 +464,13 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnNuevo);
             this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1086, 509);
             this.Name = "FormUsuario";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormUsuario_FormClosing);
             this.Load += new System.EventHandler(this.FormUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nupDni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupNumtel)).EndInit();

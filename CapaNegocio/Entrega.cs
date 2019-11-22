@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
+using System.ComponentModel;
 
 namespace CapaNegocio
 {
@@ -14,6 +15,7 @@ namespace CapaNegocio
         private string desc;
         private DateTime fecent;
         #region Properties
+        [DisplayName("ID")]
         public int Ident
         {
             get
@@ -39,7 +41,7 @@ namespace CapaNegocio
                 hecho = value;
             }
         }
-
+        [DisplayName("Descripcion")]
         public string Desc
         {
             get
@@ -52,7 +54,7 @@ namespace CapaNegocio
                 desc = value;
             }
         }
-
+        [DisplayName("Fecha de entrega")]
         public DateTime Fecent
         {
             get

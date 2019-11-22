@@ -22,6 +22,7 @@ namespace CapaNegocio
         private string nomusu;
         private string contraseña;
         #region Properties
+        [DisplayName("ID")]
         public int Idusu
         {
             get
@@ -60,7 +61,7 @@ namespace CapaNegocio
                 apellido = value;
             }
         }
-
+        [DisplayName("DNI")]
         public int Dni
         {
             get
@@ -73,7 +74,7 @@ namespace CapaNegocio
                 dni = value;
             }
         }
-
+        [DisplayName("Fecha de nacimiento")]
         public DateTime Fecnac
         {
             get
@@ -127,7 +128,7 @@ namespace CapaNegocio
                 Fktipousu = value.Idtiu;
             }
         }
-
+        [DisplayName("Numero de telefono")]
         public int Numtel
         {
             get
@@ -140,7 +141,7 @@ namespace CapaNegocio
                 numtel = value;
             }
         }
-
+        [DisplayName("Nombre de usuario")]
         public string Nomusu
         {
             get
@@ -283,50 +284,53 @@ namespace CapaNegocio
             return Usuarios;
         }
 
-        public bool Verificar(string nomusu, int id, int dni)
+        public bool Verificar(string nomusu, int dni)
         {
             List<Usuario> Usuarios = new List<Usuario>();
             DCDataContext dc = new DCDataContext(Conexion.DarConexion());
             var res = from x in dc.eUsuarios
                       where x.nomusu.ToLower().Trim().Contains(nomusu.ToLower().Trim())
-                      && x.idusu!=id
-                      && x.dni!=dni
+                      || x.dni==dni
                       select x;
 
-            if (res != null)
-            {
-                bool verificado = false;
-                return verificado;
-            }
-            else
+            if (res == null || res.Count() == 0)
             {
                 bool verificado = true;
                 return verificado;
             }
+            else
+            {
+                bool verificado = false;
+                return verificado;
+            }
 
         }
 
-        public Usuario BuscarPorNomUsu(string nomusu)
+        public bool VerificarMod(string nomusu,int id,int dni)
         {
+            List<Usuario> Usuarios = new List<Usuario>();
             DCDataContext dc = new DCDataContext(Conexion.DarConexion());
             var res = from x in dc.eUsuarios
-                      where x.nomusu == nomusu
+                      where (x.nomusu.ToLower().Trim().Contains(nomusu.ToLower().Trim())
+                      || x.dni == dni)
+                      && x.idusu != id
                       select x;
 
-            if (res != null)
+            if (res == null || res.Count() == 0)
             {
-                var x = res.First();
-                return new Usuario(x.idusu, x.nombre, x.apellido, x.dni, x.fecnac, x.email, x.tipousu, x.numtel, x.nomusu, x.contraseña);
+                bool verificado = true;
+                return verificado;
             }
             else
             {
-                return null;
+                bool verificado = false;
+                return verificado;
             }
-        }
 
+        }
+        
         public override string ToString()
         {
-            //return string.Concat(ideq);
             return nomusu;
         }
     }

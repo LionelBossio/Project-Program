@@ -25,6 +25,8 @@ namespace CapaUsuario
 
         private void FormReparacion_Load(object sender, EventArgs e)
         {
+            Buscar(txtBuscar.Text);
+            ZonaDatos(false);
             cmbArticulo.DataSource = Articulo.Buscar();
             cmbCliente.DataSource = Cliente.Buscar();
             cmbEntrega.DataSource = Entrega.Buscar();
@@ -140,23 +142,26 @@ namespace CapaUsuario
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            if (anterior == "r")
-            {
-                FormMenuRecepcion f = new FormMenuRecepcion();
-                f.Show();
-                this.Close();
-            }
-            if (anterior == "a")
-            {
-                FormMenuAdmin f = new FormMenuAdmin();
-                f.Show();
-                this.Close();
-            }
+            this.Close();
         }
 
         public void Anterior(string ant)
         {
             anterior = ant;
+        }
+        
+        private void FormReparacion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (anterior == "r")
+            {
+                FormMenuRecepcion f = new FormMenuRecepcion();
+                f.Show();
+            }
+            if (anterior == "a")
+            {
+                FormMenuAdmin f = new FormMenuAdmin();
+                f.Show();
+            }
         }
     }
 }

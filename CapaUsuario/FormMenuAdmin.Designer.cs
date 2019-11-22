@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuAdmin));
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnArticulo = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrar.FlatAppearance.BorderSize = 2;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -58,6 +60,7 @@
             // 
             // btnArticulo
             // 
+            this.btnArticulo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnArticulo.FlatAppearance.BorderSize = 0;
             this.btnArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -73,6 +76,7 @@
             // 
             // btnCliente
             // 
+            this.btnCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnCliente.FlatAppearance.BorderSize = 0;
             this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -88,6 +92,7 @@
             // 
             // btnEntrega
             // 
+            this.btnEntrega.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEntrega.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnEntrega.FlatAppearance.BorderSize = 0;
             this.btnEntrega.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -103,6 +108,7 @@
             // 
             // btnEquipoRep
             // 
+            this.btnEquipoRep.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEquipoRep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnEquipoRep.FlatAppearance.BorderSize = 0;
             this.btnEquipoRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -118,6 +124,7 @@
             // 
             // btnReparador
             // 
+            this.btnReparador.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnReparador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnReparador.FlatAppearance.BorderSize = 0;
             this.btnReparador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -133,6 +140,7 @@
             // 
             // btnReparacion
             // 
+            this.btnReparacion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnReparacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnReparacion.FlatAppearance.BorderSize = 0;
             this.btnReparacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -148,6 +156,7 @@
             // 
             // btnReportes
             // 
+            this.btnReportes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnReportes.FlatAppearance.BorderSize = 0;
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -163,6 +172,7 @@
             // 
             // btnTipoUsu
             // 
+            this.btnTipoUsu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTipoUsu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnTipoUsu.FlatAppearance.BorderSize = 0;
             this.btnTipoUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -178,6 +188,7 @@
             // 
             // btnUsuario
             // 
+            this.btnUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
             this.btnUsuario.FlatAppearance.BorderSize = 0;
             this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -220,8 +231,12 @@
             this.Controls.Add(this.btnTipoUsu);
             this.Controls.Add(this.btnUsuario);
             this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(651, 375);
             this.Name = "FormMenuAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu de administrador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenuAdmin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

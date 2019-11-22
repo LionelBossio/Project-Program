@@ -19,8 +19,6 @@ namespace CapaUsuario
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            FormInicio login = new FormInicio();
-            login.Show();
             this.Close();
         }
 
@@ -92,6 +90,12 @@ namespace CapaUsuario
             f.Anterior("a");
             f.Show();
             this.Hide();
+        }
+
+        private void FormMenuAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormInicio login = new FormInicio();
+            login.Show();
         }
     }
 }
