@@ -211,5 +211,6 @@ namespace CapaUsuario
             f.Show();
             this.Close();
         }
+
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.DTArticuloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSet = new CapaUsuario.DataSet();
             this.rv = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -51,13 +51,14 @@
             // 
             // rv
             // 
-            reportDataSource2.Name = "DataSet1";
-            reportDataSource2.Value = this.DTArticuloBindingSource;
-            this.rv.LocalReport.DataSources.Add(reportDataSource2);
+            this.rv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.DTArticuloBindingSource;
+            this.rv.LocalReport.DataSources.Add(reportDataSource1);
             this.rv.LocalReport.ReportEmbeddedResource = "CapaUsuario.ReporteArituculo.rdlc";
-            this.rv.Location = new System.Drawing.Point(10, 14);
+            this.rv.Location = new System.Drawing.Point(10, 46);
             this.rv.Name = "rv";
-            this.rv.Size = new System.Drawing.Size(428, 285);
+            this.rv.Size = new System.Drawing.Size(428, 253);
             this.rv.TabIndex = 0;
             // 
             // DTArticuloTableAdapter
@@ -81,6 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.ClientSize = new System.Drawing.Size(453, 366);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.rv);
