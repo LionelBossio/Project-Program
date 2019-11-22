@@ -181,7 +181,7 @@ namespace CapaNegocio
             nomusu = "";
             contraseña = "";
         }
-        public Usuario(int idusu, string nombre, string apellido,int dni,DateTime fecnac, string email, int fktipousu,int numtel, string nomusu, string contraseña)
+        public Usuario(int idusu, string nombre, string apellido, int dni, DateTime fecnac, string email, int fktipousu, int numtel, string nomusu, string contraseña)
         {
             this.idusu = idusu;
             this.nombre = nombre;
@@ -205,7 +205,7 @@ namespace CapaNegocio
             if (res.Count() > 0)
             {
                 var x = res.First();
-                return new Usuario(x.idusu, x.nombre, x.apellido, x.dni,x.fecnac,x.email,x.tipousu,x.numtel,x.nomusu,x.contraseña);
+                return new Usuario(x.idusu, x.nombre, x.apellido, x.dni, x.fecnac, x.email, x.tipousu, x.numtel, x.nomusu, x.contraseña);
             }
             return null;
         }
@@ -281,6 +281,46 @@ namespace CapaNegocio
             }
 
             return Usuarios;
+        }
+
+        public bool Verificar(string nomusu, int id)
+        {
+            List<Usuario> Usuarios = new List<Usuario>();
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eUsuarios
+                      where x.nomusu.ToLower().Trim().Contains(nomusu.ToLower().Trim())
+                      || x.idusu!=id
+                      select x;
+
+            if (res != null)
+            {
+                bool verificado = false;
+                return verificado;
+            }
+            else
+            {
+                bool verificado = true;
+                return verificado;
+            }
+
+        }
+
+        public Usuario BuscarPorNomUsu(string nomusu)
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eUsuarios
+                      where x.nomusu == nomusu
+                      select x;
+
+            if (res != null)
+            {
+                var x = res.First();
+                return new Usuario(x.idusu, x.nombre, x.apellido, x.dni, x.fecnac, x.email, x.tipousu, x.numtel, x.nomusu, x.contraseña);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

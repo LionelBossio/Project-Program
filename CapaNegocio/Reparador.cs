@@ -173,5 +173,19 @@ namespace CapaNegocio
 
             return Reparadores;
         }
+
+        public static Reparador BuscarPorIdUsu(int id)
+        {
+            DCDataContext dc = new DCDataContext(Conexion.DarConexion());
+            var res = from x in dc.eReparadors
+                      where x.idrep == id
+                      select x;
+            if (res.Count() > 0)
+            {
+                var x = res.First();
+                return new Reparador(x.idrep, x.cantrep, x.cantcliente, x.fkusuario);
+            }
+            return null;
+        }
     }
 }

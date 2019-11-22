@@ -5,3 +5,10 @@ C:\Users\tig6\Desktop\CapaUsuario\CapaNegocio\bin\Debug\CapaDatos.pdb
 C:\Users\tig6\Desktop\CapaUsuario\CapaNegocio\obj\Debug\CapaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\tig6\Desktop\CapaUsuario\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\tig6\Desktop\CapaUsuario\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaNegocio\obj\Debug\CapaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaNegocio\obj\Debug\CapaNegocio.pdb

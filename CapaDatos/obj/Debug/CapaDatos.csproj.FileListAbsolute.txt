@@ -4,3 +4,9 @@ C:\Users\tig6\Desktop\CapaUsuario\CapaDatos\bin\Debug\CapaDatos.pdb
 C:\Users\tig6\Desktop\CapaUsuario\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\tig6\Desktop\CapaUsuario\CapaDatos\obj\Debug\CapaDatos.pdb
 C:\Users\tig6\Desktop\CapaUsuario\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\obj\Debug\CapaDatos.pdb

@@ -17,6 +17,8 @@ namespace CapaUsuario
         public FormTipoUsuario()
         {
             InitializeComponent();
+            pnlTipoUsu.Enabled = false;
+            Buscar(txtBuscar.Text);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -63,6 +65,7 @@ namespace CapaUsuario
                 if (MessageBox.Show("¿Quiere eliminar" + tip.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     tip.Eliminar();
+                    Buscar(txtBuscar.Text);
                 }
             }
             else

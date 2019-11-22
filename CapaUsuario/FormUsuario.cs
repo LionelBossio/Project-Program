@@ -14,9 +14,14 @@ namespace CapaUsuario
     public partial class FormUsuario : Form
     {
         private Usuario user;
+        private Usuario backup;
+        private Usuario original;
+        private Reparador rep;
+        private bool nuevo;
         public FormUsuario()
         {
             InitializeComponent();
+            rep = null;
         }
 
         private void FormUsuario_Load(object sender, EventArgs e)
@@ -38,6 +43,7 @@ namespace CapaUsuario
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             ZonaDatos(true);
+            nuevo = true;
             user = new Usuario();
         }
 
@@ -71,6 +77,9 @@ namespace CapaUsuario
                 txtEmail.Text = user.Email;
                 nupNumtel.Value = user.Numtel;
                 cmbTipousu.Text = user.Tipousu.ToString();
+
+                original = user;
+                nuevo = false;
             }
             else
                 MessageBox.Show("Seleccione un Usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -94,29 +103,84 @@ namespace CapaUsuario
         {
             try
             {
-                user.Nombre=txtNombre.Text;
-                user.Apellido=txtApellido.Text;
-                user.Contraseña=txtContra.Text;
-                user.Nomusu=txtNomusu.Text;
-                user.Dni=Convert.ToInt32(nupDni.Value);
-                user.Fecnac= dtpFecnac.Value;
-                user.Email=txtEmail.Text;
-                user.Numtel= Convert.ToInt32(nupNumtel.Value);
-                user.Tipousu=cmbTipousu.SelectedItem as Tipousu;
-                user.Guardar();
+                if (nuevo)
+                {
+                    if (user.Verificar(txtNomusu.Text,0))
+                    {
+                        GuardarUsu();
+                        if (cmbTipousu.Text == "Reparador") //------------------- Si es reparador lo crea--------------------------------
+                        {
+                            backup = backup.BuscarPorNomUsu(txtNomusu.Text);
+                            rep = new Reparador();
+                            rep.Cantcliente = 0;
+                            rep.Cantrep = 0;
+                            rep.Fkusuario = backup.Idusu;
+                            rep.Guardar();
+                        }
+                    }
+                    else
+                        MessageBox.Show("Ya existe alguien con ese nombre de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    if (user.Verificar(txtNomusu.Text, original.Idusu))
+                    {
+                        if (original.Tipousu.Tipodeusu == cmbTipousu.Text)
+                        {
+                            GuardarUsu();
+                        }
+                        else
+                        {
+                            if (cmbTipousu.Text == "Reparador") //------------------- Si es reparador lo crea--------------------------------
+                            {
+                                backup = backup.BuscarPorNomUsu(original.Nombre);
+                                rep = new Reparador();
+                                rep.Cantcliente = 0;
+                                rep.Cantrep = 0;
+                                rep.Fkusuario = backup.Idusu;
+                                rep.Guardar();
+                                GuardarUsu();
+                            }
+                            else                                //------------------- Si era reparador y ya no, lo elimina------------------
+                            {
+                                rep = Reparador.BuscarPorIdUsu(original.Idusu);
+                                rep.Eliminar();
+                                GuardarUsu();
+                            }
+                        }
+                    }
+                }
                 ZonaDatos(false);
                 Buscar(txtBuscar.Text);
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    
+        private void GuardarUsu()
+        {
+            user.Nombre = txtNombre.Text;
+            user.Apellido = txtApellido.Text;
+            user.Contraseña = txtContra.Text;
+            user.Nomusu = txtNomusu.Text;
+            user.Dni = Convert.ToInt32(nupDni.Value);
+            user.Fecnac = dtpFecnac.Value;
+            user.Email = txtEmail.Text;
+            user.Numtel = Convert.ToInt32(nupNumtel.Value);
+            user.Tipousu = cmbTipousu.SelectedItem as Tipousu;
+            user.Guardar();
+        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             ZonaDatos(false);
+            nuevo = true;
+            original = null;
             user = null;
+            rep = null;
         }
     }
 }

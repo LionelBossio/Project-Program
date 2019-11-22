@@ -17,6 +17,9 @@ namespace CapaUsuario
         public FormReparador()
         {
             InitializeComponent();
+            pnlReparador.Enabled = false;
+            Buscar(txtBuscar.Text);
+            rep = new Reparador();
         }
 
         private void FormReparador_Load(object sender, EventArgs e)
@@ -56,12 +59,6 @@ namespace CapaUsuario
             pnlReparador.Enabled = mostrar;
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            ZonaDatos(true);
-            rep = new Reparador();
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if(dgvReparador.CurrentRow!=null)
@@ -71,6 +68,7 @@ namespace CapaUsuario
                 {
                     rep.Usuario.Eliminar();
                     rep.Eliminar();
+                    Buscar(txtBuscar.Text);
                 }
             }
             else
@@ -83,14 +81,11 @@ namespace CapaUsuario
             {
                 rep.Cantcliente = Convert.ToInt32(nupCantcliente.Value);
                 rep.Cantrep = Convert.ToInt32(nupCantrep.Value);
-               // ------------------------------ Crear una variable temporal para modificar tipo de usuario y agregar un cmb con tipo de usuario -----------------
-
                 rep.Usuario = cmbUsuario.SelectedItem as Usuario;
-
-                //------------------------------------------------------------------------------------------------------------------------------------------------
                 rep.Guardar();
                 ZonaDatos(false);
                 Buscar(txtBuscar.Text);
+                rep = null;
             }
             catch (Exception ex)
             {
