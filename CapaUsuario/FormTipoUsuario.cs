@@ -75,17 +75,21 @@ namespace CapaUsuario
         {
             try
             {
-                if (dgvTipoUsu.CurrentRow != null)
+                if (dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Reparador" || dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Administrador" || dgvTipoUsu.CurrentRow.DataBoundItem.ToString() == "Recepcionista")
                 {
-                    tip = dgvTipoUsu.CurrentRow.DataBoundItem as Tipousu;
-                    if (MessageBox.Show("¿Quiere eliminar" + tip.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (dgvTipoUsu.CurrentRow != null)
                     {
-                        tip.Eliminar();
-                        Buscar(txtBuscar.Text);
+                        tip = dgvTipoUsu.CurrentRow.DataBoundItem as Tipousu;
+                        if (MessageBox.Show("¿Quiere eliminar" + tip.ToString() + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            tip.Eliminar();
+                            Buscar(txtBuscar.Text);
+                        }
                     }
-                }
-                else
-                    MessageBox.Show("Seleccione un Tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Seleccione un Tipo de usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }else
+                    MessageBox.Show("No puede eliminar a los tipos de usuario por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
