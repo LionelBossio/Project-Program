@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CapaUsuario
 {
-    public partial class FormMenuAdmin : Form
+    public partial class FormMenuRecepcion : Form
     {
-        public FormMenuAdmin()
+        public FormMenuRecepcion()
         {
             InitializeComponent();
         }
@@ -27,21 +27,7 @@ namespace CapaUsuario
         private void btnArticulo_Click(object sender, EventArgs e)
         {
             FormArticulo f = new FormArticulo();
-            f.Anterior("a");
-            f.Show();
-            this.Hide();
-        }
-
-        private void btnUsuario_Click(object sender, EventArgs e)
-        {
-            FormUsuario f = new FormUsuario();
-            f.Show();
-            this.Hide();
-        }
-
-        private void btnTipoUsu_Click(object sender, EventArgs e)
-        {
-            FormTipoUsuario f = new FormTipoUsuario();
+            f.Anterior("r");
             f.Show();
             this.Hide();
         }

@@ -180,7 +180,6 @@
             this.dgvArticulo.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvArticulo.Size = new System.Drawing.Size(547, 216);
             this.dgvArticulo.TabIndex = 8;
-            this.dgvArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulo_CellContentClick);
             // 
             // btnNuevo
             // 
@@ -301,6 +300,7 @@
             this.btnAtras.TabIndex = 16;
             this.btnAtras.Text = "Atras";
             this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // FormArticulo
             // 

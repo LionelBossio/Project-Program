@@ -14,6 +14,8 @@ namespace CapaUsuario
     public partial class FormArticulo : Form
     {
         private Articulo art;
+        private string anterior;
+
         public FormArticulo()
         {
             InitializeComponent();
@@ -103,9 +105,25 @@ namespace CapaUsuario
 
         }
 
-        private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAtras_Click(object sender, EventArgs e)
         {
+            if (anterior == "r")
+            {
+                FormMenuRecepcion f = new FormMenuRecepcion();
+                f.Show();
+                this.Close();
+            }
+            if (anterior == "a")
+            {
+                FormMenuAdmin f = new FormMenuAdmin();
+                f.Show();
+                this.Close();
+            }
+        }
 
+        public void Anterior(string ant)
+        {
+            anterior = ant;
         }
     }
 }
