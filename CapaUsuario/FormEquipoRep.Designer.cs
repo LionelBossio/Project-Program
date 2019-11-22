@@ -128,7 +128,7 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(87, 27);
             this.btnEliminar.TabIndex = 5;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "Borrar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -156,7 +156,7 @@
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(87, 27);
             this.btnModificar.TabIndex = 4;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "Editar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
