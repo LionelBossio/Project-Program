@@ -98,12 +98,6 @@
     <Compile Include="FormMenuAdmin.Designer.cs">
       <DependentUpon>FormMenuAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMenuRecepcion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMenuRecepcion.Designer.cs">
-      <DependentUpon>FormMenuRecepcion.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormReparacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,9 +147,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenuAdmin.resx">
       <DependentUpon>FormMenuAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMenuRecepcion.resx">
-      <DependentUpon>FormMenuRecepcion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReparacion.resx">
       <DependentUpon>FormReparacion.cs</DependentUpon>

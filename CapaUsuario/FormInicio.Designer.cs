@@ -33,6 +33,7 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContra = new System.Windows.Forms.TextBox();
             this.btnIniciar = new System.Windows.Forms.Button();
+            this.btnRegis = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -69,19 +70,29 @@
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(17, 98);
+            this.btnIniciar.Location = new System.Drawing.Point(12, 135);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(174, 60);
+            this.btnIniciar.Size = new System.Drawing.Size(75, 23);
             this.btnIniciar.TabIndex = 6;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
+            // btnRegis
+            // 
+            this.btnRegis.Location = new System.Drawing.Point(269, 135);
+            this.btnRegis.Name = "btnRegis";
+            this.btnRegis.Size = new System.Drawing.Size(75, 23);
+            this.btnRegis.TabIndex = 7;
+            this.btnRegis.Text = "Registrarse";
+            this.btnRegis.UseVisualStyleBackColor = true;
+            // 
             // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(220, 178);
+            this.ClientSize = new System.Drawing.Size(356, 170);
+            this.Controls.Add(this.btnRegis);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtContra);
             this.Controls.Add(this.lblContra);
@@ -102,5 +113,6 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Button btnIniciar;
+        private System.Windows.Forms.Button btnRegis;
     }
 }
