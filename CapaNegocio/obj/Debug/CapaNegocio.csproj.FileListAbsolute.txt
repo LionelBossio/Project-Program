@@ -19,3 +19,10 @@ C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\Capa
 C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaNegocio\obj\Debug\CapaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\obj\Debug\CapaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaNegocio\obj\Debug\CapaNegocio.pdb

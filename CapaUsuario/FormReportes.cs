@@ -24,7 +24,6 @@ namespace CapaUsuario
         {
             try
             {
-                Mostrar();
             }
             catch (Exception ex)
             {
@@ -32,12 +31,25 @@ namespace CapaUsuario
                 Atras();
             }
         }
-        private void Mostrar()
+        private void Mostrar(bool articulo)
         {
-            this.DTArticuloTableAdapter.Connection.ConnectionString = Conexion.DarConexion();
-            this.DTArticuloTableAdapter.Fill(this.DataSet.DTArticulo);
+            if (articulo)
+            {
+                this.DTArticuloTableAdapter.Connection.ConnectionString = Conexion.DarConexion();
+                this.DTArticuloTableAdapter.Fill(this.DataSet.DTArticulo);
+                this.rv.RefreshReport();
+                rv.Show();
+                rvReparador.Hide();
+            }
+            else
+            {
+                this.ReparadorTableAdapter.Connection.ConnectionString = Conexion.DarConexion();
+                this.ReparadorTableAdapter.Fill(this.DataSetReparador.Reparador);
+                this.rvReparador.RefreshReport();
+                rvReparador.Show();
+                rv.Hide();
+            }
             
-            this.rv.RefreshReport();
 
         }
 
@@ -64,6 +76,18 @@ namespace CapaUsuario
                 FormMenuAdmin f = new FormMenuAdmin();
                 f.Show();
                 this.Close();
+            }
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            if (cbxReportes.SelectedIndex == 0)
+            {
+                Mostrar(true);
+            }
+            else
+            {
+                Mostrar(false);
             }
         }
     }

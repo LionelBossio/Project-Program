@@ -16,3 +16,9 @@ C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\Capa
 C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
 C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\tig6\Source\Repos\LionelBossio\Project-Program\CapaDatos\obj\Debug\CapaDatos.pdb
