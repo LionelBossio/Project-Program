@@ -138,5 +138,10 @@ namespace CapaNegocio
 
             return Tipodeusus;
         }
+
+        public override string ToString()
+        {
+            return tipodeusu;
+        }
     }
 }

@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Lista de reparador</Value>
+                <Value>Lista de Reparador</Value>
                 <Style>
                   <FontSize>24pt</FontSize>
                 </Style>
@@ -59,10 +59,8 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Id</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Value>Id de reparador</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -91,9 +89,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Cantidad reparada</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -121,10 +117,8 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cantidad de clientes atendidos</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Value>cantidad de clientes atendidos</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -299,7 +293,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.49539in</Height>
+    <Height>2.44982in</Height>
     <Style />
   </Body>
   <Width>9.60218in</Width>

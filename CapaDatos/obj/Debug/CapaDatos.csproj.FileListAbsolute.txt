@@ -10,9 +10,3 @@ C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\bin\Debug\CapaDatos.pd
 C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
 C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\quimey-pc\Source\Repos\Project-Program\CapaDatos\obj\Debug\CapaDatos.pdb
-C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaDatos\bin\Debug\CapaDatos.dll.config
-C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaDatos\bin\Debug\CapaDatos.dll
-C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaDatos\bin\Debug\CapaDatos.pdb
-C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
-C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaDatos\obj\Debug\CapaDatos.dll
-C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaDatos\obj\Debug\CapaDatos.pdb

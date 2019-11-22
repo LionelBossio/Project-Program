@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace CapaUsuario
 {
-    public partial class FormMenuAdmin : Form
+    public partial class FormMenuRecepcion : Form
     {
-        public FormMenuAdmin()
+        public FormMenuRecepcion()
         {
             InitializeComponent();
-        }
-
-        private void FormMenuAdmin_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -27,20 +22,6 @@ namespace CapaUsuario
             FormInicio login = new FormInicio();
             login.Show();
             this.Close();
-        }
-
-        private void btnUsuario_Click(object sender, EventArgs e)
-        {
-            FormUsuario f = new FormUsuario();
-            f.Show();
-            this.Hide();
-        }
-
-        private void btnTipoUsu_Click(object sender, EventArgs e)
-        {
-            FormTipoUsuario f = new FormTipoUsuario();
-            f.Show();
-            this.Hide();
         }
 
         private void btnReparacion_Click(object sender, EventArgs e)
@@ -67,7 +48,7 @@ namespace CapaUsuario
         private void btnArticulo_Click(object sender, EventArgs e)
         {
             FormArticulo f = new FormArticulo();
-            f.Anterior("a");
+            f.Anterior("r");
             f.Show();
             this.Hide();
         }
@@ -91,6 +72,11 @@ namespace CapaUsuario
             FormReportes f = new FormReportes();
             f.Show();
             this.Hide();
+        }
+
+        private void FormMenuRecepcion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
