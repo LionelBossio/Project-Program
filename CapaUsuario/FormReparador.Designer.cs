@@ -35,6 +35,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pnlReparador = new System.Windows.Forms.Panel();
+            this.cmbUsuario = new System.Windows.Forms.ComboBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dgvReparador = new System.Windows.Forms.DataGridView();
@@ -80,7 +82,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(384, 301);
+            this.btnCancelar.Location = new System.Drawing.Point(384, 343);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 4;
@@ -90,7 +92,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(303, 301);
+            this.btnGuardar.Location = new System.Drawing.Point(303, 343);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 5;
@@ -100,18 +102,37 @@
             // 
             // pnlReparador
             // 
+            this.pnlReparador.Controls.Add(this.cmbUsuario);
+            this.pnlReparador.Controls.Add(this.lblUsuario);
             this.pnlReparador.Controls.Add(this.nupCantcliente);
             this.pnlReparador.Controls.Add(this.nupCantrep);
             this.pnlReparador.Controls.Add(this.lblCantcliante);
             this.pnlReparador.Controls.Add(this.lblCantrep);
             this.pnlReparador.Location = new System.Drawing.Point(12, 240);
             this.pnlReparador.Name = "pnlReparador";
-            this.pnlReparador.Size = new System.Drawing.Size(288, 84);
+            this.pnlReparador.Size = new System.Drawing.Size(288, 105);
             this.pnlReparador.TabIndex = 6;
+            // 
+            // cmbUsuario
+            // 
+            this.cmbUsuario.FormattingEnabled = true;
+            this.cmbUsuario.Location = new System.Drawing.Point(156, 73);
+            this.cmbUsuario.Name = "cmbUsuario";
+            this.cmbUsuario.Size = new System.Drawing.Size(120, 21);
+            this.cmbUsuario.TabIndex = 5;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(14, 78);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.TabIndex = 4;
+            this.lblUsuario.Text = "Usuario";
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(344, 266);
+            this.btnEliminar.Location = new System.Drawing.Point(343, 287);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 23;
@@ -121,7 +142,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(344, 235);
+            this.btnModificar.Location = new System.Drawing.Point(343, 256);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 21;
@@ -158,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 336);
+            this.ClientSize = new System.Drawing.Size(472, 379);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.dgvReparador);
@@ -194,5 +215,7 @@
         private System.Windows.Forms.DataGridView dgvReparador;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.ComboBox cmbUsuario;
+        private System.Windows.Forms.Label lblUsuario;
     }
 }

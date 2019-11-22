@@ -53,7 +53,6 @@ namespace CapaUsuario
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Si crea un tipo de usuario nuevo, por defecto tendra las misma funciones que el recepcionista", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ZonaDatos(true);
             tip = new Tipousu();
         }

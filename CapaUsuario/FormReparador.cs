@@ -24,6 +24,7 @@ namespace CapaUsuario
 
         private void FormReparador_Load(object sender, EventArgs e)
         {
+            cmbUsuario.DataSource = Usuario.Buscar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -44,6 +45,7 @@ namespace CapaUsuario
                 rep = dgvReparador.CurrentRow.DataBoundItem as Reparador;
                 nupCantcliente.Value = rep.Cantcliente;
                 nupCantrep.Value = rep.Cantrep;
+                cmbUsuario.Text = rep.Usuario.Nombre;
             }
             else
                 MessageBox.Show("Seleccione un Reparador", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -53,6 +55,7 @@ namespace CapaUsuario
         {
             nupCantrep.Value = 0;
             nupCantcliente.Value = 0;
+            cmbUsuario.Text = "";
             pnlReparador.Enabled = mostrar;
         }
 
@@ -78,6 +81,7 @@ namespace CapaUsuario
             {
                 rep.Cantcliente = Convert.ToInt32(nupCantcliente.Value);
                 rep.Cantrep = Convert.ToInt32(nupCantrep.Value);
+                rep.Usuario = cmbUsuario.SelectedItem as Usuario;
                 rep.Guardar();
                 ZonaDatos(false);
                 Buscar(txtBuscar.Text);
