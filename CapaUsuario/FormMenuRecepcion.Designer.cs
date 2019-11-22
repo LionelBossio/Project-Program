@@ -36,93 +36,147 @@
             this.btnReparacion = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.lblMenurep = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnArticulo
             // 
-            this.btnArticulo.Location = new System.Drawing.Point(12, 57);
+            this.btnArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnArticulo.FlatAppearance.BorderSize = 0;
+            this.btnArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArticulo.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArticulo.ForeColor = System.Drawing.Color.White;
+            this.btnArticulo.Location = new System.Drawing.Point(14, 66);
             this.btnArticulo.Name = "btnArticulo";
-            this.btnArticulo.Size = new System.Drawing.Size(260, 23);
-            this.btnArticulo.TabIndex = 44;
+            this.btnArticulo.Size = new System.Drawing.Size(303, 27);
+            this.btnArticulo.TabIndex = 2;
             this.btnArticulo.Text = "Administrar Articulos";
-            this.btnArticulo.UseVisualStyleBackColor = true;
+            this.btnArticulo.UseVisualStyleBackColor = false;
             this.btnArticulo.Click += new System.EventHandler(this.btnArticulo_Click);
             // 
             // btnCliente
             // 
-            this.btnCliente.Location = new System.Drawing.Point(12, 144);
+            this.btnCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnCliente.FlatAppearance.BorderSize = 0;
+            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCliente.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCliente.ForeColor = System.Drawing.Color.White;
+            this.btnCliente.Location = new System.Drawing.Point(267, 166);
             this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(260, 23);
-            this.btnCliente.TabIndex = 43;
+            this.btnCliente.Size = new System.Drawing.Size(303, 27);
+            this.btnCliente.TabIndex = 5;
             this.btnCliente.Text = "Administrar Clientes";
-            this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.UseVisualStyleBackColor = false;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // btnEntrega
             // 
-            this.btnEntrega.Location = new System.Drawing.Point(12, 115);
+            this.btnEntrega.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnEntrega.FlatAppearance.BorderSize = 0;
+            this.btnEntrega.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrega.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrega.ForeColor = System.Drawing.Color.White;
+            this.btnEntrega.Location = new System.Drawing.Point(14, 133);
             this.btnEntrega.Name = "btnEntrega";
-            this.btnEntrega.Size = new System.Drawing.Size(260, 23);
-            this.btnEntrega.TabIndex = 42;
+            this.btnEntrega.Size = new System.Drawing.Size(303, 27);
+            this.btnEntrega.TabIndex = 4;
             this.btnEntrega.Text = "Administrar Entregas";
-            this.btnEntrega.UseVisualStyleBackColor = true;
+            this.btnEntrega.UseVisualStyleBackColor = false;
             this.btnEntrega.Click += new System.EventHandler(this.btnEntrega_Click);
             // 
             // btnEquipoRep
             // 
-            this.btnEquipoRep.Location = new System.Drawing.Point(12, 173);
+            this.btnEquipoRep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnEquipoRep.FlatAppearance.BorderSize = 0;
+            this.btnEquipoRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEquipoRep.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEquipoRep.ForeColor = System.Drawing.Color.White;
+            this.btnEquipoRep.Location = new System.Drawing.Point(14, 200);
             this.btnEquipoRep.Name = "btnEquipoRep";
-            this.btnEquipoRep.Size = new System.Drawing.Size(260, 23);
-            this.btnEquipoRep.TabIndex = 41;
+            this.btnEquipoRep.Size = new System.Drawing.Size(303, 27);
+            this.btnEquipoRep.TabIndex = 6;
             this.btnEquipoRep.Text = "Ver Equipos a Reparar";
-            this.btnEquipoRep.UseVisualStyleBackColor = true;
+            this.btnEquipoRep.UseVisualStyleBackColor = false;
             this.btnEquipoRep.Click += new System.EventHandler(this.btnEquipoRep_Click);
             // 
             // btnReparador
             // 
-            this.btnReparador.Location = new System.Drawing.Point(12, 202);
+            this.btnReparador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnReparador.FlatAppearance.BorderSize = 0;
+            this.btnReparador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReparador.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReparador.ForeColor = System.Drawing.Color.White;
+            this.btnReparador.Location = new System.Drawing.Point(267, 233);
             this.btnReparador.Name = "btnReparador";
-            this.btnReparador.Size = new System.Drawing.Size(260, 23);
-            this.btnReparador.TabIndex = 40;
+            this.btnReparador.Size = new System.Drawing.Size(303, 27);
+            this.btnReparador.TabIndex = 7;
             this.btnReparador.Text = "Ver Reparadores";
-            this.btnReparador.UseVisualStyleBackColor = true;
+            this.btnReparador.UseVisualStyleBackColor = false;
             this.btnReparador.Click += new System.EventHandler(this.btnReparador_Click);
             // 
             // btnReparacion
             // 
-            this.btnReparacion.Location = new System.Drawing.Point(12, 86);
+            this.btnReparacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnReparacion.FlatAppearance.BorderSize = 0;
+            this.btnReparacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReparacion.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReparacion.ForeColor = System.Drawing.Color.White;
+            this.btnReparacion.Location = new System.Drawing.Point(267, 99);
             this.btnReparacion.Name = "btnReparacion";
-            this.btnReparacion.Size = new System.Drawing.Size(260, 23);
-            this.btnReparacion.TabIndex = 39;
+            this.btnReparacion.Size = new System.Drawing.Size(303, 27);
+            this.btnReparacion.TabIndex = 3;
             this.btnReparacion.Text = "Administrar Reparaciones";
-            this.btnReparacion.UseVisualStyleBackColor = true;
+            this.btnReparacion.UseVisualStyleBackColor = false;
             this.btnReparacion.Click += new System.EventHandler(this.btnReparacion_Click);
             // 
             // btnReportes
             // 
-            this.btnReportes.Location = new System.Drawing.Point(12, 231);
+            this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
+            this.btnReportes.Location = new System.Drawing.Point(14, 267);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(260, 23);
-            this.btnReportes.TabIndex = 38;
+            this.btnReportes.Size = new System.Drawing.Size(303, 27);
+            this.btnReportes.TabIndex = 8;
             this.btnReportes.Text = "Reportes";
-            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(12, 6);
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCerrar.FlatAppearance.BorderSize = 2;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(434, 12);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(260, 23);
-            this.btnCerrar.TabIndex = 37;
+            this.btnCerrar.Size = new System.Drawing.Size(136, 43);
+            this.btnCerrar.TabIndex = 1;
             this.btnCerrar.Text = "Cerrar Sesion";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // lblMenurep
+            // 
+            this.lblMenurep.AutoSize = true;
+            this.lblMenurep.Font = new System.Drawing.Font("Constantia", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenurep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(50)))));
+            this.lblMenurep.Location = new System.Drawing.Point(14, 12);
+            this.lblMenurep.Name = "lblMenurep";
+            this.lblMenurep.Size = new System.Drawing.Size(235, 33);
+            this.lblMenurep.TabIndex = 45;
+            this.lblMenurep.Text = "Menu de recepción";
+            // 
             // FormMenuRecepcion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
+            this.ClientSize = new System.Drawing.Size(584, 303);
+            this.Controls.Add(this.lblMenurep);
             this.Controls.Add(this.btnArticulo);
             this.Controls.Add(this.btnCliente);
             this.Controls.Add(this.btnEntrega);
@@ -131,9 +185,11 @@
             this.Controls.Add(this.btnReparacion);
             this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnCerrar);
+            this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormMenuRecepcion";
-            this.Text = "FormMenuRecepcion";
+            this.Text = "Menu de recepcion";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -147,5 +203,6 @@
         private System.Windows.Forms.Button btnReparacion;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label lblMenurep;
     }
 }

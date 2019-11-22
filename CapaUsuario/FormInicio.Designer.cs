@@ -38,57 +38,67 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(14, 12);
+            this.lblUsuario.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblUsuario.Location = new System.Drawing.Point(13, 15);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(72, 19);
             this.lblUsuario.TabIndex = 0;
-            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.Text = "Usuario :";
             // 
             // lblContra
             // 
             this.lblContra.AutoSize = true;
-            this.lblContra.Location = new System.Drawing.Point(14, 53);
+            this.lblContra.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContra.ForeColor = System.Drawing.Color.White;
+            this.lblContra.Location = new System.Drawing.Point(13, 57);
             this.lblContra.Name = "lblContra";
-            this.lblContra.Size = new System.Drawing.Size(61, 13);
+            this.lblContra.Size = new System.Drawing.Size(96, 19);
             this.lblContra.TabIndex = 3;
-            this.lblContra.Text = "Contraseña";
+            this.lblContra.Text = "Contraseña :";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(91, 12);
+            this.txtUsuario.Location = new System.Drawing.Point(132, 16);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(116, 23);
             this.txtUsuario.TabIndex = 1;
             // 
             // txtContra
             // 
-            this.txtContra.Location = new System.Drawing.Point(91, 50);
+            this.txtContra.Location = new System.Drawing.Point(132, 58);
             this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(100, 20);
-            this.txtContra.TabIndex = 5;
+            this.txtContra.Size = new System.Drawing.Size(116, 23);
+            this.txtContra.TabIndex = 2;
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(17, 95);
+            this.btnIniciar.FlatAppearance.BorderSize = 0;
+            this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciar.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciar.ForeColor = System.Drawing.Color.White;
+            this.btnIniciar.Location = new System.Drawing.Point(14, 129);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(179, 63);
-            this.btnIniciar.TabIndex = 6;
+            this.btnIniciar.Size = new System.Drawing.Size(238, 53);
+            this.btnIniciar.TabIndex = 3;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // FormInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 170);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
+            this.ClientSize = new System.Drawing.Size(266, 196);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtContra);
             this.Controls.Add(this.lblContra);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblUsuario);
+            this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormInicio";
-            this.Text = "FormInicio";
+            this.Text = "Inicio de sesion";
             this.ResumeLayout(false);
             this.PerformLayout();
 

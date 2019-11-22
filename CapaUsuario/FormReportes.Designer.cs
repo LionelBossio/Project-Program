@@ -55,9 +55,9 @@
             reportDataSource2.Value = this.DTArticuloBindingSource;
             this.rv.LocalReport.DataSources.Add(reportDataSource2);
             this.rv.LocalReport.ReportEmbeddedResource = "CapaUsuario.ReporteArituculo.rdlc";
-            this.rv.Location = new System.Drawing.Point(9, 12);
+            this.rv.Location = new System.Drawing.Point(10, 14);
             this.rv.Name = "rv";
-            this.rv.Size = new System.Drawing.Size(367, 247);
+            this.rv.Size = new System.Drawing.Size(428, 285);
             this.rv.TabIndex = 0;
             // 
             // DTArticuloTableAdapter
@@ -66,23 +66,27 @@
             // 
             // btnAtras
             // 
-            this.btnAtras.Location = new System.Drawing.Point(9, 265);
+            this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnAtras.FlatAppearance.BorderSize = 0;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtras.Location = new System.Drawing.Point(10, 306);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(367, 42);
+            this.btnAtras.Size = new System.Drawing.Size(428, 48);
             this.btnAtras.TabIndex = 1;
             this.btnAtras.Text = "Atras";
-            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // FormReportes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 317);
+            this.ClientSize = new System.Drawing.Size(453, 366);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.rv);
+            this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormReportes";
-            this.Text = "FormReportes";
+            this.Text = "Reportes";
             this.Load += new System.EventHandler(this.FormReportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTArticuloBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();

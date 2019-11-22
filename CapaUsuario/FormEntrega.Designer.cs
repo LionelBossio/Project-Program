@@ -72,7 +72,7 @@
             this.ckbHecho.Location = new System.Drawing.Point(188, 64);
             this.ckbHecho.Name = "ckbHecho";
             this.ckbHecho.Size = new System.Drawing.Size(12, 11);
-            this.ckbHecho.TabIndex = 1;
+            this.ckbHecho.TabIndex = 7;
             this.ckbHecho.UseVisualStyleBackColor = false;
             // 
             // lblDesc
@@ -103,25 +103,26 @@
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(223, 25);
-            this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.TabIndex = 8;
             // 
             // dtmFecent
             // 
             this.dtmFecent.Location = new System.Drawing.Point(188, 126);
             this.dtmFecent.Name = "dtmFecent";
             this.dtmFecent.Size = new System.Drawing.Size(223, 23);
-            this.dtmFecent.TabIndex = 5;
+            this.dtmFecent.TabIndex = 9;
             // 
             // btnGuardar
             // 
             this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
+            this.btnGuardar.FlatAppearance.BorderSize = 2;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Location = new System.Drawing.Point(21, 203);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(327, 45);
-            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -129,13 +130,14 @@
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 2;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(21, 255);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(327, 47);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -178,7 +180,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(395, 267);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(87, 27);
-            this.btnEliminar.TabIndex = 16;
+            this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Borrar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -193,7 +195,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(207, 267);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(87, 27);
-            this.btnNuevo.TabIndex = 15;
+            this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -208,7 +210,7 @@
             this.btnModificar.Location = new System.Drawing.Point(300, 267);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(87, 27);
-            this.btnModificar.TabIndex = 14;
+            this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Editar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -223,7 +225,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(488, 33);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(87, 25);
-            this.btnBuscar.TabIndex = 19;
+            this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -233,7 +235,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(14, 35);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(468, 23);
-            this.txtBuscar.TabIndex = 18;
+            this.txtBuscar.TabIndex = 1;
             // 
             // dgvEntrega
             // 
@@ -254,6 +256,7 @@
             this.dgvEntrega.GridColor = System.Drawing.Color.SteelBlue;
             this.dgvEntrega.Location = new System.Drawing.Point(12, 64);
             this.dgvEntrega.Name = "dgvEntrega";
+            this.dgvEntrega.ReadOnly = true;
             this.dgvEntrega.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
@@ -282,7 +285,7 @@
             this.btnAtras.Location = new System.Drawing.Point(14, 267);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(87, 27);
-            this.btnAtras.TabIndex = 21;
+            this.btnAtras.TabIndex = 6;
             this.btnAtras.Text = "Atras";
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);

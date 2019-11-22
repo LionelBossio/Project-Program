@@ -38,113 +38,177 @@
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnTipoUsu = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
+            this.lblMenuadm = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(12, 12);
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCerrar.FlatAppearance.BorderSize = 2;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(453, 12);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(260, 23);
-            this.btnCerrar.TabIndex = 29;
+            this.btnCerrar.Size = new System.Drawing.Size(170, 42);
+            this.btnCerrar.TabIndex = 1;
             this.btnCerrar.Text = "Cerrar Sesion";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnArticulo
             // 
-            this.btnArticulo.Location = new System.Drawing.Point(12, 63);
+            this.btnArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnArticulo.FlatAppearance.BorderSize = 0;
+            this.btnArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArticulo.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArticulo.ForeColor = System.Drawing.Color.White;
+            this.btnArticulo.Location = new System.Drawing.Point(14, 73);
             this.btnArticulo.Name = "btnArticulo";
-            this.btnArticulo.Size = new System.Drawing.Size(260, 23);
-            this.btnArticulo.TabIndex = 28;
+            this.btnArticulo.Size = new System.Drawing.Size(303, 27);
+            this.btnArticulo.TabIndex = 2;
             this.btnArticulo.Text = "Administrar Articulos";
-            this.btnArticulo.UseVisualStyleBackColor = true;
+            this.btnArticulo.UseVisualStyleBackColor = false;
             this.btnArticulo.Click += new System.EventHandler(this.btnArticulo_Click);
             // 
             // btnCliente
             // 
-            this.btnCliente.Location = new System.Drawing.Point(12, 208);
+            this.btnCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnCliente.FlatAppearance.BorderSize = 0;
+            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCliente.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCliente.ForeColor = System.Drawing.Color.White;
+            this.btnCliente.Location = new System.Drawing.Point(324, 147);
             this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(260, 23);
-            this.btnCliente.TabIndex = 27;
+            this.btnCliente.Size = new System.Drawing.Size(303, 33);
+            this.btnCliente.TabIndex = 6;
             this.btnCliente.Text = "Administrar Clientes";
-            this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.UseVisualStyleBackColor = false;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // btnEntrega
             // 
-            this.btnEntrega.Location = new System.Drawing.Point(12, 179);
+            this.btnEntrega.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnEntrega.FlatAppearance.BorderSize = 0;
+            this.btnEntrega.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrega.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrega.ForeColor = System.Drawing.Color.White;
+            this.btnEntrega.Location = new System.Drawing.Point(174, 187);
             this.btnEntrega.Name = "btnEntrega";
-            this.btnEntrega.Size = new System.Drawing.Size(260, 23);
-            this.btnEntrega.TabIndex = 26;
+            this.btnEntrega.Size = new System.Drawing.Size(303, 31);
+            this.btnEntrega.TabIndex = 7;
             this.btnEntrega.Text = "Administrar Entregas";
-            this.btnEntrega.UseVisualStyleBackColor = true;
+            this.btnEntrega.UseVisualStyleBackColor = false;
             this.btnEntrega.Click += new System.EventHandler(this.btnEntrega_Click);
             // 
             // btnEquipoRep
             // 
-            this.btnEquipoRep.Location = new System.Drawing.Point(12, 237);
+            this.btnEquipoRep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnEquipoRep.FlatAppearance.BorderSize = 0;
+            this.btnEquipoRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEquipoRep.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEquipoRep.ForeColor = System.Drawing.Color.White;
+            this.btnEquipoRep.Location = new System.Drawing.Point(174, 225);
             this.btnEquipoRep.Name = "btnEquipoRep";
-            this.btnEquipoRep.Size = new System.Drawing.Size(260, 23);
-            this.btnEquipoRep.TabIndex = 25;
+            this.btnEquipoRep.Size = new System.Drawing.Size(303, 52);
+            this.btnEquipoRep.TabIndex = 8;
             this.btnEquipoRep.Text = "Ver Equipos a Reparar";
-            this.btnEquipoRep.UseVisualStyleBackColor = true;
+            this.btnEquipoRep.UseVisualStyleBackColor = false;
             this.btnEquipoRep.Click += new System.EventHandler(this.btnEquipoRep_Click);
             // 
             // btnReparador
             // 
-            this.btnReparador.Location = new System.Drawing.Point(12, 266);
+            this.btnReparador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnReparador.FlatAppearance.BorderSize = 0;
+            this.btnReparador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReparador.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReparador.ForeColor = System.Drawing.Color.White;
+            this.btnReparador.Location = new System.Drawing.Point(324, 284);
             this.btnReparador.Name = "btnReparador";
-            this.btnReparador.Size = new System.Drawing.Size(260, 23);
-            this.btnReparador.TabIndex = 24;
+            this.btnReparador.Size = new System.Drawing.Size(303, 40);
+            this.btnReparador.TabIndex = 10;
             this.btnReparador.Text = "Ver Reparadores";
-            this.btnReparador.UseVisualStyleBackColor = true;
+            this.btnReparador.UseVisualStyleBackColor = false;
             this.btnReparador.Click += new System.EventHandler(this.btnReparador_Click);
             // 
             // btnReparacion
             // 
-            this.btnReparacion.Location = new System.Drawing.Point(12, 150);
+            this.btnReparacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnReparacion.FlatAppearance.BorderSize = 0;
+            this.btnReparacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReparacion.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReparacion.ForeColor = System.Drawing.Color.White;
+            this.btnReparacion.Location = new System.Drawing.Point(174, 106);
             this.btnReparacion.Name = "btnReparacion";
-            this.btnReparacion.Size = new System.Drawing.Size(260, 23);
-            this.btnReparacion.TabIndex = 23;
+            this.btnReparacion.Size = new System.Drawing.Size(303, 33);
+            this.btnReparacion.TabIndex = 4;
             this.btnReparacion.Text = "Administrar Reparaciones";
-            this.btnReparacion.UseVisualStyleBackColor = true;
+            this.btnReparacion.UseVisualStyleBackColor = false;
             this.btnReparacion.Click += new System.EventHandler(this.btnReparacion_Click);
             // 
             // btnReportes
             // 
-            this.btnReportes.Location = new System.Drawing.Point(12, 295);
+            this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
+            this.btnReportes.Location = new System.Drawing.Point(14, 284);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(260, 23);
-            this.btnReportes.TabIndex = 22;
+            this.btnReportes.Size = new System.Drawing.Size(303, 40);
+            this.btnReportes.TabIndex = 9;
             this.btnReportes.Text = "Reportes";
-            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnTipoUsu
             // 
-            this.btnTipoUsu.Location = new System.Drawing.Point(12, 121);
+            this.btnTipoUsu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnTipoUsu.FlatAppearance.BorderSize = 0;
+            this.btnTipoUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTipoUsu.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTipoUsu.ForeColor = System.Drawing.Color.White;
+            this.btnTipoUsu.Location = new System.Drawing.Point(14, 147);
             this.btnTipoUsu.Name = "btnTipoUsu";
-            this.btnTipoUsu.Size = new System.Drawing.Size(260, 23);
-            this.btnTipoUsu.TabIndex = 21;
+            this.btnTipoUsu.Size = new System.Drawing.Size(303, 33);
+            this.btnTipoUsu.TabIndex = 5;
             this.btnTipoUsu.Text = "Administrar Tipos de Usuarios";
-            this.btnTipoUsu.UseVisualStyleBackColor = true;
+            this.btnTipoUsu.UseVisualStyleBackColor = false;
             this.btnTipoUsu.Click += new System.EventHandler(this.btnTipoUsu_Click);
             // 
             // btnUsuario
             // 
-            this.btnUsuario.Location = new System.Drawing.Point(12, 92);
+            this.btnUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.btnUsuario.FlatAppearance.BorderSize = 0;
+            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuario.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnUsuario.Location = new System.Drawing.Point(324, 73);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(260, 23);
-            this.btnUsuario.TabIndex = 20;
+            this.btnUsuario.Size = new System.Drawing.Size(303, 27);
+            this.btnUsuario.TabIndex = 3;
             this.btnUsuario.Text = "Administrar Usuarios";
-            this.btnUsuario.UseVisualStyleBackColor = true;
+            this.btnUsuario.UseVisualStyleBackColor = false;
             this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
+            // 
+            // lblMenuadm
+            // 
+            this.lblMenuadm.AutoSize = true;
+            this.lblMenuadm.Font = new System.Drawing.Font("Constantia", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenuadm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(50)))));
+            this.lblMenuadm.Location = new System.Drawing.Point(12, 21);
+            this.lblMenuadm.Name = "lblMenuadm";
+            this.lblMenuadm.Size = new System.Drawing.Size(288, 33);
+            this.lblMenuadm.TabIndex = 46;
+            this.lblMenuadm.Text = "Menu de administrador";
             // 
             // FormMenuAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 327);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
+            this.ClientSize = new System.Drawing.Size(635, 337);
+            this.Controls.Add(this.lblMenuadm);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnArticulo);
             this.Controls.Add(this.btnCliente);
@@ -155,9 +219,11 @@
             this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnTipoUsu);
             this.Controls.Add(this.btnUsuario);
+            this.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormMenuAdmin";
-            this.Text = "FormMenuAdmin";
+            this.Text = "Menu de administrador";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -173,5 +239,6 @@
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnTipoUsu;
         private System.Windows.Forms.Button btnUsuario;
+        private System.Windows.Forms.Label lblMenuadm;
     }
 }
