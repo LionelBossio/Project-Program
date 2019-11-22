@@ -97,5 +97,15 @@ namespace CapaUsuario
         {
             Buscar(txtBuscar.Text);
         }
+
+        private void FormArticulo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

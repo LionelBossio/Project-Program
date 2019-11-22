@@ -2,57 +2,29 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Textbox Name="Textbox1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Lista de reparador</Value>
-                <Style>
-                  <FontSize>24pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.52599cm</Top>
-        <Left>7.477cm</Left>
-        <Height>1.31438cm</Height>
-        <Width>7.77676cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>7.477cm</Width>
+              <Width>4.62249cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>8.35012cm</Width>
+              <Width>4.62249cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>8.56241cm</Width>
+              <Width>4.62249cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>4.62249cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.75875cm</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox12">
+                    <Textbox Name="Textbox21">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -68,7 +40,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox12</rd:DefaultName>
+                      <rd:DefaultName>Textbox21</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -83,14 +55,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox13">
+                    <Textbox Name="Textbox22">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cantidad reparada</Value>
+                              <Value>Nombre</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -99,7 +71,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <rd:DefaultName>Textbox22</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -114,14 +86,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox14">
+                    <Textbox Name="Textbox23">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cantidad de clientes atendidos</Value>
+                              <Value>Descripcion</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -130,7 +102,38 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox14</rd:DefaultName>
+                      <rd:DefaultName>Textbox23</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox24">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Cantidad</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox24</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -146,25 +149,25 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.83313cm</Height>
+              <Height>0.75375cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="idrep">
+                    <Textbox Name="idart">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!idrep.Value</Value>
+                              <Value>=Fields!idart.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>idrep</rd:DefaultName>
+                      <rd:DefaultName>idart</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -179,21 +182,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="cantrep">
+                    <Textbox Name="nombre">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!cantrep.Value</Value>
+                              <Value>=Fields!nombre.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>cantrep</rd:DefaultName>
+                      <rd:DefaultName>nombre</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -208,21 +211,50 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="cantcliente">
+                    <Textbox Name="desc">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!cantcliente.Value</Value>
+                              <Value>=Fields!desc.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>cantcliente</rd:DefaultName>
+                      <rd:DefaultName>desc</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="cant">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!cant.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>cant</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -244,12 +276,13 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="Details" />
+              <Group Name="Detalles" />
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
@@ -257,18 +290,49 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DatasetReparador</DataSetName>
-        <Top>2.74849cm</Top>
-        <Height>1.59188cm</Height>
-        <Width>24.38953cm</Width>
-        <ZIndex>1</ZIndex>
+        <DataSetName>DataSetArticulo</DataSetName>
+        <Top>2.08703cm</Top>
+        <Height>1.35375cm</Height>
+        <Width>18.48995cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox17">
+      <Textbox Name="Textbox25">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Lista de articulos</Value>
+                <Style>
+                  <FontSize>24pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox25</rd:DefaultName>
+        <Top>0.36724cm</Top>
+        <Left>6.16162cm</Left>
+        <Height>1.07625cm</Height>
+        <Width>6.56814cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox27">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
@@ -282,9 +346,9 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>1.54736cm</Top>
-        <Left>21.28466cm</Left>
+        <rd:DefaultName>Textbox27</rd:DefaultName>
+        <Top>1.21391cm</Top>
+        <Left>15.47495cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -299,10 +363,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.49539in</Height>
+    <Height>2in</Height>
     <Style />
   </Body>
-  <Width>9.60218in</Width>
+  <Width>7.27951in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -315,48 +379,48 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataSetReparador">
+    <DataSource Name="DataSet">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>1e997ee9-14b6-499e-86e2-b77850714764</rd:DataSourceID>
+      <rd:DataSourceID>40fe24de-48f1-49fe-9bea-bcd9670db1b1</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DatasetReparador">
+    <DataSet Name="DataSetArticulo">
       <Query>
-        <DataSourceName>DataSetReparador</DataSourceName>
+        <DataSourceName>DataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="idrep">
-          <DataField>idrep</DataField>
+        <Field Name="idart">
+          <DataField>idart</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="cantrep">
-          <DataField>cantrep</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="nombre">
+          <DataField>nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="cantcliente">
-          <DataField>cantcliente</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="desc">
+          <DataField>desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="fkusuario">
-          <DataField>fkusuario</DataField>
+        <Field Name="cant">
+          <DataField>cant</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DataSetReparador</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\tig6\Desktop\CapaUsuario\CapaUsuario\DataSetReparador.xsd</rd:SchemaPath>
-        <rd:TableName>Reparador</rd:TableName>
+        <rd:DataSetName>DataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Lionel\Desktop\Project-Program-master\LionelBossio\Project-Program\CapaUsuario\DataSet.xsd</rd:SchemaPath>
+        <rd:TableName>DTArticulo</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ReparadorTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>DTArticuloTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>cdeb7242-8237-4683-a215-efa2a1734484</rd:ReportID>
+  <rd:ReportID>b5435573-e8d7-4d67-9b2b-11f4b8ffd169</rd:ReportID>
 </Report>
